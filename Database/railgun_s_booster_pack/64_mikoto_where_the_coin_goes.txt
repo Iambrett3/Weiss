@@ -1,0 +1,16 @@
+Name:Mikoto, Where the Coin Goes
+JPN_Name:コインの行方 美琴
+Number:RG/W26-056SP
+Rarity:SP
+Color:Red
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:5000
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:カエル (Frog)
+Triggers:None
+Flavor:SECRET 
+Text:[A] [(1)] When the Battle Opponent of this becomes Reversed, if "Railgun" is in the Climax Zone, you may pay cost. If so, deal 1 Damage to your Opponent. (Damage Cancel can occur) 

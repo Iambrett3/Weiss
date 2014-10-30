@@ -1,0 +1,17 @@
+Name:Chiyuri, Carefree Talk
+JPN_Name:屈託ないお喋り チユリ
+Number:AW/S18-033S
+Rarity:SR
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:500
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:SECRET 
+Text:[C] ASSIST All your Characters in front of this gain +500 Power. *[A] ACCELERATE [Put the top card of your Library in Clock] At the start of your Climax Phase, you may pay cost. If so, choose 1 of your Characters. That Character gains +1500 Power for the turn. 
+Image:S18/AWS18-033S.jpg

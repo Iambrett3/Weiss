@@ -1,0 +1,17 @@
+Name:Sky Raker, Former Ally
+JPN_Name:かつての仲間 スカイ・レイカー
+Number:AW/S18-086
+Rarity:U
+Color:Blue
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:None
+Triggers:None
+Flavor:Let's talk. About the Burst Linker who seeks the sky, and the only friend of the girl...... 
+Text:[C] ASSIST Characters in front of this gain +500 Power. *[A] When this is placed from hand to the Stage, look at the top card of your Library and put it either on top or bottom of the Library. 
+Image:S18/AWS18-086.jpg

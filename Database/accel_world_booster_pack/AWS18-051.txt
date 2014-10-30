@@ -1,0 +1,17 @@
+Name:Hydro Dealer
+JPN_Name:パイロディーラー
+Number:AW/S18-051
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Event
+Level:1
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:None
+Flavor:This is perpetual motion... basically, I am invincible 
+Text:Choose 1 of your Characters. That Character gains +3000 Power and "[A] When the Battle Opponent of this becomes Reversed, you may put the top card of your Library in Stock" for the turn. At the end of turn, put that Character in Waiting Room. 
+Image:S18/AWS18-051.jpg

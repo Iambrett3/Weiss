@@ -1,0 +1,16 @@
+Name:Frenda, Inteference Acts
+JPN_Name:妨害活動 フレンダ
+Number:RG/W26-004
+Rarity:R
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:500
+Soul:1
+Trait1:人形 (Doll)
+Trait2:武器 (Weapon)
+Triggers:None
+Flavor:To wait for an opponent that may or may not show up... it's boring~~ 
+Text:[C] During your turn, your other Character in the Front Row Center Slot gains +1000 Power. [A] [(1)] When this is placed from hand to the Stage, you may pay cost. If so, choose a "Doll Bomb" in your Waiting Room and return it to your hand. 

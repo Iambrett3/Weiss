@@ -1,0 +1,3 @@
+-implement drag and drop multiple rows in DeckTable
+-implement sorting
+-bug: sometimes cards dragged and dropped from the card tree are ed and have potentially other messed up info

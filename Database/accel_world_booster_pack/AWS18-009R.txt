@@ -1,0 +1,17 @@
+Name:Black Lotus
+JPN_Name:ブラック・ロータス
+Number:AW/S18-009R
+Rarity:RRR
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:3
+Cost:2
+Power:10000
+Soul:2
+Trait1:アバター (Avatar)
+Trait2:武器 (Weapon)
+Triggers:Soul
+Flavor:SECRET 
+Text:[A] When this is placed from hand to the Stage or via CHANGE to the Stage, draw up to 2 cards, and discard a card from your hand to the Waiting Room. *[A] ACCELERATE [Put the top card of your Library in Clock] At the start of your Climax Phase, you may pay cost. If so, choose an Opponent's Character whose Level is 3 or lower and return it to the hand. 
+Image:S18/AWS18-009R.jpg

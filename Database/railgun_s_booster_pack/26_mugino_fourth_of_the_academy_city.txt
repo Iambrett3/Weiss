@@ -1,0 +1,16 @@
+Name:Mugino, Fourth of the Academy City
+JPN_Name:学園都市の第四位 麦野
+Number:RG/W26-021
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:2500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:None
+Flavor:If you start to hurt, just sink. To the bottom of the darkness of the Academy City... though 
+Text:[C] During your turn, this gains +1000 Power. 

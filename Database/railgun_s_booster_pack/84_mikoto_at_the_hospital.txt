@@ -1,0 +1,16 @@
+Name:Mikoto at the Hospital
+JPN_Name:病院の美琴
+Number:RG/W26-069
+Rarity:U
+Color:Red
+Side:Weiss
+Type:Character
+Level:2
+Cost:2
+Power:8500
+Soul:2
+Trait1:超能力 (ESP)
+Trait2:カエル (Frog)
+Triggers:Soul
+Flavor:Ah-! 
+Text:[C] If you have 2 or more other ::ESP:: Characters, this gains "[A] ENCORE [Discard a Character card from hand to the Waiting Room]". 

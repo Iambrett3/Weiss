@@ -1,0 +1,17 @@
+Name:Chiyuri, Beloved Charisma
+JPN_Name:愛らしい魅力 チユリ
+Number:AW/S18-049
+Rarity:C
+Color:Green
+Side:Schwarz
+Type:Character
+Level:2
+Cost:1
+Power:2500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:動物 (Animal)
+Triggers:Soul
+Flavor:Please understand. Now, please stay still 
+Text:[S] [Counter] BACKUP 3000, Level 2 [(1) Discard this card from your hand to the Waiting Room] 
+Image:S18/AWS18-049.jpg

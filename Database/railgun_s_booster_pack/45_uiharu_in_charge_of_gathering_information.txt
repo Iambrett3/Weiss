@@ -1,0 +1,16 @@
+Name:Uiharu, in Charge of Gathering Information
+JPN_Name:情報収集担当 初春
+Number:RG/W26-039
+Rarity:R
+Color:Green
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:5000
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:風紀委員 (Judgment)
+Triggers:None
+Flavor:Ah, the lookalike. Still talking about that? 
+Text:[A] When this is placed from hand to the Stage, if you have another Character with "Saten" in name, this gains +2000 Power for the turn. 

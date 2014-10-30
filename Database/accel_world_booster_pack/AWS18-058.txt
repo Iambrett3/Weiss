@@ -1,0 +1,17 @@
+Name:Scarlet Rain, Passionate
+JPN_Name:激情のスカーレット・レイン
+Number:AW/S18-058
+Rarity:R
+Color:Red
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:武器 (Weapon)
+Triggers:None
+Flavor:... Is that so! You're the one behind all this - 'Yellow Radio'! 
+Text:[A] When another Character of yours becomes Reversed, choose 1 of your Characters. That Character gains +1000 Pwoer for the turn. *[S] [(1) Rest this] Choose 1 of your Characters with either ::Avatar:: and/or ::Net::. That Character gains +500 Power and "[A] When the Battle Opponent of this becomes Reversed, you may choose a Character in your Waiting Room and return it to your hand. If so, discard a card from your hand to the Waiting Room" for the turn. 
+Image:S18/AWS18-058.jpg

@@ -1,0 +1,17 @@
+Name:Chiyuri, Sea of Cushions
+JPN_Name:クッションの海 チユリ
+Number:AW/S18-031
+Rarity:RR
+Color:Green
+Side:Schwarz
+Type:Character
+Level:1
+Cost:0
+Power:1500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:動物 (Animal)
+Triggers:None
+Flavor:You are still using that avatar, yeah? You could change it, you know 
+Text:[C] All your other Characters gain +500 Power. *[A] [(1) Rest 2 of your Standing Characters] When you use ACCELERATE, you may pay cost. If so, put the top card of your Clock in Waiting Room. 
+Image:S18/AWS18-031.jpg

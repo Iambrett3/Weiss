@@ -1,0 +1,16 @@
+Name:"Level 5" Mugino
+JPN_Name:“超能力者”麦野
+Number:RG/W26-009
+Rarity:R
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:2
+Cost:1
+Power:7500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:Soul
+Flavor:Academy City, Third of the Level 5s... "Railgun" of Tokiwadai! 
+Text:[C] RECOLLECTION During your turn, if there are 2 or more ::ESP:: Characters in your Memory, this gains +4000 Power. 

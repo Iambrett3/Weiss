@@ -1,0 +1,16 @@
+Name:Saten & Uiharu, Good Friend
+JPN_Name:仲良し 佐天＆初春
+Number:RG/W26-042
+Rarity:U
+Color:Green
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:4500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:風紀委員 (Judgment)
+Triggers:None
+Flavor:Saten: "Ah, that means I was wrong, maybe-" 
+Text:[A] [(1)] When this is placed from hand to the Stage, you may pay cost. If so, choose a Climax in your Clock and return it to your hand, and choose a card in your hand and put it in Clock. 

@@ -1,0 +1,16 @@
+Name:"Meltdowner" Mugino
+JPN_Name:“原子崩し”麦野
+Number:RG/W26-018
+Rarity:U
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:2
+Cost:1
+Power:1500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:Soul
+Flavor:*crisp* *crisp* *crisp* Wow? Don't laugh, you little brat! 
+Text:[A] When you use the BACKUP of this, you put the top 3 cards of your Opponent’s Library in the Waiting Room. [S] [Counter] BACKUP 3000, Level 2 [(1) Discard this card from hand to the Waiting Room] 

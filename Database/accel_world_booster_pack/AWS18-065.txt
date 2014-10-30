@@ -1,0 +1,17 @@
+Name:Niko, Angel Mode
+JPN_Name:天使モード ニコ
+Number:AW/S18-065
+Rarity:U
+Color:Red
+Side:Schwarz
+Type:Character
+Level:1
+Cost:1
+Power:6000
+Soul:1
+Trait1:ネット (Net)
+Trait2:None
+Triggers:None
+Flavor:W, whatareyoudoing~!? 
+Text:[A] ENCORE [Discard a Character card from your hand to the Waiting Room] *[A] ACCELERATE [Put the top card of your Library in Clock] At the start of your Climax Phase, you may pay cost. If so, this gains +1500 Power and "[A] When the Battle Opponent of this becomes Reversed, you may put it on top of the Library" for the turn. 
+Image:S18/AWS18-065.jpg

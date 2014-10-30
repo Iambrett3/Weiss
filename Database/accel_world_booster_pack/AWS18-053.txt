@@ -1,0 +1,17 @@
+Name:Chiyuri's Tears
+JPN_Name:チユリの涙
+Number:AW/S18-053
+Rarity:CR
+Color:Green
+Side:Schwarz
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:2Soul
+Flavor:Please, stop-----! 
+Text:[A] When this is placed from hand to the Climax Zone, draw a card, and choose 1 of your Characters. That Character gains +2000 Power and +1 Soul for the turn. 
+Image:S18/AWS18-053.jpg

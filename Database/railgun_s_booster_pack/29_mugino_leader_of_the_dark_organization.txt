@@ -1,0 +1,16 @@
+Name:Mugino, Leader of the Dark Organization
+JPN_Name:暗部組織のリーダー 麦野
+Number:RG/W26-024
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:5500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:None
+Flavor:I shall take my revenge on you one trillion times! 
+Text:-- None -- 

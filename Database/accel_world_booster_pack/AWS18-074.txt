@@ -1,0 +1,17 @@
+Name:Niko & Pard, Best of 'Prominence'
+JPN_Name:《プロミネンス》のトップ ニコ＆パド
+Number:AW/S18-074
+Rarity:C
+Color:Red
+Side:Schwarz
+Type:Character
+Level:2
+Cost:1
+Power:2500
+Soul:1
+Trait1:ネット (Net)
+Trait2:メイド (Maid)
+Triggers:Soul
+Flavor:-- None -- 
+Text:[S] [Counter] BACKUP 3000, Level 2 [(1) Discard this card from your hand to the Waiting Room] 
+Image:S18/AWS18-074.jpg

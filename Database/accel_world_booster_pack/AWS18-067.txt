@@ -1,0 +1,17 @@
+Name:Crikin, Strongest Name
+JPN_Name:史上最強の名前を持つ男 クリキン
+Number:AW/S18-067
+Rarity:U
+Color:Red
+Side:Schwarz
+Type:Character
+Level:2
+Cost:1
+Power:8000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:メカ (Mecha)
+Triggers:Soul
+Flavor:Build up!! Super Kingbolt!! 
+Text:[A] When your other ::Avatar:: and/or ::Net:: Character attacks, this gains +1000 Power for the turn. 
+Image:S18/AWS18-067.jpg

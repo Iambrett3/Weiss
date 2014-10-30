@@ -1,0 +1,16 @@
+Name:Accelerator, No-Mercy Personality
+JPN_Name:容赦無い性格 一方通行
+Number:RG/W26-017
+Rarity:U
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:2
+Cost:1
+Power:7500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:Soul
+Flavor:What would happen to the human body if I reverse the course of the blood circulating it? 
+Text:[A] CHANGE [(2) Discard a card from hand to the Waiting Room, Send this to Memory] At the start of your Climax Phase, you may pay cost. If so, choose an "Accelerator, Level 6 Shift Project" in your Waiting Room and put it in the Slot this was in. 

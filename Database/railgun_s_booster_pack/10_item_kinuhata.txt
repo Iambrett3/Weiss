@@ -1,0 +1,16 @@
+Name:"ITEM" Kinuhata
+JPN_Name:“アイテム”絹旗
+Number:RG/W26-007
+Rarity:R
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:5000
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:None
+Flavor:City pool and the beach are overcrowded and there's no room to swim 
+Text:[A] [(1) Send 1 ::ESP:: Character in your hand to Memory] When this attacks, you may pay cost. If so, for the turn, this gains +1500 Power and your Opponent may not use "[A] ENCORE". (This includes "[A] ENCORE [(3)] provided by rules) 

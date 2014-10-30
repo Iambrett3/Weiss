@@ -1,0 +1,16 @@
+Name:"Academy City" Saten
+JPN_Name:“学園都市”佐天
+Number:RG/W26-036S
+Rarity:SR
+Color:Green
+Side:Weiss
+Type:Character
+Level:2
+Cost:1
+Power:8000
+Soul:1
+Trait1:特徴なし (No Keyword)
+Trait2:None
+Triggers:Soul
+Flavor:SECRET 
+Text:[A] When this attacks, if "Escape from Dark Alleys" is in the Climax Zone, take up to 2 cards from top of your Library and put them in Stock. 

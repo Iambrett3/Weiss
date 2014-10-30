@@ -1,0 +1,16 @@
+Name:Doll Bomb
+JPN_Name:人形爆弾
+Number:RG/W26-030
+Rarity:U
+Color:Yellow
+Side:Weiss
+Type:Event
+Level:1
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:None
+Flavor:-- None -- 
+Text:[C] You may have as many copies of cards with the same name as this in your deck. If you don't have a ::Doll:: Character, you cannot play this from your hand. Choose an Opponent's Level 1 or lower Character in the Front Row and put it in Stock. 

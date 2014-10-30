@@ -1,0 +1,16 @@
+Name:Strongest And Weakest
+JPN_Name:最強と最弱
+Number:RG/W26-034
+Rarity:CC
+Color:Yellow
+Side:Weiss
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:2 Soul
+Flavor:It's painful even for me when oxygen is taken away. Thus, I don't think I can use "I'll be fine even if my core is hit" as catchphrase right? 
+Text:[A] When this is placed from hand to the Climax Zone, draw a card, and choose 1 of your Characters. That Character gains +2000 Power and +1 Soul for the turn. 

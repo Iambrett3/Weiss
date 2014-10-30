@@ -1,0 +1,16 @@
+Name:"Level 1" Uiharu
+JPN_Name:“低能力者”初春
+Number:RG/W26-041
+Rarity:U
+Color:Green
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:2500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:風紀委員 (Judgment)
+Triggers:None
+Flavor:Then, Shirai-san should start patrol from around here 
+Text:[A] When this attacks, when "Location Triangulation" is placed in the Climax Zone, choose 1 of your other Characters. That Character gains +2000 Power for the turn. 

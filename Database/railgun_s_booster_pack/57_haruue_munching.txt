@@ -1,0 +1,16 @@
+Name:Haruue, Munching
+JPN_Name:もぐもぐ春上
+Number:RG/W26-050
+Rarity:C
+Color:Green
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:1000
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:None
+Flavor:It's worrysome 
+Text:[C] All your other Characters gain +500 Power. [C] All your other Characters with either "Uiharu" and/or "Saten" in name gain +500 Power. 

@@ -1,0 +1,16 @@
+Name:Nunotaba, Student of the Nagatenjouki Academy
+JPN_Name:長点上機学園の生徒 布束
+Number:RG/W26-020
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:科学 (Science)
+Trait2:None
+Triggers:None
+Flavor:To think that there's a delinquent girl that spent the night oon the bench... Regrettably the plan is known 
+Text:[C] ASSIST All your Characters in front of this gain +500 Power. 

@@ -1,0 +1,16 @@
+Name:Frenda, Bomb User
+JPN_Name:爆弾の使い手 フレンダ
+Number:RG/W26-028
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:2
+Cost:2
+Power:9000
+Soul:2
+Trait1:人形 (Doll)
+Trait2:武器 (Weapon)
+Triggers:Soul
+Flavor:You dealt with my china bombs in one move!? It feels like you are in a completely class compared to other opponents I've faced 
+Text:-- None -- 

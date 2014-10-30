@@ -1,0 +1,16 @@
+Name:Touma, A Certain High School's Student
+JPN_Name:とある高校の学生 当麻
+Number:RG/W26-025
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:6000
+Soul:1
+Trait1:特徴なし (No Keyword)
+Trait2:None
+Triggers:None
+Flavor:Ah, it's fine, I can take all of this myself... 
+Text:[C] This gets -1 Level while on Stage. 

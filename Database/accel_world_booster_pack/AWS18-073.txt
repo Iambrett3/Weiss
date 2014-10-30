@@ -1,0 +1,17 @@
+Name:5th Chrome Disaster
+JPN_Name:五代目 クロム・ディザスター
+Number:AW/S18-073
+Rarity:C
+Color:Red
+Side:Schwarz
+Type:Character
+Level:1
+Cost:0
+Power:5500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:None
+Triggers:None
+Flavor:-- I shall eat you. Be eaten and be my flesh 
+Text:-- None -- 
+Image:S18/AWS18-073.jpg

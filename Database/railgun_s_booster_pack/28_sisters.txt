@@ -1,0 +1,16 @@
+Name:Sisters
+JPN_Name:妹達
+Number:RG/W26-023
+Rarity:C
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:4500
+Soul:1
+Trait1:クローン (Clone)
+Trait2:超能力 (ESP)
+Triggers:None
+Flavor:Introducing normal converations. Misaka believes this is called greetings 
+Text:[C] If you are Level 1 or lower and you have 4 or more other "Sisters", this gains +2500 Power. [C] If you are Level 2 or higher and you have 4 or more other "Sisters", this gains +1500 Power and +1 Soul. [C] You may have as many copies of cards with the same name as this in your deck. 

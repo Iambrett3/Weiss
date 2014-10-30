@@ -1,0 +1,16 @@
+Name:Searching for Stored Value Card
+JPN_Name:マネーカード探し
+Number:RG/W26-053
+Rarity:U
+Color:Green
+Side:Weiss
+Type:Event
+Level:1
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:None
+Flavor:Hmm, it's not here eh... 
+Text:Look at the top card of your Library and put it either on top of the Library or in the Waiting Room. Put this in Stock. 

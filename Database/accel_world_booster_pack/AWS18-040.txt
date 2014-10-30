@@ -1,0 +1,17 @@
+Name:Ash Roller
+JPN_Name:アッシュ・ローラー
+Number:AW/S18-040
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:バイク (Bike)
+Triggers:None
+Flavor:Ahahahahaha! Dance more----! 
+Text:[C] If there are 3 or fewer cards in your Stock, this gains +1000 Power. 
+Image:S18/AWS18-040.jpg

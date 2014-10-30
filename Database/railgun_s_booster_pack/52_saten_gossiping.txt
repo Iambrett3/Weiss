@@ -1,0 +1,16 @@
+Name:Saten, Gossiping
+JPN_Name:うわさ話 佐天
+Number:RG/W26-045
+Rarity:U
+Color:Green
+Side:Weiss
+Type:Character
+Level:2
+Cost:2
+Power:10000
+Soul:2
+Trait1:特徴なし (No Keyword)
+Trait2:None
+Triggers:Soul
+Flavor:Wow, it's already this late? 
+Text:[A] When this is placed from hand to the Stage, put the top card of your Library in Clock. 

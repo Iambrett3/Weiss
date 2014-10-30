@@ -1,0 +1,17 @@
+Name:Niko, Staying Over
+JPN_Name:お泊りニコ
+Number:AW/S18-063
+Rarity:U
+Color:Red
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:ネット (Net)
+Trait2:None
+Triggers:None
+Flavor:I don't want to go back, it's annoying- 
+Text:[A] CHANGE [(2) Put this in Waiting Room] At the start of your Encore Step, if this is Rested, you may pay cost. If so, choose an "'Immobile Fortress' Scarlet Rain" in your Waiting Room and put it in the Slot this was in. *[S] [Rest this] Choose 1 of your Characters. That Character gains +1000 Power for the turn. 
+Image:S18/AWS18-063.jpg

@@ -1,0 +1,16 @@
+Name:"Academy City" Kuroko
+JPN_Name:“学園都市”黒子
+Number:RG/W26-058SP
+Rarity:SP
+Color:Red
+Side:Weiss
+Type:Character
+Level:3
+Cost:2
+Power:10000
+Soul:2
+Trait1:超能力 (ESP)
+Trait2:風紀委員 (Judgment)
+Triggers:Soul
+Flavor:SECRET 
+Text:[A] When this is placed from hand to the stage or via CHANGE to the stage, draw up to 2 cards, and discard a card from your hand to the Waiting Room. [A] When this attacks, if "Eyewitness" is in the Climax Zone, return up to 2 ::ESP:: Characters from your Waiting room to your hand, and discard a card from your hand to the Waiting Room. 

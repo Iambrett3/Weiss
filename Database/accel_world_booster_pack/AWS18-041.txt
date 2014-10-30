@@ -1,0 +1,17 @@
+Name:Dusk Taker
+JPN_Name:ダスク・テイカー
+Number:AW/S18-041
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Character
+Level:1
+Cost:1
+Power:6500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:武器 (Weapon)
+Triggers:None
+Flavor:Before I take your points today... there's another thing I want 
+Text:[A] [(1)] When "Demonic Commandeer" is placed in your Climax Zone, you may pay cost. If so, choose 1 of your Opponent's Front Row Characters. That Character gets -2000 Power for the turn, and this gains +2500 Power for the turn. 
+Image:S18/AWS18-041.jpg

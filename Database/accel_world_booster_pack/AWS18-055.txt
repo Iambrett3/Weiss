@@ -1,0 +1,17 @@
+Name:Demonic Commandeer
+JPN_Name:魔王徴発令
+Number:AW/S18-055
+Rarity:CC
+Color:Green
+Side:Schwarz
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:2Soul
+Flavor:Didn't I say? I shall take the things important to you 
+Text:[C] All your Characters gain +2 Soul. 
+Image:S18/AWS18-055.jpg

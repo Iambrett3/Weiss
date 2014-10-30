@@ -1,0 +1,17 @@
+Name:Black Lotus, Return of the King
+JPN_Name:王の帰還 ブラック・ロータス
+Number:AW/S18-018
+Rarity:C
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:武器 (Weapon)
+Triggers:None
+Flavor:'Black Lotus'!! Black King!! It's alive--!! 
+Text:[C] During your turn, this gains +1000 Power. 
+Image:S18/AWS18-018.jpg

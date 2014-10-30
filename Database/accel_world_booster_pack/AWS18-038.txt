@@ -1,0 +1,17 @@
+Name:Lime Bell
+JPN_Name:ライム・ベル
+Number:AW/S18-038
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:時間 (Time)
+Triggers:None
+Flavor:Heh, ahh, I see~ 
+Text:[C] All your other ::Avatar:: Characters gain +500 Power. 
+Image:S18/AWS18-038.jpg

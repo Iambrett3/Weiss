@@ -1,0 +1,17 @@
+Name:Sky Raker, Living as Hermit
+JPN_Name:隠棲中のスカイ・レイカー
+Number:AW/S18-081
+Rarity:RR
+Color:Blue
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:None
+Triggers:None
+Flavor:Pleased to meet you. My name is 'Sky Raker'. I'm happy to finally meet you, Crow-san 
+Text:[C] Your other Character in the Front Row Center Slot gain +500 Power. *[S] BRAINSTORM [(1) Rest this] Reveal the top 4 cards of your Library and put them in the Waiting Room. For each Climax revealed this way, draw up to 1 card. 
+Image:S18/AWS18-081.jpg

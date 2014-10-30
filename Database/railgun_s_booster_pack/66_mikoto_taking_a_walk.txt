@@ -1,0 +1,16 @@
+Name:Mikoto, Taking a Walk
+JPN_Name:散歩中 美琴
+Number:RG/W26-057R
+Rarity:RRR
+Color:Red
+Side:Weiss
+Type:Character
+Level:1
+Cost:1
+Power:6500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:カエル (Frog)
+Triggers:None
+Flavor:SECRET 
+Text:[C] If you have 2 or more other ::ESP:: Characters, this gains +500 Power and "[A] ENCORE [Discard a Character card from hand to the waiting room]". 

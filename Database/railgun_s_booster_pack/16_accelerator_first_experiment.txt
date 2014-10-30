@@ -1,0 +1,16 @@
+Name:Accelerator, First Experiment
+JPN_Name:第一次実験 一方通行
+Number:RG/W26-011
+Rarity:U
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:None
+Triggers:None
+Flavor:Hey. What is this. Is this a clone of Level 5 
+Text:[C] During your turn, your other Character in the Front Row Center Slot gains +1000 Power. [S] BRAINSTORM [(1)] Reveal the top 4 cards of your Library and put them in the Waiting Room. For each Climax revealed this way, choose 1 of your Characters. That Character gains +1 Soul for the turn. 

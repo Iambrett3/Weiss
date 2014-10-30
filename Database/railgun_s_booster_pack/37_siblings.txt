@@ -1,0 +1,16 @@
+Name:Siblings
+JPN_Name:姉妹
+Number:RG/W26-032
+Rarity:CR
+Color:Yellow
+Side:Weiss
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:Soul Bounce
+Flavor:Misaka: "I don't know what that word means... but somehow... it rings true within my head..." 
+Text:[C] All your Characters gain +1000 Power and +1 Soul. 

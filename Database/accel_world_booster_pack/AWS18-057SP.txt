@@ -1,0 +1,17 @@
+Name:Yuniko Kouzuki
+JPN_Name:上月 由仁子
+Number:AW/S18-057SP
+Rarity:SP
+Color:Red
+Side:Schwarz
+Type:Character
+Level:3
+Cost:2
+Power:10000
+Soul:2
+Trait1:ネット (Net)
+Trait2:None
+Triggers:Soul
+Flavor:SECRET 
+Text:[A] When this is placed from hand to the Stage, you may put the top card of your Clock in the Waiting Room. *[A] [(3)] When this attacks, you may pay cost. If so, deal 1 Damage to your Opponent. (Damage Cancel may occur) 
+Image:S18/AWS18-057SP.jpg

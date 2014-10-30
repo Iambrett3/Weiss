@@ -1,0 +1,17 @@
+Name:Chiyuri, Ice Cream for Apology
+JPN_Name:謝罪のアイス チユリ
+Number:AW/S18-034
+Rarity:R
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2000
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:Did you get it? 
+Text:[A] When this attacks, choose 1 of your other Characters. That Character gains +1 Level and +1000 Power for the turn. 
+Image:S18/AWS18-034.jpg

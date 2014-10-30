@@ -1,0 +1,17 @@
+Name:Kuroyukihime in Ponytail
+JPN_Name:ポニーテールの黒雪姫
+Number:AW/S18-023
+Rarity:C
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:2
+Cost:1
+Power:8000
+Soul:1
+Trait1:生徒会 (Student Council)
+Trait2:ネット (Net)
+Triggers:Soul
+Flavor:I thought I heard about your favorite hairstyle yesterday... 
+Text:[A] When the Battle Opponent of this becomes Reversed, choose 1 of your Characters with either ::Avatar:: and/or ::Net::. That Character gains +2000 Power for the turn. 
+Image:S18/AWS18-023.jpg

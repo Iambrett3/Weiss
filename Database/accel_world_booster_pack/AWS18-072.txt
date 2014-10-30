@@ -1,0 +1,17 @@
+Name:Scarlet Rain, Berseking of Dear Friend
+JPN_Name:親友の暴走 スカーレット・レイン
+Number:AW/S18-072
+Rarity:C
+Color:Red
+Side:Schwarz
+Type:Character
+Level:1
+Cost:0
+Power:5000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:武器 (Weapon)
+Triggers:None
+Flavor:Stop talking about that and let's get moving 
+Text:[A] [(1)] When this attacks, if "Judgment Blow" is in the climax Zone, you may pay cost. If so, choose a Character in your Waiting Room and return it to your hand. 
+Image:S18/AWS18-072.jpg

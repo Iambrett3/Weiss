@@ -1,0 +1,16 @@
+Name:"Mental Out" Shokuhou
+JPN_Name:“心理掌握”食蜂
+Number:RG/W26-061
+Rarity:R
+Color:Red
+Side:Weiss
+Type:Character
+Level:1
+Cost:0
+Power:3500
+Soul:1
+Trait1:超能力 (ESP)
+Trait2:手袋 (Gloves)
+Triggers:None
+Flavor:Mikoto: "... Can I ask you 1 question" Shokuhou: "If it's just asking, go ahead" 
+Text:[C] All your other ::ESP:: Characters gain +500 Power. [A] [(1) Rest this] At the beginning of your Opponent’s Attack Phase, if this is Standing, you may pay cost. If so, all your Opponent’s Characters gain "[C] This cannot Side Attack" for the turn. 

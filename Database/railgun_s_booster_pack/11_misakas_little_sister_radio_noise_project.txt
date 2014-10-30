@@ -1,0 +1,16 @@
+Name:Misaka's Little Sister, Radio Noise Project
+JPN_Name:量産能力者計画 御坂妹
+Number:RG/W26-008
+Rarity:R
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:2
+Cost:1
+Power:4000
+Soul:1
+Trait1:クローン (Clone)
+Trait2:超能力 (ESP)
+Triggers:Soul
+Flavor:Misaka just came from that way and points 
+Text:[C] ASSIST All your Characters in front of this gain +1000 Power. [C] RECOLLECTION If there are 2 or more ::ESP:: Characters in your Memory, all your other ::ESP:: Characters gain +500 Power. 

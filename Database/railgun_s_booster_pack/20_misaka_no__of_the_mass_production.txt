@@ -1,0 +1,16 @@
+Name:Misaka, No. 9982 of the Mass Production
+JPN_Name:九九八二番目の量産型 ミサカ
+Number:RG/W26-015
+Rarity:U
+Color:Yellow
+Side:Weiss
+Type:Character
+Level:0
+Cost:0
+Power:3500
+Soul:1
+Trait1:クローン (Clone)
+Trait2:超能力 (ESP)
+Triggers:None
+Flavor:This is the first present I received from onee-sama 
+Text:[A] When this is placed from hand to the Stage, reveal the top card of your Library. If it's not an ::ESP:: Character, put it in Clock. (Otherwise put it back) 

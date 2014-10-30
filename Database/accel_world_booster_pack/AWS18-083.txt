@@ -1,0 +1,17 @@
+Name:Fuuko, Gentle Smile
+JPN_Name:穏やかな微笑 フーコ
+Number:AW/S18-083
+Rarity:R
+Color:Blue
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:3500
+Soul:1
+Trait1:ネット (Net)
+Trait2:None
+Triggers:None
+Flavor:Those tears are proof that you actually exist in the Accel World 
+Text:[C] If this is in the Front Row, this does not Stand during your Stand Phase. 
+Image:S18/AWS18-083.jpg

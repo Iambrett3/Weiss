@@ -1,0 +1,17 @@
+Name:Lime Bell, Betrayer
+JPN_Name:裏切りのライム・ベル
+Number:AW/S18-042
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Character
+Level:2
+Cost:2
+Power:9500
+Soul:2
+Trait1:アバター (Avatar)
+Trait2:時間 (Time)
+Triggers:Soul
+Flavor:... Sorry, Ta-kun... Sorry, Haru... 
+Text:[C] All your other Characters gain "[C] This cannot Side Attack". 
+Image:S18/AWS18-042.jpg

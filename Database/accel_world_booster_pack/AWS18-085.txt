@@ -1,0 +1,17 @@
+Name:Fuuko Kurasaki
+JPN_Name:倉崎 楓子
+Number:AW/S18-085
+Rarity:R
+Color:Blue
+Side:Schwarz
+Type:Character
+Level:3
+Cost:2
+Power:10000
+Soul:2
+Trait1:ネット (Net)
+Trait2:None
+Triggers:Soul
+Flavor:Because of my own doing, I lost my bond with others 
+Text:[A] When this is placed from hand to the Stage, draw up to 2 cards, and discard a card from your hand to the Waiting Room. *[S] [(1) Rest 2 of your ::Avatar:: Characters] This gains +2000 Power until the end of your Opponent's next turn. 
+Image:S18/AWS18-085.jpg

@@ -1,0 +1,17 @@
+Name:Chiyuri, Surprised Look
+JPN_Name:訝しげな眼差し チユリ
+Number:AW/S18-044
+Rarity:C
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2000
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:...... 
+Text:[S] [(1) Put this in Waiting Room] Your Opponent returns all cards in their Waiting Room to the Library. Shuffle that Library. 
+Image:S18/AWS18-044.jpg

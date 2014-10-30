@@ -1,0 +1,17 @@
+Name:Chiyuri, Youth
+JPN_Name:幼き日のチユリ
+Number:AW/S18-043
+Rarity:C
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:1000
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:-- None -- 
+Text:[A] BOND/"Haruyuki, To the Height Where Mankind Hasn't Reached" [(1)] 
+Image:S18/AWS18-043.jpg

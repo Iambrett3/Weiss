@@ -1,0 +1,17 @@
+Name:Kuroyukihime
+JPN_Name:黒雪姫
+Number:AW/S18-002
+Rarity:RR
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:3
+Cost:2
+Power:10000
+Soul:2
+Trait1:生徒会 (Student Council)
+Trait2:アバター (Avatar)
+Triggers:Soul
+Flavor:I must give you a reward 
+Text:[A] When this is placed from hand to the Stage or via CHANGE to the Stage, you may put the top card of your Clock in the Waiting Room. *[A] [Put all cards, excluding the bottom-most card, from your Stock in Waiting Room] This ability may be activated up to once per turn. When this attacks, if "Emotion First Felt Since Birth" is in the Climax Zone and there are 5 or more cards in your Stock, you may pay cost. If so, Stand this. 
+Image:S18/AWS18-002.jpg

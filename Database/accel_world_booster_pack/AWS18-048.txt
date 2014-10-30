@@ -1,0 +1,17 @@
+Name:Chiyuri, Sunny Smile
+JPN_Name:太陽の笑顔 チユリ
+Number:AW/S18-048
+Rarity:C
+Color:Green
+Side:Schwarz
+Type:Character
+Level:1
+Cost:1
+Power:7000
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:Yay---! 
+Text:-- None -- 
+Image:S18/AWS18-048.jpg

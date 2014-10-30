@@ -1,0 +1,16 @@
+Name:Meltdownwer
+JPN_Name:原子崩し
+Number:RG/W26-033
+Rarity:CR
+Color:Yellow
+Side:Weiss
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:Soul Shot
+Flavor:Don't underestimate "ITEM", you little brat 
+Text:[C] All your Characters gain +1000 Power and +1 Soul. 

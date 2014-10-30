@@ -1,0 +1,17 @@
+Name:Haruyuki, the Wall in the Way
+JPN_Name:立ちはだかる壁 ハルユキ
+Number:AW/S18-024
+Rarity:C
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:2
+Cost:2
+Power:9000
+Soul:2
+Trait1:アバター (Avatar)
+Trait2:動物 (Animal)
+Triggers:Soul
+Flavor:Who, other than me, got this kind of score!? 
+Text:-- None -- 
+Image:S18/AWS18-024.jpg

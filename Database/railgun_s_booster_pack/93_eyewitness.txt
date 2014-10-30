@@ -1,0 +1,16 @@
+Name:Eyewitness
+JPN_Name:目撃者
+Number:RG/W26-078
+Rarity:CR
+Color:Red
+Side:Weiss
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:Salvage
+Flavor:Is onee-sama really secretly meeting her lover......! 
+Text:[C] All your characters gain +1000 Power and +1 Soul. 

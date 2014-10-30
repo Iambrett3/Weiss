@@ -1,0 +1,17 @@
+Name:Knight of 'Black King'
+JPN_Name:《黒の王》の騎士
+Number:AW/S18-030
+Rarity:CC
+Color:Yellow
+Side:Schwarz
+Type:Climax
+Level:0
+Cost:0
+Power:0
+Soul:0
+Trait1:None
+Trait2:None
+Triggers:Soul Shot
+Flavor:Tuck. Just like me, you shall be fighting for that person 
+Text:[C] All your Characters gain +1000 Power and +1 Soul. 
+Image:S18/AWS18-030.jpg

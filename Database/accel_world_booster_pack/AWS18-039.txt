@@ -1,0 +1,17 @@
+Name:Seiji Noumi
+JPN_Name:能美 征二
+Number:AW/S18-039
+Rarity:U
+Color:Green
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:2500
+Soul:1
+Trait1:スポーツ (Sports)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:Game Over, Arita-senpai... rather, 'Silver Crow' 
+Text:[S] [Rest 2 of your Characters with either ::Avatar:: and/or ::Net::] Choose 1 of your Opponent's Front Row Characters. That Character gets -1000 Power for the turn. 
+Image:S18/AWS18-039.jpg

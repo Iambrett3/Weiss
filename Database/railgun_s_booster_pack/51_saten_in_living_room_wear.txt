@@ -1,0 +1,16 @@
+Name:Saten in Living Room Wear
+JPN_Name:部屋着の佐天
+Number:RG/W26-044
+Rarity:U
+Color:Green
+Side:Weiss
+Type:Character
+Level:1
+Cost:1
+Power:6000
+Soul:1
+Trait1:特徴なし (No Keyword)
+Trait2:None
+Triggers:None
+Flavor:But I want to see a casual outfit occasionally too~ 
+Text:[A] CHANGE [(2) Discard a card from hand to the Waiting Room, Send this to Memory] At the start of your Climax Phase, you may pay cost. If so, choose a "Saten, Gossiping" in your Waiting Room and put it in the Slot this was in. 

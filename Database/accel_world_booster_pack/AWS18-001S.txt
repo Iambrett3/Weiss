@@ -1,0 +1,17 @@
+Name:Silver Crow in A Predicament
+JPN_Name:窮地のシルバー・クロウ
+Number:AW/S18-001S
+Rarity:SR
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:1500
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:None
+Triggers:None
+Flavor:SECRET 
+Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. *[S] BRAINSTORM [(1)] Reveal the top 4 cards of your Library and put them in the Waiting Room. For each Climax card revealed this way, choose 1 of your Characters. That Character gains +1 Soul for the turn. 
+Image:S18/AWS18-001S.jpg

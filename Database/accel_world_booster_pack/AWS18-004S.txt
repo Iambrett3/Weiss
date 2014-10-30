@@ -1,0 +1,17 @@
+Name:Kuroyukihime, Intimate Relations
+JPN_Name:親密な関係 黒雪姫
+Number:AW/S18-004S
+Rarity:SR
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:0
+Cost:0
+Power:500
+Soul:1
+Trait1:生徒会 (Student Council)
+Trait2:ネット (Net)
+Triggers:None
+Flavor:SECRET 
+Text:[A] BOND/"Haruyuki, Bullied Kid" [(1)] *[S] [Put the top card of your Library in Clock, put a "Haruyuki, Bullied Kid" from your Stage in Waiting Room] Choose up to 1 "Silver Crow, Challenging Strong Enemies" in your hand and put it in any Slot on the Stage. 
+Image:S18/AWS18-004S.jpg

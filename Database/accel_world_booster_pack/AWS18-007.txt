@@ -1,0 +1,17 @@
+Name:Silver Crow, Challenging Strong Enemies
+JPN_Name:強敵へ挑むシルバー・クロウ
+Number:AW/S18-007
+Rarity:R
+Color:Yellow
+Side:Schwarz
+Type:Character
+Level:2
+Cost:1
+Power:8000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:None
+Triggers:Soul
+Flavor:Oh... oooo! 
+Text:[A] ACCELERATE [Put the top card of your Library in Clock] At the start of your Climax Phase, you may pay cost. If so, this gains +2500 Power and +1 Soul for the turn. 
+Image:S18/AWS18-007.jpg

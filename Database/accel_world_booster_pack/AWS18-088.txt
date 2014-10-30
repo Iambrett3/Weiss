@@ -1,0 +1,17 @@
+Name:Fuuko, Neet And Pretty
+JPN_Name:清楚で可憐 フーコ
+Number:AW/S18-088
+Rarity:U
+Color:Blue
+Side:Schwarz
+Type:Character
+Level:1
+Cost:0
+Power:5000
+Soul:1
+Trait1:ネット (Net)
+Trait2:None
+Triggers:None
+Flavor:Good morning, Crow-san 
+Text:[A] When this attacks, if "Power of Spirit" is in the Climax Zone, choose 1 of your other Characters. That Character gains +1500 Power until the end of your Opponent's next turn. 
+Image:S18/AWS18-088.jpg

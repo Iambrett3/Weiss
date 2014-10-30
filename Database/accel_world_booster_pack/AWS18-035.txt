@@ -1,0 +1,17 @@
+Name:Lime Bell, Optimistic
+JPN_Name:楽観的なライム・ベル
+Number:AW/S18-035
+Rarity:R
+Color:Green
+Side:Schwarz
+Type:Character
+Level:1
+Cost:1
+Power:6000
+Soul:1
+Trait1:アバター (Avatar)
+Trait2:時間 (Time)
+Triggers:None
+Flavor:We just need to keep fighting and keep storing points and get to Level 10, right? 
+Text:[A] When this is placed from hand to the Stage, this gains +X Power, where X = 500 times # of your ::Avatar:: Characters. *[A] ENCORE [Discard a Character card from your hand to the Waiting Room] 
+Image:S18/AWS18-035.jpg
