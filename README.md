@@ -1,0 +1,1 @@
+A deck builder application for the trading card game Weiss Schwarz. Implemented by Brett Reuben.
