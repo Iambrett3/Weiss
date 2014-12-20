@@ -46,13 +46,16 @@ public class DeckTableModel extends DefaultTableModel implements TableModel
      * This may be questionable?
      */
     public Class getColumnClass(int c) {
-    	if (getRowCount() < 1) return Object.class;
-        if (getValueAt(0, c) instanceof Color) {
-            return Color.class;
-        }
-        else {
+    	//if (getRowCount() < 1) return Object.class;
+       // if (getValueAt(0, c) instanceof Color) {
+          //  return Color.class;
+        //}
+        //else if (getValueAt(0, c) instanceof Card) {
+        //	return Card.class;
+        //}
+        //else {
             return Object.class;
-        }
+        //}
     }
     
     //this method inserts cards in reverse order because it is used by the reorder method
@@ -90,14 +93,16 @@ public class DeckTableModel extends DefaultTableModel implements TableModel
     }
     
     public void insertCard(int pos, Card c) {
-    	dataVector.insertElementAt(Card.vectorizeCard(c), pos);
+    	Vector vectorizedCard = Card.vectorizeCard(c);
+    	dataVector.insertElementAt(vectorizedCard, pos);
     	fireTableStructureChanged();
     	fireTableRowsUpdated(0, dataVector.size() -1);
     	fireTableRowsInserted(pos, pos);
     }
     
     public void addCard(Card c) {
-    	dataVector.add(Card.vectorizeCard(c));
+    	Vector vectorizedCard = Card.vectorizeCard(c);
+    	dataVector.add(vectorizedCard);
     	fireTableStructureChanged();
     	fireTableRowsUpdated(0, dataVector.size() - 1);
     	fireTableRowsInserted(dataVector.size() - 1, dataVector.size() - 1);
@@ -128,35 +133,39 @@ public class DeckTableModel extends DefaultTableModel implements TableModel
 		case "Name":
 			Collections.sort(dataVector, new Comparator<Vector>() {
 				public int compare(Vector a, Vector b) {
-					return ((Card) a.get(0)).getName().compareTo(((Card) b.get(0)).getName());
+					String cardA = ((Card) a.get(1)).getName();
+					String cardB = ((Card) b.get(1)).getName();
+					String aString = cardA.replaceAll("[^a-zA-Z0-9]", "");
+			    	String bString = cardB.replaceAll("[^a-zA-Z0-9]", "");
+					return (aString.compareTo(bString));
 				}
 			});
 			break;
 		case "Level":
 			Collections.sort(dataVector, new Comparator<Vector>() {
 				public int compare(Vector a, Vector b) {
-					return Integer.compare(((Card)a.get(0)).getLevel(), ((Card)b.get(0)).getLevel());
+					return Integer.compare(((Card)a.get(1)).getLevel(), ((Card)b.get(1)).getLevel());
 				}
 			});
 			break;
 		case "Color":
 			Collections.sort(dataVector, new Comparator<Vector>() {
 				public int compare(Vector a, Vector b) {
-					return ((Card) a.get(0)).getColor().toString().compareTo(((Card) b.get(0)).getColor().toString());
+					return ((Card) a.get(1)).getColor().toString().compareTo(((Card) b.get(1)).getColor().toString());
 				}
 			});
 			break;
 		case "Trigger":
 			Collections.sort(dataVector, new Comparator<Vector>() {
 				public int compare(Vector a, Vector b) {
-					return ((Card) a.get(0)).getTrigger().toString().compareTo(((Card) b.get(0)).getTrigger().toString());
+					return ((Card) a.get(1)).getTrigger().toString().compareTo(((Card) b.get(1)).getTrigger().toString());
 				}
 			});
 			break;
 		case "Number":
 			Collections.sort(dataVector, new Comparator<Vector>() {
 				public int compare(Vector a, Vector b) {
-					return ((Card) a.get(0)).getNumber().compareTo(((Card) b.get(0)).getNumber());
+					return ((Card) a.get(1)).getNumber().compareTo(((Card) b.get(1)).getNumber());
 				}
 			});
 			break;

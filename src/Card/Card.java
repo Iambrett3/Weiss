@@ -25,6 +25,8 @@ private String flavor;
 private String[] text;
 private String pack;
 private BufferedImage image;
+private String imagePath;
+private int numOfCard; //the number this card in existence. (most likely in the context of a deck)
 
 /**
  * Card constructor
@@ -51,12 +53,27 @@ private BufferedImage image;
 	this.text = text;
 	this.pack = pack;
 	this.image = image;
+	numOfCard = 1;  
 }
 
 /**
  * no-arg constructor for Card class.
  */
-public Card() {}
+public Card() {
+	numOfCard = 1;
+}
+
+public int getNumOfCard() {
+	return numOfCard;
+}
+
+public void setNumOfCard(int num) {
+	numOfCard = num;
+}
+
+public void incrementNumOfCard(int num) {
+	numOfCard += num;
+}
 
 /**
  * Getter method for name field.
@@ -70,7 +87,7 @@ public String getName() {
  * Overridden by LevelCard. Returns level of card.
  * @return 
  */
-public int getLevel() {return -1;}
+public Integer getLevel() {return new Integer(-1);}
 
 /**
  * Getter method for jpnName field.
@@ -138,6 +155,14 @@ public String getText() {
  */
 public String getPack() {
 	return pack;
+}
+
+public String getImagePath() {
+	return imagePath;
+}
+
+public void setImagePath(String imagePath) {
+	this.imagePath = imagePath;
 }
 
 /**
@@ -261,17 +286,17 @@ public String getDescription() {
 	 * TODO: fill out card properties
 	 */
 	public static Vector vectorizeCard(Card c) {
-		Object[] cardData = { c, c.getNumber(), c.getTrigger(), new Color(255, 0, 0),
-				c.getFlavor(), c.getText(), c.getPack(), c.getLevel(), null};
+		Object[] cardData = {c.numOfCard, c, c.getNumber(), c.getTrigger(), new Color(255, 0, 0),
+				c.getFlavor(), c.getText(), c.getPack(), c.getLevel(), c.getLevel()};
 		Vector cardVector = new Vector(Arrays.asList(cardData));
 		return cardVector;
 	}
 	
 	public static Card vectorToCard(Vector v) {
-		if (!(v.get(0) instanceof Card)) {
+		if (!(v.get(1) instanceof Card)) {
 			return null;
 		}
-		return (Card) v.get(0);
+		return (Card) v.get(1);
 		
 	}
 

@@ -8,8 +8,8 @@ import java.awt.image.BufferedImage;
  * @version 0.1
  */
 public abstract class LevelCard extends Card {
-	private int level;
-	private int cost;
+	private Integer level;
+	private Integer cost;
 	
 	/**
 	 * LevelCard Constructor
@@ -29,8 +29,8 @@ public abstract class LevelCard extends Card {
 	public LevelCard(String name, String jpnName, String number, String rarity, Trigger trigger, CColor color,
 			String flavor, String[] text, String pack, int level, int cost, BufferedImage image) {
 		super(name, jpnName, number, rarity, trigger, color, flavor, text, pack, image);
-		this.level = level;
-		this.cost = cost;
+		this.level = new Integer(level);
+		this.cost = new Integer(cost);
 	}
 	
 	public LevelCard() {
@@ -41,7 +41,7 @@ public abstract class LevelCard extends Card {
 	 * Getter method for level field.
 	 * @return Level
 	 */
-	public int getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 	

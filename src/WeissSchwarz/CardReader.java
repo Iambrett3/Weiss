@@ -47,7 +47,10 @@ public class CardReader {
 		card.setTrigger(new Trigger(lines.get(13).substring(9).split("\\s+")));
 		card.setFlavor(lines.get(14).substring(7));
 		card.setText(lines.get(15).substring(5).split("\\*"));
+		card.setImagePath(lines.get(16).substring(6));
 		card.setImage(fetchImage(lines.get(16).substring(6)));
+		card.setPack("default pack");
+		
 		
 		if (card instanceof LevelCard) {
 		((LevelCard) card).setLevel(Integer.parseInt(lines.get(7).substring(6)));

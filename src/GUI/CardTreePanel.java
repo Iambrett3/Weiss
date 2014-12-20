@@ -1,6 +1,13 @@
 package GUI;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
@@ -23,17 +30,32 @@ import javax.swing.tree.*;
 import WeissSchwarz.CardReader;
 import Card.*;
 import GUI.DeckReferenceComplex.CPTTransferHandler;
+import GUI.DeckReferenceComplex.SwingHelp;
 
-public class CardPoolTree extends JPanel {
+public class CardTreePanel extends JPanel {
 	private JTree cardTree;
 	private ArrayList<Card> cardBuffer;
-    DefaultMutableTreeNode top;
+    CardTreeNode top;
+    private final int LEAF_DEPTH = 3;
+    TreeSelectionModel model;
 	
-	public CardPoolTree() throws IOException {
+	public CardTreePanel() throws IOException {
 		cardBuffer = new ArrayList<Card>();
-		top = new DefaultMutableTreeNode("Cards"); //initializes and names top of list.
+		top = new CardTreeNode("Cards"); //initializes and names top of list.
 		initTree();
+		model = cardTree.getSelectionModel();
+		Toolkit tk = Toolkit.getDefaultToolkit();
+        cardTree.setCellRenderer(new CardCellRenderer());
 	}
+	
+
+	
+	public String makeToolTip(Card c) {
+    	String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+    	String str = "<html><body><textarea cols=\"30\" rows=\"20\" wrap=\"soft\">" + c.getDescription() +
+    			"<img src=\"" + imageAddress + "\" width=\"250\" height=\"365\"></body></html>"; 		 
+    	return str;
+    }
 	
 	/**
 	 * Initializes tree and adds it to panel.
@@ -46,7 +68,16 @@ public class CardPoolTree extends JPanel {
 	    catch (Exception e) {
 	        System.out.println("initList failed");
 	    }
-        cardTree = new JTree(top);
+        cardTree = new JTree(top) {
+//        	public Point getToolTipLocation(MouseEvent e)
+//    		{
+//        			TreePath row = getPathForLocation(e.getX(), e.getY());
+//        			Rectangle rowRect = getPathBounds(row);
+//        			double x = rowRect.getX() + rowRect.getWidth();
+//        			double y = rowRect.getY() + rowRect.getHeight();
+//        			return new Point((int) x, (int) y);
+//    	    }
+        };
         cardTree.addTreeSelectionListener(new SelectionHandler());
         JScrollPane tree = new JScrollPane(cardTree);
         tree.setPreferredSize(new Dimension(150, 500));
@@ -67,9 +98,9 @@ public class CardPoolTree extends JPanel {
         ZipFile zip;
         for (Path p: ds) {
             if (p.toString().endsWith(".zip")) {
-                DefaultMutableTreeNode set;
+                CardTreeNode set;
                 zip = new ZipFile(p.toFile());
-                set = new DefaultMutableTreeNode(zip.getName());
+                set = new CardTreeNode(zip.getName());
                 top.add(set);
             }
         }
@@ -82,18 +113,18 @@ public class CardPoolTree extends JPanel {
 	public void loadSelectedSet() throws IOException
 	{
 	    if (cardTree.getSelectionPath().getPath().length == 2) { //check the level of the path
-	        DefaultMutableTreeNode node = (DefaultMutableTreeNode) cardTree.getSelectionPath().getLastPathComponent(); //gets selected node
+	        CardTreeNode node = (CardTreeNode) cardTree.getSelectionPath().getLastPathComponent(); //gets selected node
 	        ZipFile zip = new ZipFile((String) node.getUserObject()); //initializes ZipFile object from selected node
 	        createNodes(zip, node);
 	    }
 	}
 	
-	public void createNodes(ZipFile cardSet, DefaultMutableTreeNode set) throws IOException {
-		DefaultMutableTreeNode card;
+	public void createNodes(ZipFile cardSet, CardTreeNode set) throws IOException {
+		CardTreeNode card;
 		
 		ArrayList<Card> theSet = CardReader.loadSet(cardSet);
 		for(Card c : theSet){
-				card = new DefaultMutableTreeNode(c);
+				card = new CardTreeNode(c);
 				set.add(card);
 		}
 	}
@@ -114,6 +145,10 @@ public class CardPoolTree extends JPanel {
 		return cardTree;
 	}
 	
+	public TreeSelectionModel getTreeModel() {
+		return cardTree.getSelectionModel();
+	}
+	
 
 	
 	/**
@@ -129,8 +164,8 @@ public class CardPoolTree extends JPanel {
 				TreePath[] selectedNodes =  
 					cardTree.getSelectionPaths();
 				for (TreePath t: selectedNodes) {
-					if (t.getPath().length == 3 && cardTree.isPathSelected(t)) {
-						DefaultMutableTreeNode node = (DefaultMutableTreeNode)
+					if (t.getPath().length == LEAF_DEPTH && cardTree.isPathSelected(t)) {
+						CardTreeNode node = (CardTreeNode)
 								t.getLastPathComponent();
 						Card nodeCard = (Card) node.getUserObject();
 						cardBuffer.add(nodeCard);
@@ -139,5 +174,26 @@ public class CardPoolTree extends JPanel {
 			}
 		}
 	}
+	
+	private class CardCellRenderer extends DefaultTreeCellRenderer {
+		public Component getTreeCellRendererComponent(JTree tree,
+	            Object value, boolean selected, boolean expanded, 
+	            boolean leaf, int row, boolean hasFocus) {
+			super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
+			CardTreeNode node = (CardTreeNode) value;
+			if(node.getUserObject() instanceof Card) {
+				Card card = (Card) node.getUserObject();
+				setToolTipText(makeToolTip(card));
+				setText(card.getName());
+			}
+			else {
+				setText(node.toString());
+			}
+			return this;
+		}
+		
+	}
+	
+
 }
 

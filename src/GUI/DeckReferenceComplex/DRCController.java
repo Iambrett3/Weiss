@@ -2,8 +2,16 @@ package GUI.DeckReferenceComplex;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Frame;
+import java.awt.List;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,8 +19,12 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.DropMode;
+import javax.swing.JDialog;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
@@ -20,9 +32,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
+import javax.swing.tree.TreePath;
+import javax.swing.SwingUtilities;
 
 import Card.Card;
 import Card.DeckSorter;
+import GUI.CardInfoPanel;
 import WeissSchwarz.Deck;
 
 /**
@@ -42,18 +57,21 @@ public class DRCController
     private TableRowSorter sorter;
     private JScrollPane tablePane;
     private SorterBox sorterBox;
+    private final int CARD_COLUMN_NUMBER = 1;
+    private final int COLOR_COLUMN_NUMBER = 4;
+    private JPopupMenu rightClickPopup;
     
     public DRCController(SorterBox sorterBox, JScrollPane tablePane, JTable deckTable, 
-    		ImageSelection imageSelection, DeckStats deckStats, JTextPane cardStats) {
+    		ImageSelection imageSelection, DeckStats deckStats, JTextPane cardStats, Deck deck) {
     	this.sorterBox = sorterBox;
         this.deckTable = deckTable;
         this.imageSelection = imageSelection;
         this.deckStats = deckStats;
         this.cardStats = cardStats;
         this.tablePane = tablePane;
+        this.deck = deck;
         tableModel = (DeckTableModel) deckTable.getModel();
         cardBuffer = new ArrayList<Integer>();
-        deck = new Deck();
         init();
     }
     
@@ -66,7 +84,41 @@ public class DRCController
         initDeckStats();
         initCardStats();
         sorterBox.addActionListener(new SorterHandler());
-    }
+		initRightClickPopup();
+		initKeyListener();
+	}
+	
+	public void initRightClickPopup() {
+        rightClickPopup = new JPopupMenu();
+        JMenuItem menuItem = new JMenuItem("Remove From Deck");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		removeCards(deckTable.getSelectedRows());
+        	}
+        });
+        rightClickPopup.add(menuItem);
+        
+        MouseListener popUpListener = new RightClickListener(); 
+        deckTable.addMouseListener(popUpListener);
+	}
+	
+	public void initKeyListener() {
+		deckTable.addKeyListener(new KeyListener() {
+			public void keyPressed(KeyEvent k) {
+				switch (k.getKeyCode()) {
+				case KeyEvent.VK_DELETE: removeCardsInBuffer();
+				break;
+				}
+			}
+			
+			public void keyTyped(KeyEvent k) {
+				
+			}
+			
+			public void keyReleased(KeyEvent k) {
+			}
+		});
+	}
     
     public JTable getDeckTable() {
     	return deckTable;
@@ -78,13 +130,16 @@ public class DRCController
         deckTable.getTableHeader().setReorderingAllowed(false);
         deckTable.setRowSorter(sorter = new TableRowSorter(tableModel));
         sorter.setSortsOnUpdates(true); //this doesn't work
+        deckTable.setRowHeight(25);
         
         deckTable.setDragEnabled(true);
         deckTable.setDropMode(DropMode.INSERT_ROWS);
         deckTable.setTransferHandler(new DeckTableTransferHandler(this));
         deckTable.setFillsViewportHeight(true);
         
-        deckTable.setDefaultRenderer(Color.class, new TableColorRenderer(true));
+        deckTable.setDefaultRenderer(Object.class, new RowCellRenderer(true));
+        
+        initTableMouseListener();
         
         ListSelectionModel cellSelectionModel = deckTable.getSelectionModel();
         cellSelectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -100,13 +155,31 @@ public class DRCController
                 	}
                 }
                 if (deckTable.getSelectedRow() != -1) {
-                    imageSelection.setCurrentImage(deck.get(deckTable.getSelectedRow()).getImage());
-                    cardStats.setText(deck.get(deckTable.getSelectedRow()).getDescription());
+                	//this was code from when the refComplex was visible on page (maybe bring back as alternate view)
+                    //imageSelection.setCurrentImage(deck.get(deckTable.getSelectedRow()).getImage());
+                    //cardStats.setText(deck.get(deckTable.getSelectedRow()).getDescription());
+                    //new CardInfoPanel(deck.get(deckTable.getSelectedRow()));
+                    //new CardInfoPanel();
                 }
                 else {
-                    imageSelection.resetCurrentImage();
-                    cardStats.setText("");
+                    //imageSelection.resetCurrentImage();
+                    //cardStats.setText("");
                 }    
+            }
+        });
+    }
+    
+    public void initTableMouseListener() {
+    	deckTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
+                JTable table =(JTable) me.getSource();
+                Point p = me.getPoint();
+                int row = table.rowAtPoint(p);
+                if (row != -1) {
+                	if (me.getClickCount() == 2) {
+                		new CardInfoPanel((Card) table.getValueAt(row, CARD_COLUMN_NUMBER), SwingHelp.getOwningFrame(table));
+                	}
+                }
             }
         });
     }
@@ -119,23 +192,38 @@ public class DRCController
     }
     
     public void initDeckStats() {
-        deckStats.setText(DeckStats.calculateDeckStats(deck));
     }
     
     public void addCard(Card c) {
-        deck.add(c);
-        tableModel.addCard(c);
-        sorter.modelStructureChanged();
-        setRowColor(c); //TODO: I am calling this just to change the Color column from CColor object to Color object. this is stupid fix this
-        System.out.println(((Card) tableModel.getValueAt(tableModel.getRowCount() -1, 0)).getDescription());
+    	if (deck.isInDeck(c)) {
+    		int location = deck.deckLocation(c);
+    		int numCard = deck.get(location).getNumOfCard();
+    		deck.get(location).incrementNumOfCard(1);
+    		tableModel.setValueAt(numCard+1, location, 0);
+    	}
+    	else {
+    		deck.add(c);
+            tableModel.addCard(c);
+            sorter.modelStructureChanged();
+            setRowColor(c); //TODO: I am calling this just to change the Color column from CColor object to Color object. this is stupid fix this
+    	}
+        System.out.println(((Card) tableModel.getValueAt(tableModel.getRowCount() -1, CARD_COLUMN_NUMBER)).getDescription());
         deckStats.updateStats(deck);
     }
     
     public void insertCard(int pos, Card c) {
-    	deck.add(pos, c);
-    	tableModel.insertCard(pos, c);
-    	sorter.modelStructureChanged();
-    	setRowColor(c);
+    	if (deck.isInDeck(c)) {
+    		int location = deck.deckLocation(c);
+    		int numCard = deck.get(location).getNumOfCard();
+    		deck.get(location).incrementNumOfCard(1);
+    		tableModel.setValueAt(numCard+1, location, 0);
+    	}
+    	else {
+    		deck.add(pos, c);
+    		tableModel.insertCard(pos, c);
+    		sorter.modelStructureChanged();
+    		setRowColor(c);
+    	}
     	deckStats.updateStats(deck);
     }
     
@@ -154,6 +242,7 @@ public class DRCController
     	}
     	tableModel.insertCards(fromCopy, to);
     	deck.insertCards(fromCards, to);
+    	deckStats.updateStats(deck);
     }
     
     public void reorder(int from, int to) {
@@ -171,8 +260,9 @@ public class DRCController
     		deck.remove(from);
     		deck.add(to, fromCard);
     	}
-    	sorter.modelStructureChanged();
     	tableModel.reorder(from, to);
+    	sorter.modelStructureChanged();
+    	deckStats.updateStats(deck);
     }
     
     /**
@@ -191,13 +281,33 @@ public class DRCController
             break;
             default: cardColor = new Color(255, 0, 0);
         }
-        tableModel.setValueAt(cardColor, tableModel.getRowCount() - 1, 3);
+        tableModel.setValueAt(cardColor, tableModel.getRowCount() - 1, COLOR_COLUMN_NUMBER);
     }
     
     public void removeCard(int row) {
-    	deck.remove(row);
-    	tableModel.removeCard(deckTable.convertRowIndexToModel(row));
-    	sorter.modelStructureChanged();
+    	Card c = deck.get(row);
+    	int numCard = c.getNumOfCard();
+    	if (numCard > 1) {
+    		deck.get(row).incrementNumOfCard(-1);
+    		tableModel.setValueAt(numCard-1, row, 0);
+    	}
+    	else {
+    		deck.remove(row);
+    		tableModel.removeCard(deckTable.convertRowIndexToModel(row));
+    		sorter.modelStructureChanged();
+    	}
+    }
+    
+    public void removeCards(int[] cards) {
+    	int[] reverseCards = new int[cards.length];
+    	int j = cards.length - 1;
+    	for (int i = 0; i < cards.length; i++) {
+    		reverseCards[j] = cards[i];
+    		j--;
+    	}
+    	for (int i = 0; i < reverseCards.length; i++) {
+    		removeCard(reverseCards[i]);
+    	}
     }
     
     public void removeCardsInBuffer() { 
@@ -207,9 +317,10 @@ public class DRCController
         Iterator<Integer> toBeRemoved = cardBufferCopy.iterator(); //iterator
         while (toBeRemoved.hasNext()) { //while there is another row to be removed
             int remove = toBeRemoved.next(); 
-            tableModel.removeCard(deckTable.convertRowIndexToModel(remove));
-        	sorter.modelStructureChanged();
-            deck.remove(remove); //remove from deck
+            //tableModel.removeCard(deckTable.convertRowIndexToModel(remove));
+        	//sorter.modelStructureChanged();
+            //deck.remove(remove); //remove from deck
+            removeCard(remove);
         }
         deckStats.updateStats(deck);
     }        
@@ -219,6 +330,38 @@ public class DRCController
     		String selected = (String) sorterBox.getSelectedItem();
     		tableModel.sortBy(selected);
     		deck.sortBy(selected);
+    		deckStats.updateStats(deck);
     	}
     }
+    
+    private class RightClickListener extends MouseAdapter {
+    	public void mouseReleased(MouseEvent me) {
+			Integer row = deckTable.rowAtPoint(me.getPoint());
+			if (row != -1) {
+				if(SwingUtilities.isRightMouseButton(me)) {
+					boolean clickedOnSelection = false;
+					//check if clicked on current selection paths
+					for (Integer i: deckTable.getSelectedRows()) { 
+						if (row.equals(i)) {
+							clickedOnSelection = true;
+						}
+					}
+					//this is to correctly select paths and maintain already selected paths, etc.
+					if (!clickedOnSelection) {
+						deckTable.setRowSelectionInterval(row, row);
+					}
+				}
+					showRightClickMenu(me);
+			}
+		}
+    	private void showRightClickMenu(MouseEvent me) {
+			if (me.isPopupTrigger()) {
+				rightClickPopup.show(deckTable, me.getX(), me.getY());
+			}
+		}
+    }
+
+	public Deck getDeck() {
+		return deck;
+	}
 }

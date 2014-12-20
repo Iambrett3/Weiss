@@ -4,7 +4,7 @@ import javax.swing.JTable;
 
 public class TablePopulator
 {
-    private String[] columns = {"Name", "Number", "Triggers",
+    private String[] columns = {"#", "Name", "Number", "Triggers",
         "Color", "Flavor", "Text", "Pack", 
         "Level", "Soul"};
     

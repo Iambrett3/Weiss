@@ -1,7 +1,14 @@
 package GUI.DeckReferenceComplex;
 
+import java.awt.Dimension;
+
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
+import net.miginfocom.swing.MigLayout;
 import Card.Card;
 import Card.CColor;
 import Card.CColor.TypeC;
@@ -10,13 +17,64 @@ import Card.Trigger;
 import Card.Trigger.Type;
 import WeissSchwarz.Deck;
 
-public class DeckStats extends JTextPane{
+public class DeckStats extends JPanel{
+	JTextArea deckView;
+	JTextArea triggerPane;
+	JTextArea colorPane;
+	JTextArea levelPane;
     /*
      * No-Arg constructor. Calls super constructor.
      */
-    public DeckStats() {
+    public DeckStats(Deck deck) {
         super();
+        init(deck);
+        
+		//deckView -- should be temporary, just for debug purposes.
+		JDialog deckViewer = new JDialog();
+		deckViewer.setBounds(90, 90, 150, 400);
+		deckViewer.setAlwaysOnTop(true);
+		deckViewer.add(deckView = new JTextArea());
+		deckViewer.setVisible(true);
     }
+    
+    public void init(Deck deck) {
+    	setLayout(new MigLayout());
+    	initLevelPane(deck);
+    	initTrigPane(deck);
+    	initColorPane(deck);
+    }
+    
+    public void initTrigPane(Deck deck) {
+    	JScrollPane trigScroll = new JScrollPane();
+        triggerPane = new JTextArea();
+        triggerPane.setText(calculateTriggerRatio(deck));
+        triggerPane.setEditable(false);
+        trigScroll.setViewportView(triggerPane);
+        trigScroll.setPreferredSize(new Dimension(100, 100));
+        add(trigScroll);
+    }
+    
+    public void initColorPane(Deck deck) {
+    	JScrollPane colorScroll = new JScrollPane();
+        colorPane = new JTextArea();
+        colorPane.setEditable(false);
+        colorPane.setText(calculateColorRatio(deck));
+        colorScroll.setViewportView(colorPane);
+        colorScroll.setPreferredSize(new Dimension(100, 100));
+        add(colorScroll);
+    }
+    
+    public void initLevelPane(Deck deck) {
+    	JScrollPane levelScroll = new JScrollPane();
+        levelPane = new JTextArea();
+        levelPane.setEditable(false);
+        levelPane.setText(calculateLevelRatio(deck));
+        levelScroll.setViewportView(levelPane);
+        levelScroll.setPreferredSize(new Dimension(100, 100));
+        add(levelScroll);
+    }
+    
+    
     
 	public static String calculateTriggerRatio(Deck deck) {
 		int soul = 0;
@@ -106,11 +164,10 @@ public class DeckStats extends JTextPane{
 		return str;
 	}
 	
-	public static String calculateDeckStats(Deck deck) {
-		return calculateTriggerRatio(deck) + "\n" + calculateColorRatio(deck) + "\n" + calculateLevelRatio(deck);
-	}
-	
 	public void updateStats(Deck deck) {
-	    setText(calculateDeckStats(deck));
+		triggerPane.setText(calculateTriggerRatio(deck));
+        colorPane.setText(calculateColorRatio(deck));
+        levelPane.setText(calculateLevelRatio(deck));
+	    deckView.setText(deck.toString());
 	}
 }
