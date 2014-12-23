@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:I don't hate you. I am grateful, I think? 
 Text:[A] [Put another Character of yours from the Stage to the Waiting Room] When this attacks, you may pay cost. IF so, this gains +2500 Power for the turn. *[A] ENCORE [Discard a Character card from your hand to the Waiting Room] 
 Image:S18/AWS18-075.jpg
+Pack:﻿Accel World Booster Pack

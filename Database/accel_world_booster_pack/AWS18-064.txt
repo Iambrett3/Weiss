@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Th... thus, please don't stare~ 
 Text:[A] When this is placed from hand to the Stage, put the top 2 cards of your Library in your Waiting Room. If there were at least 1 Climax card among them, Rest this. 
 Image:S18/AWS18-064.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:None
 Flavor:... Please... My Master... 
 Text:-- None -- 
 Image:S18/AWS18-091.jpg
+Pack:﻿Accel World Booster Pack

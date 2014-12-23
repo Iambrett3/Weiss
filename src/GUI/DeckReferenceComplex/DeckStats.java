@@ -34,7 +34,7 @@ public class DeckStats extends JPanel{
 		deckViewer.setBounds(90, 90, 150, 400);
 		deckViewer.setAlwaysOnTop(true);
 		deckViewer.add(deckView = new JTextArea());
-		deckViewer.setVisible(true);
+		//deckViewer.setVisible(true);
     }
     
     public void init(Deck deck) {

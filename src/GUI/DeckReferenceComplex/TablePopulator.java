@@ -8,8 +8,8 @@ public class TablePopulator
         "Color", "Flavor", "Text", "Pack", 
         "Level", "Soul"};
     
-    public JTable createTable() {
-        JTable table = new JTable();
+    public DeckTable createTable() {
+        DeckTable table = new DeckTable();
         table.setModel(new DeckTableModel(columns));
         return table;
     }

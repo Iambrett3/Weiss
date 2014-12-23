@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Build up!! Super Kingbolt!! 
 Text:[A] When your other ::Avatar:: and/or ::Net:: Character attacks, this gains +1000 Power for the turn. 
 Image:S18/AWS18-067.jpg
+Pack:﻿Accel World Booster Pack

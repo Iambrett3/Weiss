@@ -7,6 +7,7 @@
 package Card;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -26,7 +27,11 @@ private String[] text;
 private String pack;
 private BufferedImage image;
 private String imagePath;
-private int numOfCard; //the number this card in existence. (most likely in the context of a deck)
+private Integer numOfCard; //the number this card in existence. (most likely in the context of a deck)
+private String ID;
+private Attribute attribute;
+
+private final int MAX_NUM_ATTRIBUTES = 4;
 
 /**
  * Card constructor
@@ -63,7 +68,26 @@ public Card() {
 	numOfCard = 1;
 }
 
-public int getNumOfCard() {
+public void setAttributes() {
+    ArrayList<String> tmp = new ArrayList<String>();
+    int cursor = 0;
+    for (String ability: text) {
+        for (String attribute: Attribute.getListOfAttributes()) {
+            //these if statements may seem redundant, but the first one is necessary to eliminate cards with no or little text
+            //that would make the substring() method fail.
+            if (ability.contains(attribute)) {
+         // this is to prevent from catching these strings later in the description
+                if (ability.substring(4, Attribute.getLongestAttributeLength()).contains(attribute)) 
+                    tmp.add(attribute);
+            }
+        }
+    }
+    if (tmp.size() < 1)
+        tmp.add("None");
+    attribute = new Attribute(tmp);
+}
+
+public Integer getNumOfCard() {
 	return numOfCard;
 }
 
@@ -73,6 +97,14 @@ public void setNumOfCard(int num) {
 
 public void incrementNumOfCard(int num) {
 	numOfCard += num;
+}
+
+public void setID() {
+    ID = number.split("/")[0];
+}
+
+public String getID() {
+    return ID;
 }
 
 /**
@@ -277,7 +309,8 @@ public String getDescription() {
 			     + "\nFlavor: " + flavor
 			     + "\nText: "
 			     + getText();
-			str += "Pack: " + pack;
+			str += "Pack: " + pack
+			    + "\nAttributes: " + attribute;
 	return str;
 }
 	

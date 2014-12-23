@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Before I take your points today... there's another thing I want 
 Text:[A] [(1)] When "Demonic Commandeer" is placed in your Climax Zone, you may pay cost. If so, choose 1 of your Opponent's Front Row Characters. That Character gets -2000 Power for the turn, and this gains +2500 Power for the turn. 
 Image:S18/AWS18-041.jpg
+Pack:﻿Accel World Booster Pack

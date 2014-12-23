@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Ah, ah, "Churagaagii" means "pretty girl" 
 Text:[C] This gains +X Power. X = 2000 times Level of the Character Opposite this. 
 Image:S18/AWS18-090.jpg
+Pack:﻿Accel World Booster Pack

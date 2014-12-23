@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Let's talk. About the Burst Linker who seeks the sky, and the only friend of the girl...... 
 Text:[C] ASSIST Characters in front of this gain +500 Power. *[A] When this is placed from hand to the Stage, look at the top card of your Library and put it either on top or bottom of the Library. 
 Image:S18/AWS18-086.jpg
+Pack:﻿Accel World Booster Pack

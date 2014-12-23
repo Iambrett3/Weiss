@@ -15,3 +15,4 @@ Triggers:Draw
 Flavor:I have turned this wheelchair - specifically the image of the two rotating wheels into reality... and I can control it with Incarnation 
 Text:[C] All your Characters gain +1000 Power and +1 Soul. 
 Image:S18/AWS18-099.jpg
+Pack:﻿Accel World Booster Pack

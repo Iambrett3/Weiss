@@ -15,3 +15,4 @@ Triggers:None
 Flavor:That's all. K? 
 Text:[A] BOND/"Niko, Good at Cooking" [(1)] 
 Image:S18/AWS18-069.jpg
+Pack:﻿Accel World Booster Pack

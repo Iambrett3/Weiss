@@ -15,3 +15,4 @@ Triggers:None
 Flavor:'Black Lotus'!! Black King!! It's alive--!! 
 Text:[C] During your turn, this gains +1000 Power. 
 Image:S18/AWS18-018.jpg
+Pack:﻿Accel World Booster Pack

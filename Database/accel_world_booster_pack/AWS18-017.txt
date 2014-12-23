@@ -15,3 +15,4 @@ Triggers:None
 Flavor:What should we do with that? 
 Text:[C] ASSIST All your Characters in front of this gain +500 Power. 
 Image:S18/AWS18-017.jpg
+Pack:﻿Accel World Booster Pack

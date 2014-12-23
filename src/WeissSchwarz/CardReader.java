@@ -46,11 +46,11 @@ public class CardReader {
 		card.setColor(new CColor(lines.get(4).substring(6)));
 		card.setTrigger(new Trigger(lines.get(13).substring(9).split("\\s+")));
 		card.setFlavor(lines.get(14).substring(7));
-		card.setText(lines.get(15).substring(5).split("\\*"));
+		card.setText(lines.get(15).substring(5).split("\\*")); //because i put a little star in between abilities
 		card.setImagePath(lines.get(16).substring(6));
 		card.setImage(fetchImage(lines.get(16).substring(6)));
-		card.setPack("default pack");
-		
+		card.setPack(lines.get(17).substring(5));
+		card.setAttributes();
 		
 		if (card instanceof LevelCard) {
 		((LevelCard) card).setLevel(Integer.parseInt(lines.get(7).substring(6)));
@@ -121,8 +121,10 @@ public class CardReader {
 	{
 	    BufferedImage image = null;
 	    try {
-	    //image = ImageIO.read(new File("G:\\Code\\workspace\\Weiss\\Database\\images\\" + str));
-	    image = ImageIO.read(new File("C:\\Brett\\workspace\\Weiss\\Database\\images\\" + str));
+	    //desktop TODO: do this!!!!
+	    image = ImageIO.read(new File("G:\\Code\\workspace\\Weiss\\Database\\images\\" + str));
+	    //laptop
+	    //image = ImageIO.read(new File("C:\\Brett\\workspace\\Weiss\\Database\\images\\" + str)); 
 
 	    }
 	    catch (Exception ex) {

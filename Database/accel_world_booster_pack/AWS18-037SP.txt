@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:SECRET 
 Text:[C] If you have 2 or more other Characters with either ::Avatar:: and/or ::Net::, this gains +1500 Power. *[A] When this is Front Attacked, look at the top card of your Library and put it either on top of the Library or in the Waiting Room. 
 Image:S18/AWS18-037SP.jpg
+Pack:﻿Accel World Booster Pack

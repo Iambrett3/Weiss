@@ -23,6 +23,8 @@ public class Reader {
             String input = "";
             String in = "";                
             PrintWriter writer = null;
+            input = reader.nextLine();
+            String pack = input.split(" Translation")[0];
             while(!(in = reader.next()).startsWith("="));
             while (reader.hasNext()) {        
             reader.nextLine();
@@ -148,6 +150,7 @@ public class Reader {
             }
             
             writer.printf("%n%s%s", "Image:", location);
+            writer.printf("%n%s%s", "Pack:", pack);
             writer.close();
             
         } 

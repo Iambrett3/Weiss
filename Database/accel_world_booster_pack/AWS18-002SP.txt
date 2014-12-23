@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:SECRET 
 Text:[A] When this is placed from hand to the Stage or via CHANGE to the Stage, you may put the top card of your Clock in the Waiting Room. *[A] [Put all cards, excluding the bottom-most card, from your Stock in Waiting Room] This ability may be activated up to once per turn. When this attacks, if "Emotion First Felt Since Birth" is in the Climax Zone and there are 5 or more cards in your Stock, you may pay cost. If so, Stand this. 
 Image:S18/AWS18-002SP.jpg
+Pack:﻿Accel World Booster Pack

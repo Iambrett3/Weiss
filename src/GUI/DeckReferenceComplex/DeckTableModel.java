@@ -45,17 +45,14 @@ public class DeckTableModel extends DefaultTableModel implements TableModel
     /**
      * This may be questionable?
      */
-    public Class getColumnClass(int c) {
-    	//if (getRowCount() < 1) return Object.class;
-       // if (getValueAt(0, c) instanceof Color) {
-          //  return Color.class;
-        //}
-        //else if (getValueAt(0, c) instanceof Card) {
-        //	return Card.class;
-        //}
-        //else {
+    public Class<?> getColumnClass(int c) {
+        if (dataVector.isEmpty()) {
             return Object.class;
-        //}
+        }
+        if (c == 0 || c == 8 || c == 9) {
+            return Object.class; //these are Integers but when I return Integer, setBackground doesn't work??? this is probably a bug...
+        }
+        return getValueAt(0, c).getClass();
     }
     
     //this method inserts cards in reverse order because it is used by the reorder method

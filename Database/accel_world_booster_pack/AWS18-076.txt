@@ -15,3 +15,4 @@ Triggers:None
 Flavor:... Oh, you won't run? You got guts 
 Text:Choose up to 2 of your Characters. Those Characters gain "[A] [(1)] When the Battle Opponent of this becomes Reversed, you may pay cost. If so, choose a Character in your Waiting Room and return it to your hand" for the turn. 
 Image:S18/AWS18-076.jpg
+Pack:﻿Accel World Booster Pack

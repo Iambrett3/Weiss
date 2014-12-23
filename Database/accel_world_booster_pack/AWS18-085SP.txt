@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:SECRET 
 Text:[A] When this is placed from hand to the Stage, draw up to 2 cards, and discard a card from your hand to the Waiting Room. *[S] [(1) Rest 2 of your ::Avatar:: Characters] This gains +2000 Power until the end of your Opponent's next turn. 
 Image:S18/AWS18-085SP.jpg
+Pack:﻿Accel World Booster Pack

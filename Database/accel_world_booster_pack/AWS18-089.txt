@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:It's been a while, Ash. I'm happy that you haven't forgotten about me 
 Text:[S] [(1) Rest 1 of your Characters with either ::Avatar:: and/or ::Net::] Draw a card, discard a card from your hand to the Waiting Room, and this gains +1000 Power for the turn. 
 Image:S18/AWS18-089.jpg
+Pack:﻿Accel World Booster Pack

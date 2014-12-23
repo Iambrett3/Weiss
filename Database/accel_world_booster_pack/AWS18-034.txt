@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Did you get it? 
 Text:[A] When this attacks, choose 1 of your other Characters. That Character gains +1 Level and +1000 Power for the turn. 
 Image:S18/AWS18-034.jpg
+Pack:﻿Accel World Booster Pack

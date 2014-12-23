@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -18,10 +19,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JWindow;
+import javax.swing.KeyStroke;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
@@ -43,23 +48,72 @@ public class BuilderGUI extends JFrame {
 	JButton loadSetButton;
 	JPanel buttonPanel;
 	BuilderController controller;
+	JMenuBar menuBar;
 	
 	public BuilderGUI() throws IOException {
 		super("Deck Builder");
 		setLayout(new MigLayout());
-		setSize(1200, 700);
+		setSize(1500, 1000);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		createButtons(); 
 		add(cardTreePanel = new CardTreePanel());
 		add(refComplex = new DeckReferenceComplexPanel(), "wrap"); //do i need to add to content pane here?
 		add(buttonPanel);
 		controller = new BuilderController(refComplex, cardTreePanel);
-		
+		menuBar = new JMenuBar();
+		initMenuBar();
+		setJMenuBar(menuBar);
 		
 		//pack();
         initToolTipManager();
-        
     }
+	
+	public void initMenuBar() {
+	    
+	    initFileMenu();
+	    initViewMenu();   
+	}
+	
+	public void initFileMenu() {
+	    JMenu fileMenu = new JMenu("File");
+        menuBar.add(fileMenu);
+        
+        JMenuItem menuItem = new JMenuItem("New");
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Open File...");
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Save");
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Save As...");
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Import...");
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Export...");
+        fileMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Print...");
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
+        fileMenu.add(menuItem);
+	}
+	
+	public void initViewMenu() {
+        JMenu viewMenu = new JMenu("View");
+        menuBar.add(viewMenu);
+        
+        JMenuItem menuItem = new JMenuItem("Deck Table View");
+        viewMenu.add(menuItem);
+        
+        menuItem = new JMenuItem("Image Layout View");
+        viewMenu.add(menuItem);
+	}
     
     public void initToolTipManager() {
     	ToolTipManager.sharedInstance().setInitialDelay(350);
@@ -72,7 +126,7 @@ public class BuilderGUI extends JFrame {
 	 */
 	public void createButtons() {
 	    buttonPanel = new JPanel();
-	    initLoadButton();
+	    //initLoadButton();
 //		addCard = new JButton("Add to Deck");
 //		addCard.addActionListener( 
 //				      new ActionListener() { //ActionListener for Add button

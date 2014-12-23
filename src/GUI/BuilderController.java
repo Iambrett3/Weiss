@@ -104,9 +104,19 @@ public class BuilderController {
 		public void mouseClicked(MouseEvent me) {
 			if (cardTreePanel.getCardTree().getPathForLocation(me.getX(), me.getY()) != null) {
 				TreePath selPath = cardTreePanel.getCardTree().getPathForLocation(me.getX(), me.getY());
-				if (SwingUtilities.isLeftMouseButton(me) && me.getClickCount() == 2) {
-					if (selPath.getPath().length == 3) {
-						refComplex.addCard((Card) ((DefaultMutableTreeNode) selPath.getLastPathComponent()).getUserObject());
+				if (selPath.getPath().length == cardTreePanel.getLeafDepth()) {
+				    if (SwingUtilities.isLeftMouseButton(me) && me.getClickCount() == 2) {
+				        Object selectedObject = ((DefaultMutableTreeNode)cardTreePanel.getCardTree().getLastSelectedPathComponent()).getUserObject();
+				            if (selectedObject instanceof Card) {
+				                refComplex.addCard((Card)selectedObject);
+				            }
+				    }
+				}
+				else if (selPath.getPath().length == cardTreePanel.getSetDepth()) {
+				    if (SwingUtilities.isLeftMouseButton(me) && me.getClickCount() == 2) {
+				        if (!((CardTreeSetNode) cardTreePanel.getCardTree().getSelectionPath().getLastPathComponent()).isLoaded()) { //if it's already loaded, do nothing
+					        cardTreePanel.loadSelectedSet();
+					    }
 					}
 				}
 			}

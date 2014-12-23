@@ -15,3 +15,4 @@ Triggers:None
 Flavor:...... 
 Text:[S] [(1) Put this in Waiting Room] Your Opponent returns all cards in their Waiting Room to the Library. Shuffle that Library. 
 Image:S18/AWS18-044.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:... Strength isn't just a word to describe the end result of victory 
 Text:[A] CHANGE [(2) Put this in Waiting Room] At the start of your Encore Step, if this is Rested, you may pay cost. If so, choose either 1 "Kuroyukihime" or "Black Lotus" in your Waiting Room and put it in the Slot this was in. *[S] [Rest this] Choose 1 of your Characters. That Character gains +1500 Power for the turn. 
 Image:S18/AWS18-014.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Red King probably will threatern Haru with 'Judgment Blow' and make him do something 
 Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. 
 Image:S18/AWS18-094.jpg
+Pack:﻿Accel World Booster Pack

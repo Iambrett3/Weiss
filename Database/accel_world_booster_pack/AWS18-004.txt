@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Let's have a Direct Wired Conversation about that 
 Text:[A] BOND/"Haruyuki, Bullied Kid" [(1)] *[S] [Put the top card of your Library in Clock, put a "Haruyuki, Bullied Kid" from your Stage in Waiting Room] Choose up to 1 "Silver Crow, Challenging Strong Enemies" in your hand and put it in any Slot on the Stage. 
 Image:S18/AWS18-004.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:As a bonus, my opponent's a brand new newbie. Really lucky! 
 Text:[C] If there are 5 or more cards in your Stock, this gains +1000 Power. 
 Image:S18/AWS18-050.jpg
+Pack:﻿Accel World Booster Pack

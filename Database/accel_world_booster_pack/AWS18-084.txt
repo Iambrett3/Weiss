@@ -15,3 +15,4 @@ Triggers:None
 Flavor:If I read this correctly... 
 Text:[A] ACCELERATE [Put the top card of your Library in Clock] At the start of your Climax Phase, you may pay cost. If so, draw a card, discard a card from your hand to the Waiting Room, and this gains +3000 Power for the turn. 
 Image:S18/AWS18-084.jpg
+Pack:﻿Accel World Booster Pack

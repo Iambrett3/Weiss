@@ -15,3 +15,4 @@ Triggers:None
 Flavor:My win, onii-chan 
 Text:-- None -- 
 Image:S18/AWS18-071.jpg
+Pack:﻿Accel World Booster Pack

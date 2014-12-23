@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:I want to go back. To that time. The time where everyone played together... 
 Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. *[A] When this attacks, if "Chiyuri's Tears" is in the Climax Zone, choose 1 of your other Characters. That Charcater gains +3000 Power until the end of your Opponent's next turn. 
 Image:S18/AWS18-036.jpg
+Pack:﻿Accel World Booster Pack

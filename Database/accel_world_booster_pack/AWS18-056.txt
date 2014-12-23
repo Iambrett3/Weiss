@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Wron-g! What do you mean, cup noodle! You want to pick a fight over my cooking? 
 Text:[C] ASSIST All your Characters in front of this gain +X Power, where X = 500 times Level of that Charcater. *[A] [(1)] When this is placed from hand to te Stage, you may pay cost. If so, choose 1 of your Characters. That Character gains "[A] When the Battle Opponent of this becomes Reversed, you may choose a card in your Opponent's Waiting Room and put it on top of the Library" for the turn. 
 Image:S18/AWS18-056.jpg
+Pack:﻿Accel World Booster Pack

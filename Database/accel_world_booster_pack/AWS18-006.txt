@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:It's the first time that a week felt this long 
 Text:[C] All your other Characters with ::Avatar:: and/or ::Student Council:: gain +500 Power. *[A] When your Character's Trigger Check reveals a Climax card, choose 1 of your Characters. That Character gains +2000 Power for the turn. 
 Image:S18/AWS18-006.jpg
+Pack:﻿Accel World Booster Pack

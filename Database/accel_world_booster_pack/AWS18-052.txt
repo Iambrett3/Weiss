@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Pile: "Of course... 'Lime Bell' is a 'Healer'" 
 Text:[Counter] Choose 1 of your Standing Characters with either "Chiyuri" or "Lime Bell" in name and Rest it. If so, choose up to 2 of your Characters. Those Characters gain "[A] When this is placed from the Stage to the Waiting Room, you may put this back Rested in the Slot this was in" for the turn. 
 Image:S18/AWS18-052.jpg
+Pack:﻿Accel World Booster Pack

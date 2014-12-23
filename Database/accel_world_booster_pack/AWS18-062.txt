@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Come, Fortified Armor---!! 
 Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. *[A] [(1) Put the top card of your Lbirary in Clock] When this attacks, if "Hailstorm Domination" is in the Climax Zone, you may pay cost. If so, choose 1 of your Opponent's Characters whose Level is 3 or lower and put it in the Waiting Room. 
 Image:S18/AWS18-062.jpg
+Pack:﻿Accel World Booster Pack

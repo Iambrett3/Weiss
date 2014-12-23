@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Kuroyukihime: "Even if the bearer is defeated... 'Disaster Armor' does not disappear, and will attach itself to another Burst Linker and change their personality" 
 Text:Send this to Memory. [C] RECOLLECTION If this is in the Memory, your ::Avatar:: Character in the Front Row Center Slot gain +1500 Power and "[A] When this becomes Reversed in battle, Put this in Clock". 
 Image:S18/AWS18-077.jpg
+Pack:﻿Accel World Booster Pack

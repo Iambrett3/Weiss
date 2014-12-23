@@ -30,6 +30,8 @@ import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.RowSorterEvent;
+import javax.swing.event.RowSorterListener;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 import javax.swing.tree.TreePath;
@@ -47,7 +49,7 @@ import WeissSchwarz.Deck;
  */
 public class DRCController
 {
-    private JTable deckTable; 
+    private DeckTable deckTable; 
     private ImageSelection imageSelection;  //references to the table, imageSelection, and deckStats
     private DeckStats deckStats;
     private ArrayList<Integer> cardBuffer;
@@ -60,8 +62,9 @@ public class DRCController
     private final int CARD_COLUMN_NUMBER = 1;
     private final int COLOR_COLUMN_NUMBER = 4;
     private JPopupMenu rightClickPopup;
+    private int lastSortedColumn;
     
-    public DRCController(SorterBox sorterBox, JScrollPane tablePane, JTable deckTable, 
+    public DRCController(SorterBox sorterBox, JScrollPane tablePane, DeckTable deckTable, 
     		ImageSelection imageSelection, DeckStats deckStats, JTextPane cardStats, Deck deck) {
     	this.sorterBox = sorterBox;
         this.deckTable = deckTable;
@@ -70,8 +73,9 @@ public class DRCController
         this.cardStats = cardStats;
         this.tablePane = tablePane;
         this.deck = deck;
-        tableModel = (DeckTableModel) deckTable.getModel();
+        tableModel = (DeckTableModel)deckTable.getDeckTableModel();
         cardBuffer = new ArrayList<Integer>();
+        lastSortedColumn = -1;
         init();
     }
     
@@ -128,9 +132,13 @@ public class DRCController
         tableModel.addTableModelListener(deckTable);
         deckTable.setRowSelectionAllowed(true);
         deckTable.getTableHeader().setReorderingAllowed(false);
-        deckTable.setRowSorter(sorter = new TableRowSorter(tableModel));
-        sorter.setSortsOnUpdates(true); //this doesn't work
+        deckTable.setRowSorter(sorter = new TableRowSorter<DeckTableModel>(tableModel));
+        sorter.setSortsOnUpdates(true);
         deckTable.setRowHeight(25);
+        
+
+        
+        deckTable.setDeck(deck);
         
         deckTable.setDragEnabled(true);
         deckTable.setDropMode(DropMode.INSERT_ROWS);
@@ -140,6 +148,7 @@ public class DRCController
         deckTable.setDefaultRenderer(Object.class, new RowCellRenderer(true));
         
         initTableMouseListener();
+        initTableHeaderListener();
         
         ListSelectionModel cellSelectionModel = deckTable.getSelectionModel();
         cellSelectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -180,6 +189,14 @@ public class DRCController
                 		new CardInfoPanel((Card) table.getValueAt(row, CARD_COLUMN_NUMBER), SwingHelp.getOwningFrame(table));
                 	}
                 }
+            }
+        });
+    }
+    
+    public void initTableHeaderListener() {
+        deckTable.getTableHeader().addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                lastSortedColumn = deckTable.columnAtPoint(e.getPoint());
             }
         });
     }
@@ -318,7 +335,7 @@ public class DRCController
         while (toBeRemoved.hasNext()) { //while there is another row to be removed
             int remove = toBeRemoved.next(); 
             //tableModel.removeCard(deckTable.convertRowIndexToModel(remove));
-        	//sorter.modelStructureChanged();
+        	sorter.modelStructureChanged();
             //deck.remove(remove); //remove from deck
             removeCard(remove);
         }

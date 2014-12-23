@@ -15,3 +15,4 @@ Triggers:None
 Flavor:-- None -- 
 Text:[A] [(1)] When this attacks, you may pay cost. If so, put the top 2 cards of your Library in the Waiting Room. If both of them are Characters with either ::Avatar:: and/or ::Net::, choose a Character in your Waiting Room and return it to your hand. 
 Image:S18/AWS18-060.jpg
+Pack:﻿Accel World Booster Pack

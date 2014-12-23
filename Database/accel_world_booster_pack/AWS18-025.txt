@@ -15,3 +15,4 @@ Triggers:None
 Flavor:I... cut of the Red King's head as he talked about peace and friendship 
 Text:If you have 2 or fewer YELLOW Characters, this cannot be played from your hand. Choose 1 of your Opponent's Level 1 or lower Characters and put it in Stock. 
 Image:S18/AWS18-025.jpg
+Pack:﻿Accel World Booster Pack

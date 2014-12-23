@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Ahh! 
 Text:[S] [Counter] BACKUP 2000, Level 1 [(1) Discard this card from your hand to the Waiting Room] 
 Image:S18/AWS18-021.jpg
+Pack:﻿Accel World Booster Pack

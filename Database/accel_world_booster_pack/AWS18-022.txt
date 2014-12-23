@@ -15,3 +15,4 @@ Triggers:None
 Flavor:I want to fly-- over there...! 
 Text:[A] When this attacks, if "Knight of 'Black King'" is in the Climax Zone, this gains +3000 Power for the turn. 
 Image:S18/AWS18-022.jpg
+Pack:﻿Accel World Booster Pack

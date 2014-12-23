@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Don't cry! Don't laught! I now... have something to protect 
 Text:-- None -- 
 Image:S18/AWS18-020.jpg
+Pack:﻿Accel World Booster Pack

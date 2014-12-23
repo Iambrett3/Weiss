@@ -15,3 +15,4 @@ Triggers:None
 Flavor:SECRET 
 Text:[C] If you have 1 or fewer other Characters, this gains +1500 Power. *[A] When this attacks, choose 1 of your other Level 2 or higher Characters. That Character gains +1000 Power for the turn. 
 Image:S18/AWS18-003S.jpg
+Pack:﻿Accel World Booster Pack

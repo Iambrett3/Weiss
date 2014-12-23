@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Good morning, Crow-san 
 Text:[A] When this attacks, if "Power of Spirit" is in the Climax Zone, choose 1 of your other Characters. That Character gains +1500 Power until the end of your Opponent's next turn. 
 Image:S18/AWS18-088.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Judge: "White, Mayuzumi" Takumu: "Yes!" 
 Text:[C] If you have another Character with "Chiyuri" in name, this gains +1000 Power and "[A] ENCORE [Discard a Character card from your hand to the Waiting Room]". 
 Image:S18/AWS18-082.jpg
+Pack:﻿Accel World Booster Pack

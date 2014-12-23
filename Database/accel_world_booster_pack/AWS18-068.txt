@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Yes, yes. Because I'm just a screw! 
 Text:[C] ASSIST All your Characters in front of this gain +500 Power. 
 Image:S18/AWS18-068.jpg
+Pack:﻿Accel World Booster Pack

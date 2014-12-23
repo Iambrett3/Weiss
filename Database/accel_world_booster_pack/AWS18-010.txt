@@ -15,3 +15,4 @@ Triggers:None
 Flavor:... This is interesting 
 Text:[A] [(1) Discard a card from your hand to the Waiting Room] When this is placed from hand to the Stage, you may pay cost. If so, search your Library for up to 1 Character with either ::Avatar:: and/or ::Net::, reveal it, and put it in your hand. Shuffle your Library. 
 Image:S18/AWS18-010.jpg
+Pack:﻿Accel World Booster Pack

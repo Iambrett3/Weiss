@@ -15,3 +15,4 @@ Triggers:None
 Flavor:SECRET 
 Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. *[S] [Rest 2 of your Characters] Choose 1 of your Characters. That Character gains +2000 Power and "[A] When the Battle Opponent of this becomes Reversed, put that Character in Stock" for the turn. 
 Image:S18/AWS18-005S.jpg
+Pack:﻿Accel World Booster Pack

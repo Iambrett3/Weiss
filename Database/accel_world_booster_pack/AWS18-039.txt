@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Game Over, Arita-senpai... rather, 'Silver Crow' 
 Text:[S] [Rest 2 of your Characters with either ::Avatar:: and/or ::Net::] Choose 1 of your Opponent's Front Row Characters. That Character gets -1000 Power for the turn. 
 Image:S18/AWS18-039.jpg
+Pack:﻿Accel World Booster Pack

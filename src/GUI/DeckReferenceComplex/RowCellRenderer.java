@@ -49,7 +49,10 @@ public class RowCellRenderer extends DefaultTableCellRenderer implements TableCe
     }
     
     public String makeToolTip(Card c) {
-    	String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+        //laptop
+        //String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+        //desktop
+        String imageAddress = "file:G:/Code/workspace/Weiss/Database/images/" + c.getImagePath();
     	String str = "<html><body><textarea cols=\"30\" rows=\"20\" wrap=\"soft\">" + c.getDescription() +
     			"<img src=\"" + imageAddress + "\" width=\"250\" height=\"365\"></body></html>"; 		 
     	return str;

@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:I thought I heard about your favorite hairstyle yesterday... 
 Text:[A] When the Battle Opponent of this becomes Reversed, choose 1 of your Characters with either ::Avatar:: and/or ::Net::. That Character gains +2000 Power for the turn. 
 Image:S18/AWS18-023.jpg
+Pack:﻿Accel World Booster Pack

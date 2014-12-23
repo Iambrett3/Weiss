@@ -15,3 +15,4 @@ Triggers:None
 Flavor:This is perpetual motion... basically, I am invincible 
 Text:Choose 1 of your Characters. That Character gains +3000 Power and "[A] When the Battle Opponent of this becomes Reversed, you may put the top card of your Library in Stock" for the turn. At the end of turn, put that Character in Waiting Room. 
 Image:S18/AWS18-051.jpg
+Pack:﻿Accel World Booster Pack

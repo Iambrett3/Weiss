@@ -15,3 +15,4 @@ Triggers:None
 Flavor:I shall take all your points now 
 Text:[S] [Counter] BACKUP 1500, Level 1 [Discard this card from your hand to the Waiting Room] 
 Image:S18/AWS18-092.jpg
+Pack:﻿Accel World Booster Pack

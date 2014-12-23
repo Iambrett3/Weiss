@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Ah... Uh, sister, is really pretty... 
 Text:-- None -- 
 Image:S18/AWS18-093.jpg
+Pack:﻿Accel World Booster Pack

@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Who, other than me, got this kind of score!? 
 Text:-- None -- 
 Image:S18/AWS18-024.jpg
+Pack:﻿Accel World Booster Pack

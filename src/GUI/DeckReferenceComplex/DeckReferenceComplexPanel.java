@@ -19,7 +19,7 @@ import Card.Card;
 public class DeckReferenceComplexPanel extends JPanel
 {
     private DeckStats deckStats;
-    private JTable deckTable;
+    private DeckTable deckTable;
     private JTextPane cardStats;
     private ImageSelection imageSelection;
     private DRCController controller;
@@ -46,7 +46,6 @@ public class DeckReferenceComplexPanel extends JPanel
         //cardStats.setEditable(false);
         //JScrollPane cardStatsPane = new JScrollPane(cardStats);
         //add(cardStatsPane);        
-        
         
         
         tablePane = new JScrollPane(deckTable);

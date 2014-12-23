@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:SECRET 
 Text:[C] All your other Characters with ::Avatar:: and/or ::Student Council:: gain +500 Power. *[A] When your Character's Trigger Check reveals a Climax card, choose 1 of your Characters. That Character gains +2000 Power for the turn. 
 Image:S18/AWS18-006R.jpg
+Pack:﻿Accel World Booster Pack

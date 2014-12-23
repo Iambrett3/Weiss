@@ -15,3 +15,4 @@ Triggers:None
 Flavor:... The person who told me about my spirit said this. Cyan Pile's potential is all in this piledriver 
 Text:Choose 1 of your Opponent's Level 3 or lower Characters. That Character does not Stand during your Opponent's next Stand Phase. 
 Image:S18/AWS18-097.jpg
+Pack:﻿Accel World Booster Pack

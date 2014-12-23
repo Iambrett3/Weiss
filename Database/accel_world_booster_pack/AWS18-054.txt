@@ -15,3 +15,4 @@ Triggers:Treasure
 Flavor:Citron Call! 
 Text:[C] All your Characters gain +1000 Power and +1 Soul. 
 Image:S18/AWS18-054.jpg
+Pack:﻿Accel World Booster Pack

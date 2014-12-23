@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Take me with you! I want to go there! Higher! Farther! 
 Text:[A] When this attacks, all your other Characters whose name include "Kuroyukihime" gain +500 Power for the turn. *[A] BOND/"Kuroyukihime, Promise at Dusk" [Put the top card of your Library in Clock] 
 Image:S18/AWS18-016.jpg
+Pack:﻿Accel World Booster Pack

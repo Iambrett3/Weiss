@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Dolphin: "Don't worry, nee-nee! The sea is kind-!" Merrow: "Let us handle it in the water!" 
 Text:If you have 2 or fewer ::Avatar:: Characters, you cannot play this from your hand. Choose 1 of your Opponent's Cost 1 or lower Characters and put it on bottom of the Library. Send this to Memory. 
 Image:S18/AWS18-098.jpg
+Pack:﻿Accel World Booster Pack

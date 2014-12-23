@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:Once you Dive, you can remain there forever. Of course, you need to be Level 4 or higher to get there 
 Text:[A] When "Lightning Cyan Spike" is placed in the Climaxc Zone, if this is in the Front Row, choose 1 of your Opponent's Characters. You may move that Character to another vacant Slot on your Opponent's Stage. 
 Image:S18/AWS18-095.jpg
+Pack:﻿Accel World Booster Pack

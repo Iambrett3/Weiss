@@ -18,7 +18,21 @@ public class Trigger {
 	 *
 	 */
 	public enum Type { SOUL, DOUBLE_SOUL, RETURN, POOL,
-	            COME_BACK, DRAW, SHOT, TREASURE }
+	            COME_BACK, DRAW, SHOT, TREASURE, NONE; 
+	            public String toString() {  
+	                switch (this) {
+	                    case SOUL: return "Soul";
+	                    case DOUBLE_SOUL: return "2 Soul";
+	                    case RETURN: return "Return";
+	                    case POOL: return "Pool";
+	                    case COME_BACK: return "Come Back";
+	                    case DRAW: return "Draw";
+	                    case SHOT: return "Shot";
+	                    case TREASURE: return "Treasure";
+	                    default: return "None";
+	                }
+	            }
+	}
 	
 	private ArrayList<Type> triggers;
 	
@@ -63,20 +77,22 @@ public class Trigger {
 		Type type = null;
 		if (trigger.equals("soul"))
 			type = Type.SOUL;
-		if (trigger.equals("2soul"))
+		else if (trigger.equals("2soul"))
 			type = Type.DOUBLE_SOUL;
-		if (trigger.equals("bounce"))
+		else if (trigger.equals("bounce"))
 			type = Type.RETURN;
-		if (trigger.equals("stock"))
+		else if (trigger.equals("stock"))
 			type = Type.POOL;
-		if (trigger.equals("salvage"))
+		else if (trigger.equals("salvage"))
 			type = Type.COME_BACK;
-		if (trigger.equals("draw"))
+		else if (trigger.equals("draw"))
 			type = Type.DRAW;
-		if (trigger.equals("shot"))
+		else if (trigger.equals("shot"))
 			type = Type.SHOT;
-		if (trigger.equals("treasure"))
+		else if (trigger.equals("treasure"))
 			type = Type.TREASURE;
+		else 
+		    type = Type.NONE;
 		return type;
 	}
 	
@@ -100,6 +116,13 @@ public class Trigger {
 	 * toString for Trigger class.
 	 */
 	public String toString() {
-		return triggers.toString();
+	    String str;
+		if (triggers.size() == 1) {
+		    str = triggers.get(0).toString();
+		}
+		else {
+		    str = triggers.get(0).toString() + ", " + triggers.get(1).toString();
+		}
+		return str;
 	}
 }

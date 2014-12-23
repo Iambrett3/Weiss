@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:... Sorry, Ta-kun... Sorry, Haru... 
 Text:[C] All your other Characters gain "[C] This cannot Side Attack". 
 Image:S18/AWS18-042.jpg
+Pack:﻿Accel World Booster Pack

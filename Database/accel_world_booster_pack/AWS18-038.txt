@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Heh, ahh, I see~ 
 Text:[C] All your other ::Avatar:: Characters gain +500 Power. 
 Image:S18/AWS18-038.jpg
+Pack:﻿Accel World Booster Pack

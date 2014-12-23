@@ -15,3 +15,4 @@ Triggers:None
 Flavor:-- None -- 
 Text:[A] BOND/"Haruyuki, To the Height Where Mankind Hasn't Reached" [(1)] 
 Image:S18/AWS18-043.jpg
+Pack:﻿Accel World Booster Pack

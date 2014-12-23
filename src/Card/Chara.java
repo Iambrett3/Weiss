@@ -33,7 +33,7 @@ private Trait trait;
 	 * @param image Image
 	 */
 	public Chara(String name, String jpnName, String number, String rarity, Trigger trigger, CColor color,
-			String flavor, String[] text, String pack, int level, int cost,
+			String flavor, String[] text, String pack, Integer level, int cost,
 			int power, int soul, Trait trait, BufferedImage image) {
 		super(name, jpnName, number, rarity, trigger, color, flavor, text, pack, level, cost, image);
 		this.power = power;

@@ -15,3 +15,4 @@ Triggers:None
 Flavor:SECRET 
 Text:[C] If this is in the Front Row Center Slot, this gains +1000 Power. *[S] BRAINSTORM [(1)] Reveal the top 4 cards of your Library and put them in the Waiting Room. For each Climax card revealed this way, choose 1 of your Characters. That Character gains +1 Soul for the turn. 
 Image:S18/AWS18-001S.jpg
+Pack:﻿Accel World Booster Pack

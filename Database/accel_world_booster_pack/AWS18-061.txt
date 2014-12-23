@@ -15,3 +15,4 @@ Triggers:Soul
 Flavor:If you look down on me, I shall crush you! 
 Text:[C] Your other Character in the Front Row Center Slot gains +1500 Power. *[S] [Rest 2 of your Characters] Choose 1 of your Characters. That Character gains +1000 Power for the turn. 
 Image:S18/AWS18-061.jpg
+Pack:﻿Accel World Booster Pack

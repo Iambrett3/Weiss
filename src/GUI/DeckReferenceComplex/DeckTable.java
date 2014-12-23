@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolTip;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.ToolTipManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -25,56 +27,36 @@ import javax.swing.JComponent;
 
 import WeissSchwarz.Deck;
 import Card.Card;
+import GUI.BuilderGUI;
 import GUI.CardInfoPanel;
 
 public class DeckTable extends JTable implements TableModelListener
 {
     private DeckTableModel tableModel;
-    private ArrayList<Integer> cardBuffer;
     private Deck deck;
     
-    public DeckTable(Object[][] rows, String[] columns) {
-        super(rows, columns);
-        deck = new Deck();
-       
-        cardBuffer = new ArrayList<Integer>();
-        //cost, traits, soul, power and type need to be added to the list
-        //setModel(tableModel = new DeckTableModel(columns));
-        setModel(tableModel = new DeckTableModel(columns));
-        tableModel.addTableModelListener(this);
-        setCellSelectionEnabled(true);
+    public DeckTable() {
+        super();
+    }
+    
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+    
+    public DeckTableModel getDeckTableModel() {
+        return (DeckTableModel)getModel();
+    }
+    
+    public void sortBy(final String column) {
         
-        ListSelectionModel cellSelectionModel = getSelectionModel();
-        cellSelectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                    cardBuffer.clear();
-                    for (int row: getSelectedRows()) {
-                        cardBuffer.add(row);
-                }
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                getDeckTableModel().sortBy(column);
             }
-            
-        });    
-    }
-    
-    
-    public DeckTable(String[] columns) {
-       // super(columns);
-    }
-    
-    public void tableChanged(TableModelEvent e) {
-        
-    }
-    
-    public void addCard(Card c) {
-        tableModel.addCard(c);
+        });
+        deck.sortBy(column);
     }
 
-
-    public Deck getDeck()
-    {
-        return deck;
-    }
     
 }
 

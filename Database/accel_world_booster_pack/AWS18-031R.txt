@@ -15,3 +15,4 @@ Triggers:None
 Flavor:SECRET 
 Text:[C] All your other Characters gain +500 Power. *[A] [(1) Rest 2 of your Standing Characters] When you use ACCELERATE, you may pay cost. If so, put the top card of your Clock in Waiting Room. 
 Image:S18/AWS18-031R.jpg
+Pack:﻿Accel World Booster Pack

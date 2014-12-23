@@ -15,3 +15,4 @@ Triggers:None
 Flavor:Then, I shall destroy. Be destroyed! 
 Text:[A] When this attacks, if "Black Waves" is in the Climax Zone, this gains +5500 Power for the turn, and at the start of your Encore Step, put this in Waiting Room. 
 Image:S18/AWS18-066.jpg
+Pack:﻿Accel World Booster Pack

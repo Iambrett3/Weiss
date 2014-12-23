@@ -15,3 +15,4 @@ Triggers:None
 Flavor:SECRET 
 Text:[A] This ability may be activated up to once per turn. When you use an *[S] ability, choose 1 of your Characters. That Character gains +500 Power for the turn. *[A] When this becomes Reversed, if Level of the Battle Opponent of this is 0 or lower, you may Reverse that Character. 
 Image:S18/AWS18-059R.jpg
+Pack:﻿Accel World Booster Pack
