@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.zip.ZipFile;
 
 import javax.swing.*;
@@ -32,9 +33,12 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.html.HTML.Tag;
 import javax.swing.tree.*;
 
+import net.miginfocom.swing.MigLayout;
+
 import org.apache.commons.lang3.text.WordUtils;
 
 import WeissSchwarz.CardReader;
+import WeissSchwarz.ToolTipHelper;
 import Card.*;
 import GUI.DeckReferenceComplex.CPTTransferHandler;
 import GUI.DeckReferenceComplex.SwingHelp;
@@ -52,11 +56,13 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
     private JDialog progDialog;
     private LoadSetTask loadSet;
     
-    private final String[] packs = {"Accel World"};
+    private ArrayList<String> titles;
 	
 	public CardTreePanel() throws IOException {
+		setLayout(new MigLayout());
 		cardBuffer = new ArrayList<Card>();
 		top = new CardTreeNode("All Cards"); //initializes and names top of list.
+		initTitles();
 		initTree();
 		selectionModel = cardTree.getSelectionModel();
 		treeModel = new DefaultTreeModel(top);
@@ -66,17 +72,20 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
         cardHash = new CardHashRetrieval(); 
 	}
 	
-
+	public void initTitles() {
+		titles = new ArrayList<String>();
+		try {
+			File titlesText = new File("C:/Brett/workspace/Weiss/Database/TitleList.txt");
+			Scanner scan = new Scanner(titlesText);
+			while (scan.hasNext()) {
+				titles.add(scan.nextLine());
+			}
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	public String makeToolTip(Card c) {
-	    //laptop
-    	//String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
-	    //desktop
-	    String imageAddress = "file:G:/Code/workspace/Weiss/Database/images/" + c.getImagePath();
-    	String str = "<html><body><textarea cols=\"30\" rows=\"20\" wrap=\"soft\">" + c.getDescription() +
-    			"<img src=\"" + imageAddress + "\" width=\"250\" height=\"365\"></body></html>"; 		 
-    	return str;
-    }
 	
 	public int getLeafDepth() {
 	    return LEAF_DEPTH;
@@ -94,18 +103,21 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	        System.out.println("initList failed");
 	    }
         cardTree = new JTree(top) {
-//        	public Point getToolTipLocation(MouseEvent e)
-//    		{
-//        			TreePath row = getPathForLocation(e.getX(), e.getY());
-//        			Rectangle rowRect = getPathBounds(row);
-//        			double x = rowRect.getX() + rowRect.getWidth();
-//        			double y = rowRect.getY() + rowRect.getHeight();
-//        			return new Point((int) x, (int) y);
-//    	    }
+        	public Point getToolTipLocation(MouseEvent e)
+    		{
+        			TreePath row = getPathForLocation(e.getX(), e.getY());
+        			Rectangle rowRect = getPathBounds(row);
+        			if (rowRect == null) {
+        				return null;
+        			}
+        			double x = rowRect.getX() + rowRect.getWidth()/2;
+        			double y = rowRect.getY();
+        			return new Point((int) x, (int) y);
+    	    }
         };
         cardTree.addTreeSelectionListener(new SelectionHandler());
         JScrollPane tree = new JScrollPane(cardTree);
-        tree.setPreferredSize(new Dimension(300, 800));
+        tree.setPreferredSize(new Dimension(400, 500));
         cardTree.setDragEnabled(true);
         cardTree.setTransferHandler(new CPTTransferHandler(cardTree));
         add(tree);
@@ -117,7 +129,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	 */
 	public void initList() throws IOException //TODO: handle this exception
 	{
-	    for (String str: packs) {
+	    for (String str: titles) {
 	        initFolder(str);
 	    }
 	   // cardTree.getModel().
@@ -141,7 +153,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	public void initFolder(String packName) throws IOException {
 	    CardTreeNode currentNode;
 	    top.add(currentNode = new CardTreeNode(packName));
-	    DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath("G:\\Code\\workspace\\Weiss\\Database\\"
+	    DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath("C:\\Brett\\workspace\\Weiss\\Database\\titles\\"
 	                                    + currentNode.getUserObject()));
 	    ZipFile zip;
         for (Path p: ds) {
@@ -184,11 +196,17 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	}
 	
 	public void createNodes(ZipFile cardSet, CardTreeNode set) throws IOException {
-	       setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            showProgressBar();
-	        loadSet = new LoadSetTask(cardSet, set);
-	        loadSet.addPropertyChangeListener(this);
-	        loadSet.execute();
+	       //setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            //showProgressBar();
+	       // loadSet = new LoadSetTask(cardSet, set);
+	        //loadSet.addPropertyChangeListener(this);
+	        //loadSet.execute();
+		CardTreeNode card;
+        ArrayList<Card> theSet = CardReader.loadSet(cardSet);
+            for(Card c : theSet){
+                    card = new CardTreeNode(c);
+                    set.add(card);
+            }
 	}
 				 
 	public ArrayList<Card> getCardBuffer() {
@@ -260,8 +278,8 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 			if (node.isLeaf()) {
 			    if(node.getUserObject() instanceof Card) {
 			        Card card = (Card) node.getUserObject();
-			        setToolTipText(makeToolTip(card));
-			        setText(card.getName());
+			        setToolTipText(ToolTipHelper.makeToolTip(card));
+			        setText(card.toString());
 			    }
 			    else {
 			        setText(node.toString());

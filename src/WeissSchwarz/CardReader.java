@@ -48,13 +48,12 @@ public class CardReader {
 		card.setFlavor(lines.get(14).substring(7));
 		card.setText(lines.get(15).substring(5).split("\\*")); //because i put a little star in between abilities
 		card.setImagePath(lines.get(16).substring(6));
-		card.setImage(fetchImage(lines.get(16).substring(6)));
 		card.setPack(lines.get(17).substring(5));
-		card.setAttributes();
 		
 		if (card instanceof LevelCard) {
 		((LevelCard) card).setLevel(Integer.parseInt(lines.get(7).substring(6)));
 		((LevelCard) card).setCost(Integer.parseInt(lines.get(8).substring(5)));
+		((LevelCard) card).setAttributes();
 		}
 		
 		if (card instanceof Event)
@@ -63,8 +62,8 @@ public class CardReader {
 		if (card instanceof Chara) {
 		((Chara) card).setPower(Integer.parseInt(lines.get(9).substring(6)));
 		((Chara) card).setSoul(Integer.parseInt(lines.get(10).substring(5)));
-		((Chara) card).getTrait().addTrait(lines.get(11).substring(7));
-		((Chara) card).getTrait().addTrait(lines.get(12).substring(7));
+		((Chara) card).getTrait().setTrait(0, lines.get(11).substring(7));
+		((Chara) card).getTrait().setTrait(1, lines.get(12).substring(7));
 		return (Chara) card;
 		}
 		
@@ -122,9 +121,9 @@ public class CardReader {
 	    BufferedImage image = null;
 	    try {
 	    //desktop TODO: do this!!!!
-	    image = ImageIO.read(new File("G:\\Code\\workspace\\Weiss\\Database\\images\\" + str));
+	    //image = ImageIO.read(new File("G:\\Code\\workspace\\Weiss\\Database\\images\\" + str));
 	    //laptop
-	    //image = ImageIO.read(new File("C:\\Brett\\workspace\\Weiss\\Database\\images\\" + str)); 
+	    image = ImageIO.read(new File("C:\\Brett\\workspace\\Weiss\\Database\\images\\" + str)); 
 
 	    }
 	    catch (Exception ex) {

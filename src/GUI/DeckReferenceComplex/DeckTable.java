@@ -3,6 +3,7 @@ package GUI.DeckReferenceComplex;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.JComponent;
 
+import com.lowagie.text.Rectangle;
+
 import WeissSchwarz.Deck;
 import Card.Card;
 import GUI.BuilderGUI;
@@ -35,8 +38,55 @@ public class DeckTable extends JTable implements TableModelListener
     private DeckTableModel tableModel;
     private Deck deck;
     
-    public DeckTable() {
+    
+    
+    final static private int NAME_COLUMN_NUMBER = 2;
+    final static private int QUANTITY_COLUMN_NUMBER = 0;
+    final static private int NUMBER_COLUMN_NUMBER = 1;
+    final static private int TRIGGER_COLUMN_NUMBER = 3;
+    final static private int LEVEL_COLUMN_NUMBER = 4;
+    final static private int COST_COLUMN_NUMBER = 6;
+    final static private int SOUL_COLUMN_NUMBER = 5;
+    
+    
+	public DeckTable() {
         super();
+    }
+	
+	public Point getToolTipLocation(MouseEvent event) {
+		int x = event.getX();
+		int y = event.getY();
+		int row = rowAtPoint(new Point(x, y));
+		java.awt.Rectangle rect = getCellRect(row, DeckTable.getTriggerColumnNumber(), false);
+		return new Point((int)rect.getX(), (int)rect.getY());
+	}
+    
+    public static int getQuantityColumnNumber() {
+		return QUANTITY_COLUMN_NUMBER;
+	}
+
+	public static int getNumberColumnNumber() {
+		return NUMBER_COLUMN_NUMBER;
+	}
+
+	public static int getTriggerColumnNumber() {
+		return TRIGGER_COLUMN_NUMBER;
+	}
+
+	public static int getLevelColumnNumber() {
+		return LEVEL_COLUMN_NUMBER;
+	}
+
+	public static int getCostColumnNumber() {
+		return COST_COLUMN_NUMBER;
+	}
+
+	public static int getSoulColumnNumber() {
+		return SOUL_COLUMN_NUMBER;
+	}
+    
+    public static int getNameColumnNumber() {
+    	return NAME_COLUMN_NUMBER;
     }
     
     public void setDeck(Deck deck) {

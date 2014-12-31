@@ -15,11 +15,14 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import javax.swing.DropMode;
 import javax.swing.JDialog;
+import javax.swing.JList;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
@@ -27,6 +30,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -39,7 +43,10 @@ import javax.swing.SwingUtilities;
 
 import Card.Card;
 import Card.DeckSorter;
+import GUI.BuilderGUI;
 import GUI.CardInfoPanel;
+import GUI.DeckReferenceComplex.ImageLayoutView.ImageList;
+import GUI.DeckReferenceComplex.ImageLayoutView.ImageListTransferHandler;
 import WeissSchwarz.Deck;
 
 /**
@@ -52,31 +59,37 @@ public class DRCController
     private DeckTable deckTable; 
     private ImageSelection imageSelection;  //references to the table, imageSelection, and deckStats
     private DeckStats deckStats;
-    private ArrayList<Integer> cardBuffer;
+    private ArrayList<Integer> cardBuffer; //this is only the card buffer for the deck table. the image view has its own
     private Deck deck;
     private DeckTableModel tableModel;
     private JTextPane cardStats;
     private TableRowSorter sorter;
     private JScrollPane tablePane;
-    private SorterBox sorterBox;
-    private final int CARD_COLUMN_NUMBER = 1;
-    private final int COLOR_COLUMN_NUMBER = 4;
-    private JPopupMenu rightClickPopup;
+    private JPopupMenu deckTableRightClickPopup;
+    private JPopupMenu imageListRightClickPopup;
     private int lastSortedColumn;
+    private ImageList imageList;
+    private BuilderGUI builder;
     
-    public DRCController(SorterBox sorterBox, JScrollPane tablePane, DeckTable deckTable, 
-    		ImageSelection imageSelection, DeckStats deckStats, JTextPane cardStats, Deck deck) {
-    	this.sorterBox = sorterBox;
+    public DRCController(BuilderGUI builder, JScrollPane tablePane, DeckTable deckTable, 
+    		ImageSelection imageSelection, DeckStats deckStats, JTextPane cardStats, Deck deck,
+    		ImageList imageList) {
         this.deckTable = deckTable;
         this.imageSelection = imageSelection;
         this.deckStats = deckStats;
         this.cardStats = cardStats;
         this.tablePane = tablePane;
+        this.imageList = imageList;
+        this.builder = builder;
         this.deck = deck;
         tableModel = (DeckTableModel)deckTable.getDeckTableModel();
         cardBuffer = new ArrayList<Integer>();
         lastSortedColumn = -1;
         init();
+    }
+    
+    public DeckTableModel getDeckTableModel() {
+    	return tableModel;
     }
     
     /**
@@ -87,31 +100,112 @@ public class DRCController
         initImageSelection();
         initDeckStats();
         initCardStats();
-        sorterBox.addActionListener(new SorterHandler());
-		initRightClickPopup();
-		initKeyListener();
+		initDeckTableRightClickPopup();
+		initImageViewRightClickPopup();
+		initKeyListeners();
 	}
+    
+    public void initImageViewRightClickPopup() {
+    	imageListRightClickPopup = new JPopupMenu();
+        JMenuItem menuItem = new JMenuItem("Get Card Info");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		for (int i: imageList.getCardBuffer()) {
+        			new CardInfoPanel(deck.get(i), SwingHelp.getOwningFrame(imageList));
+        		}
+        	}
+        });
+        imageListRightClickPopup.add(menuItem);
+        
+        menuItem = new JMenuItem("Remove From Deck");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		trueRemoveCards(imageList.getList().getSelectedIndices());
+        	}
+        });
+        imageListRightClickPopup.add(menuItem);
+        
+        menuItem = new JMenuItem("Remove 1 From Deck");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		removeCards(imageList.getList().getSelectedIndices());
+        	}
+        });
+        imageListRightClickPopup.add(menuItem);
+        
+        MouseListener popUpListener = new imageListRightClickListener(); 
+        imageList.getList().addMouseListener(popUpListener);
+    }
 	
-	public void initRightClickPopup() {
-        rightClickPopup = new JPopupMenu();
-        JMenuItem menuItem = new JMenuItem("Remove From Deck");
+	public void initDeckTableRightClickPopup() {
+        deckTableRightClickPopup = new JPopupMenu();
+        
+        JMenuItem menuItem = new JMenuItem("Get Card Info");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		for (int i: cardBuffer) {
+        			new CardInfoPanel(deck.get(i), SwingHelp.getOwningFrame(deckTable));
+        		}
+        	}
+        });
+        deckTableRightClickPopup.add(menuItem);
+        
+        menuItem = new JMenuItem("Remove From Deck");
+        menuItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		trueRemoveCards(deckTable.getSelectedRows());
+        	}
+        });
+        deckTableRightClickPopup.add(menuItem);
+        
+        menuItem = new JMenuItem("Remove 1 From Deck");
         menuItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		removeCards(deckTable.getSelectedRows());
         	}
         });
-        rightClickPopup.add(menuItem);
+        deckTableRightClickPopup.add(menuItem);
         
-        MouseListener popUpListener = new RightClickListener(); 
+        MouseListener popUpListener = new DeckTableRightClickListener(); 
         deckTable.addMouseListener(popUpListener);
 	}
 	
-	public void initKeyListener() {
-		deckTable.addKeyListener(new KeyListener() {
+	public void clearDeck() {
+		if (deck.isEmpty()) {
+			return;
+		}
+		//for as many cards as there are in the deck, remove the first index from the table.
+		int deckSize = deck.getDeckSize();
+		for (int i = 0; i < deckSize; i++) {
+			trueRemoveCard(0);
+		}
+		deckStats.updateStats(deck);
+	}
+	
+	public void importDeck(Deck deck) {
+		clearDeck();
+		for (Card card: deck) {
+			addCard(card);
+		}
+		deckStats.updateStats(deck);
+	}
+	
+	public void initKeyListeners() {
+		KeyListener deleteListener;
+		deckTable.addKeyListener(deleteListener = new KeyListener() {
 			public void keyPressed(KeyEvent k) {
-				switch (k.getKeyCode()) {
-				case KeyEvent.VK_DELETE: removeCardsInBuffer();
-				break;
+
+				if (k.getComponent() instanceof JList) {
+					switch (k.getKeyCode()) {
+						case KeyEvent.VK_DELETE: removeCardsInImageListBuffer();
+						break;
+					}
+				}
+				else {
+					switch (k.getKeyCode()) {
+						case KeyEvent.VK_DELETE: removeCardsInBuffer();
+						break;
+					}
 				}
 			}
 			
@@ -122,6 +216,7 @@ public class DRCController
 			public void keyReleased(KeyEvent k) {
 			}
 		});
+		imageList.getList().addKeyListener(deleteListener);
 	}
     
     public JTable getDeckTable() {
@@ -132,8 +227,8 @@ public class DRCController
         tableModel.addTableModelListener(deckTable);
         deckTable.setRowSelectionAllowed(true);
         deckTable.getTableHeader().setReorderingAllowed(false);
-        deckTable.setRowSorter(sorter = new TableRowSorter<DeckTableModel>(tableModel));
-        sorter.setSortsOnUpdates(true);
+        //deckTable.setRowSorter(sorter = new TableRowSorter<DeckTableModel>(tableModel));
+        //sorter.setSortsOnUpdates(true);
         deckTable.setRowHeight(25);
         
 
@@ -145,10 +240,18 @@ public class DRCController
         deckTable.setTransferHandler(new DeckTableTransferHandler(this));
         deckTable.setFillsViewportHeight(true);
         
-        deckTable.setDefaultRenderer(Object.class, new RowCellRenderer(true));
+
+        
+        deckTable.setDefaultRenderer(Object.class, new DeckTableRowCellRenderer(true));
         
         initTableMouseListener();
         initTableHeaderListener();
+        
+        initImageListMouseListener();
+        
+        imageList.getList().setDragEnabled(true);
+        imageList.getList().setDropMode(DropMode.INSERT);
+        imageList.getList().setTransferHandler(new ImageListTransferHandler(imageList, this));
         
         ListSelectionModel cellSelectionModel = deckTable.getSelectionModel();
         cellSelectionModel.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
@@ -186,7 +289,22 @@ public class DRCController
                 int row = table.rowAtPoint(p);
                 if (row != -1) {
                 	if (me.getClickCount() == 2) {
-                		new CardInfoPanel((Card) table.getValueAt(row, CARD_COLUMN_NUMBER), SwingHelp.getOwningFrame(table));
+                		new CardInfoPanel((Card) table.getValueAt(row, DeckTable.getNameColumnNumber()), SwingHelp.getOwningFrame(table));
+                	}
+                }
+            }
+        });
+    }
+    
+    public void initImageListMouseListener() {
+    	imageList.getList().addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
+                JList list = (JList) me.getSource();
+                Point p = me.getPoint();
+                int row = list.locationToIndex(p);
+                if (row != -1) {
+                	if (me.getClickCount() == 2) {
+                		new CardInfoPanel((Card) imageList.getList().getModel().getElementAt(row), SwingHelp.getOwningFrame(imageList.getList()));
                 	}
                 }
             }
@@ -215,16 +333,19 @@ public class DRCController
     	if (deck.isInDeck(c)) {
     		int location = deck.deckLocation(c);
     		int numCard = deck.get(location).getNumOfCard();
-    		deck.get(location).incrementNumOfCard(1);
+    		deck.incrementNumOfCard(location, 1);
+    		deck.setDeckSize(deck.getDeckSize() + 1);
     		tableModel.setValueAt(numCard+1, location, 0);
     	}
     	else {
     		deck.add(c);
+    		imageList.addCard(c);
             tableModel.addCard(c);
-            sorter.modelStructureChanged();
-            setRowColor(c); //TODO: I am calling this just to change the Color column from CColor object to Color object. this is stupid fix this
-    	}
-        System.out.println(((Card) tableModel.getValueAt(tableModel.getRowCount() -1, CARD_COLUMN_NUMBER)).getDescription());
+            //sorter.modelStructureChanged();
+            }
+    	builder.addStarToTitle();
+    	deck.setIsSaved(false);
+        //System.out.println(((Card) tableModel.getValueAt(tableModel.getRowCount() -1, DeckTable.getNameColumnNumber())).getDescription());
         deckStats.updateStats(deck);
     }
     
@@ -232,14 +353,15 @@ public class DRCController
     	if (deck.isInDeck(c)) {
     		int location = deck.deckLocation(c);
     		int numCard = deck.get(location).getNumOfCard();
-    		deck.get(location).incrementNumOfCard(1);
+    		deck.incrementNumOfCard(location, 1);
+    		deck.setDeckSize(deck.getDeckSize() + 1);
     		tableModel.setValueAt(numCard+1, location, 0);
     	}
     	else {
     		deck.add(pos, c);
+    		imageList.insertCard(pos, c);
     		tableModel.insertCard(pos, c);
-    		sorter.modelStructureChanged();
-    		setRowColor(c);
+    		//sorter.modelStructureChanged();
     	}
     	deckStats.updateStats(deck);
     }
@@ -255,64 +377,59 @@ public class DRCController
     		if (from[i] < to) //updates the drop location if the row to be removed is less than the destination.
     			to--;
     		tableModel.removeCard(from[i]);
+    		imageList.removeCard(from[i]);
     		deck.remove(from[i].intValue());
     	}
     	tableModel.insertCards(fromCopy, to);
+    	imageList.insertCards(fromCards, to);
     	deck.insertCards(fromCards, to);
     	deckStats.updateStats(deck);
     }
     
-    public void reorder(int from, int to) {
-    	if (to == deck.size()) {
-    		deck.add(deck.get(from));
-    		deck.remove(from);
-    	}
-    	else if (to > from) {
-    		Card fromCard = (Card) deck.get(from);
-    		deck.add(to, fromCard);
-    		deck.remove(from);
-    	}
-    	else if (from > to) {
-    		Card fromCard = (Card) deck.get(from);
-    		deck.remove(from);
-    		deck.add(to, fromCard);
-    	}
-    	tableModel.reorder(from, to);
-    	sorter.modelStructureChanged();
-    	deckStats.updateStats(deck);
-    }
-    
-    /**
-     * Creates a color object based on the Card's Color and sets it as
-     * the value in the Color row in the deckTable.
-     * @param c
-     */
-    public void setRowColor(Card c) {
-        Color cardColor;
-        switch (c.getColor().toString()) {
-            case "Yellow": cardColor = new Color(255, 255, 0);
-            break;
-            case "Green": cardColor = new Color(0, 255, 0);
-            break;
-            case "Blue": cardColor = new Color(0, 0, 255);
-            break;
-            default: cardColor = new Color(255, 0, 0);
-        }
-        tableModel.setValueAt(cardColor, tableModel.getRowCount() - 1, COLOR_COLUMN_NUMBER);
-    }
+//    public void reorder(int from, int to) {
+//    	if (to == deck.size()) {
+//    		deck.add(deck.get(from));
+//    		deck.remove(from);
+//    	}
+//    	else if (to > from) {
+//    		Card fromCard = (Card) deck.get(from);
+//    		deck.add(to, fromCard);
+//    		deck.remove(from);
+//    	}
+//    	else if (from > to) {
+//    		Card fromCard = (Card) deck.get(from);
+//    		deck.remove(from);
+//    		deck.add(to, fromCard);
+//    	}
+//    	tableModel.reorder(from, to);
+//    	sorter.modelStructureChanged();
+//    	deckStats.updateStats(deck);
+//    }
     
     public void removeCard(int row) {
     	Card c = deck.get(row);
     	int numCard = c.getNumOfCard();
     	if (numCard > 1) {
-    		deck.get(row).incrementNumOfCard(-1);
+    		deck.incrementNumOfCard(row, -1);
+    		deck.setDeckSize(deck.getDeckSize() -1);
     		tableModel.setValueAt(numCard-1, row, 0);
     	}
     	else {
-    		deck.remove(row);
-    		tableModel.removeCard(deckTable.convertRowIndexToModel(row));
-    		sorter.modelStructureChanged();
+    		trueRemoveCard(row);
     	}
+    	builder.addStarToTitle();
+    	deck.setIsSaved(false);
+    	deckStats.updateStats(deck);
+    }
+    
+    public void trueRemoveCard(int row) {
+    	deck.remove(row);
+		tableModel.removeCard(deckTable.convertRowIndexToModel(row));
+		imageList.removeCard(row);
+		
+		builder.addStarToTitle();
+    	deck.setIsSaved(false);
+    	deckStats.updateStats(deck);
     }
     
     public void removeCards(int[] cards) {
@@ -325,6 +442,22 @@ public class DRCController
     	for (int i = 0; i < reverseCards.length; i++) {
     		removeCard(reverseCards[i]);
     	}
+    	deckStats.updateStats(deck);
+    }
+    
+    public void trueRemoveCards(int[] cards) {
+    	int[] reverseCards = new int[cards.length];
+    	int j = cards.length - 1;
+    	for (int i = 0; i < cards.length; i++) {
+    		reverseCards[j] = cards[i];
+    		j--;
+    	}
+    	for (int i = 0; i < reverseCards.length; i++) {
+    		trueRemoveCard(reverseCards[i]);
+    	}
+    	builder.addStarToTitle();
+    	deck.setIsSaved(false);
+    	deckStats.updateStats(deck);
     }
     
     public void removeCardsInBuffer() { 
@@ -335,23 +468,28 @@ public class DRCController
         while (toBeRemoved.hasNext()) { //while there is another row to be removed
             int remove = toBeRemoved.next(); 
             //tableModel.removeCard(deckTable.convertRowIndexToModel(remove));
-        	sorter.modelStructureChanged();
+        	//sorter.modelStructureChanged();
             //deck.remove(remove); //remove from deck
-            removeCard(remove);
+            trueRemoveCard(remove);
         }
         deckStats.updateStats(deck);
     }        
     
-    private class SorterHandler implements ActionListener {
-    	public void actionPerformed(ActionEvent e) {
-    		String selected = (String) sorterBox.getSelectedItem();
-    		tableModel.sortBy(selected);
-    		deck.sortBy(selected);
-    		deckStats.updateStats(deck);
-    	}
+    public void removeCardsInImageListBuffer() {
+    	ArrayList<Integer> cardBufferCopy = (ArrayList<Integer>) imageList.getCardBuffer().clone(); //creates clone so cardBuffer.clear() in valueChanged() doesn't affect the list.
+        Collections.sort(cardBufferCopy, Collections.reverseOrder()); //reverse order to avoid out of bounds exception
+        Iterator<Integer> toBeRemoved = cardBufferCopy.iterator(); //iterator
+        while (toBeRemoved.hasNext()) { //while there is another row to be removed
+            int remove = toBeRemoved.next(); 
+            //tableModel.removeCard(deckTable.convertRowIndexToModel(remove));
+        	//sorter.modelStructureChanged();
+            //deck.remove(remove); //remove from deck
+            trueRemoveCard(remove);
+        }
+    	deckStats.updateStats(deck);
     }
     
-    private class RightClickListener extends MouseAdapter {
+    private class DeckTableRightClickListener extends MouseAdapter {
     	public void mouseReleased(MouseEvent me) {
 			Integer row = deckTable.rowAtPoint(me.getPoint());
 			if (row != -1) {
@@ -373,11 +511,39 @@ public class DRCController
 		}
     	private void showRightClickMenu(MouseEvent me) {
 			if (me.isPopupTrigger()) {
-				rightClickPopup.show(deckTable, me.getX(), me.getY());
+				deckTableRightClickPopup.show(deckTable, me.getX(), me.getY());
 			}
 		}
     }
 
+    
+    private class imageListRightClickListener extends MouseAdapter {
+    	public void mouseReleased(MouseEvent me) {
+			Integer row = imageList.getList().locationToIndex(me.getPoint());
+			if (row != -1) {
+				if(SwingUtilities.isRightMouseButton(me)) {
+					boolean clickedOnSelection = false;
+					//check if clicked on current selection paths
+					for (Integer i: imageList.getList().getSelectedIndices()) { 
+						if (row.equals(i)) {
+							clickedOnSelection = true;
+						}
+					}
+					//this is to correctly select paths and maintain already selected paths, etc.
+					if (!clickedOnSelection) {
+						imageList.getList().setSelectedIndex(row);
+					}
+				}
+					showRightClickMenu(me);
+			}
+		}
+    	private void showRightClickMenu(MouseEvent me) {
+			if (me.isPopupTrigger()) {
+				imageListRightClickPopup.show(imageList, me.getX(), me.getY());
+			}
+		}
+    }
+    
 	public Deck getDeck() {
 		return deck;
 	}

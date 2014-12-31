@@ -7,18 +7,19 @@
 
 package Card;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Trigger class.
  */
-public class Trigger {
+public class Trigger implements Serializable {
 	/**
 	 * Enum types for trigger.
 	 *
 	 */
-	public enum Type { SOUL, DOUBLE_SOUL, RETURN, POOL,
-	            COME_BACK, DRAW, SHOT, TREASURE, NONE; 
+	public enum Type { NONE, SOUL, DOUBLE_SOUL, RETURN, POOL,
+	            COME_BACK, DRAW, SHOT, TREASURE; 
 	            public String toString() {  
 	                switch (this) {
 	                    case SOUL: return "Soul";
@@ -32,6 +33,20 @@ public class Trigger {
 	                    default: return "None";
 	                }
 	            }
+	            
+	            public static String[] getTypeStringArray() {
+	            	Type[] values = values();
+	            	String[] types = new String[values.length];
+	            	int i = 0;
+	            	for (Type value : values) {
+	            		types[i++] = value.toString();
+	            	}
+	            	return types;
+	            }
+	            
+	            public static Type[] getTypeArray() {
+	            	return values();
+	            }
 	}
 	
 	private ArrayList<Type> triggers;
@@ -43,6 +58,15 @@ public class Trigger {
 	public Trigger(Type type) {
 		triggers = new ArrayList<>(1);
 		triggers.add(type);
+	}
+	
+	public boolean hasTrigger(String trigger) {
+		for (Type type: triggers) {
+			if (type.toString().equals(trigger)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -116,13 +140,14 @@ public class Trigger {
 	 * toString for Trigger class.
 	 */
 	public String toString() {
-	    String str;
+	    String str = "";
 		if (triggers.size() == 1) {
-		    str = triggers.get(0).toString();
+		    str += triggers.get(0).toString();
 		}
 		else {
-		    str = triggers.get(0).toString() + ", " + triggers.get(1).toString();
+		    str += triggers.get(0).toString() + ", " + triggers.get(1).toString();
 		}
+		str += "";
 		return str;
 	}
 }

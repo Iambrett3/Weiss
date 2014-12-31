@@ -8,12 +8,13 @@
 package Card;
 
 import java.awt.Color;
+import java.io.Serializable;
 
 /**
  * Color class.
  *
  */
-public class CColor {
+public class CColor implements Serializable{
 	
 	/**
 	 * Enumerated types for color.
@@ -64,6 +65,25 @@ public class CColor {
 	 */
 	public TypeC getType() {
 		return type;
+	}
+	
+	public boolean equals(CColor otherColor) {
+		if (getType().equals(otherColor.getType())) {
+			return true;
+		}
+		return false;
+	}
+	
+	//returns a java awt Color object of thisobject
+	public Color getTrueColor() {
+		if (this.type == TypeC.YELLOW)
+			return new Color(255, 255, 102);
+		if (this.type == TypeC.GREEN)
+			return new Color(0, 204, 0);
+		if (this.type == TypeC.RED)
+			return new Color(204, 0, 0);
+		
+			return new Color(0, 76, 153);
 	}
 
 	/**

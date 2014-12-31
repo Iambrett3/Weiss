@@ -1,4 +1,5 @@
 package WeissSchwarz;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,6 +8,8 @@ import javax.swing.JDialog;
 import javax.swing.JTextArea;
 
 import Card.Card;
+import Card.Climax;
+import Card.Event;
 
 
 public class Deck extends ArrayList<Card> {
@@ -14,7 +17,39 @@ public class Deck extends ArrayList<Card> {
 /**
  * no-arg constructor for Deck class.
  */
+	private int deckSize;
+	private boolean isSaved;
+	
 	public Deck () {
+		deckSize = 0;
+		isSaved = false;
+	}
+	
+	//returns whether the deck has been altered since last save.
+	public boolean isSaved() {
+		return isSaved;
+	}
+	
+	public void setIsSaved(boolean isSaved) {
+		this.isSaved = isSaved;
+	}
+	
+	public int getDeckSize() {
+		return deckSize;
+	}
+	
+	public void setDeckSize(int size) {
+		deckSize += size;
+	}
+	
+	public boolean add(Card c) {
+		deckSize++;
+		return super.add(c);
+	}
+	
+	public Card remove(int row) {
+		deckSize--;
+		return super.remove(row);
 	}
 	
 	public String toString() {
@@ -54,6 +89,7 @@ public class Deck extends ArrayList<Card> {
 			add(pos, cards[i]);
 		}
 	}
+
 	
 	public void sortBy(String key) {
 		switch (key) {
@@ -66,6 +102,10 @@ public class Deck extends ArrayList<Card> {
 		case "Trigger" : sortByTrigger();
 		break;
 		case "Level" : sortByLevel();
+		break;
+		case "Soul" : sortBySoul();
+		break;
+		case "Cost" : sortByCost();
 		break;
 		default:
 			break;
@@ -107,7 +147,54 @@ public class Deck extends ArrayList<Card> {
 				   this,
 				   new Comparator<Card>() {
 				     public int compare(Card a, Card b) {
+				    	 if (a instanceof Climax) { //climaxes should sort to be after all level cards
+				    		 if (b instanceof Climax) {
+				    			 return 0;
+				    		 }
+				    		 return 1;
+				    	 }
+				    	 if (b instanceof Climax) {
+				    		 return -1;
+				    	 }
 				       return Integer.compare(a.getLevel(), b.getLevel());
+				     }
+				   });
+	}
+	
+	public void sortBySoul() {
+		Collections.sort(
+				   this,
+				   new Comparator<Card>() {
+				     public int compare(Card a, Card b) {
+				    	 if (a instanceof Climax || a instanceof Event) { //climaxes should sort to be after all level cards
+				    		 if (b instanceof Climax || b instanceof Event) {
+				    			 return 0;
+				    		 }
+				    		 return 1;
+				    	 }
+				    	 if (b instanceof Climax || b instanceof Event) {
+				    		 return -1;
+				    	 }
+				       return Integer.compare(a.getSoul(), b.getSoul());
+				     }
+				   });
+	}
+	
+	public void sortByCost() {
+		Collections.sort(
+				   this,
+				   new Comparator<Card>() {
+				     public int compare(Card a, Card b) {
+				    	 if (a instanceof Climax) { //climaxes should sort to be after all level cards
+				    		 if (b instanceof Climax) {
+				    			 return 0;
+				    		 }
+				    		 return 1;
+				    	 }
+				    	 if (b instanceof Climax) {
+				    		 return -1;
+				    	 }
+				       return Integer.compare(a.getCost(), b.getCost());
 				     }
 				   });
 	}
@@ -120,5 +207,10 @@ public class Deck extends ArrayList<Card> {
 				       return a.getName().compareTo(b.getName());
 				     }
 				   });
+	}
+
+	public void incrementNumOfCard(int row, int i) {
+		get(row).incrementNumOfCard(i);
+		isSaved = false;
 	}
 }

@@ -44,8 +44,10 @@ public class Reader {
             
             String[] split1 = input.split("/"); //split the number input around the slash
             String[] split2 = split1[1].split("-"); //split the second half of the original input around the :. index 0 is now the set number.
-            String location = split2[0] + "/" + input.replaceAll("/", "") + ".jpg"; //inits location in this format: PackNumber/CardNumber(Without"/").jpg
-            writer = new PrintWriter(dir + "/" + location.split("/")[1].replaceAll(".jpg",  ".txt"));
+            String imgLocation = split2[0] + "/" + input.replaceAll("/", "") + ".jpg"; //inits location in this format: PackNumber/CardNumber(Without"/").jpg
+            String txtFileLocation = dir + "/" + imgLocation.split("/")[1].replaceAll(".jpg",  ".txt");
+            File txtFile = new File(txtFileLocation);
+            writer = new PrintWriter(txtFile);
             writer.println("Name:" + name);
             writer.println("JPN_Name:" + jpnName); 
             writer.println("Number:" + input); 
@@ -149,7 +151,7 @@ public class Reader {
             	input = "";
             }
             
-            writer.printf("%n%s%s", "Image:", location);
+            writer.printf("%n%s%s", "Image:", imgLocation);
             writer.printf("%n%s%s", "Pack:", pack);
             writer.close();
             

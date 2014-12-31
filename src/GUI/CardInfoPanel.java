@@ -11,6 +11,8 @@ import javax.swing.JTextPane;
 import javax.swing.JWindow;
 import javax.swing.SwingUtilities;
 
+import WeissSchwarz.CardReader;
+import WeissSchwarz.ImageLoader;
 import net.miginfocom.swing.MigLayout;
 import Card.Card;
 import GUI.DeckReferenceComplex.ImageSelection;
@@ -38,7 +40,8 @@ public class CardInfoPanel extends JDialog{
 	
 	public void init() {
 		getContentPane().setLayout(new MigLayout());
-		getContentPane().add(image = new ImageSelection(c.getImage()));
+		getContentPane().add(image = new ImageSelection(ImageLoader.loadImage(c)));
+		setTitle("Card: " + c.toString());
 		cardStats = new JTextPane();
         cardStats.setEditable(false);
         cardStats.setText(c.getDescription());

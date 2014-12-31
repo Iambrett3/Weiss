@@ -7,14 +7,17 @@
 package Card;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Vector;
 
+import GUI.DeckReferenceComplex.DeckTable;
+
 /**
  * Card class.
  */
-public abstract class Card {
+public abstract class Card implements Serializable{
 
 private String name;
 private String jpnName;
@@ -25,11 +28,9 @@ private CColor color;
 private String flavor;
 private String[] text;
 private String pack;
-private BufferedImage image;
 private String imagePath;
 private Integer numOfCard; //the number this card in existence. (most likely in the context of a deck)
 private String ID;
-private Attribute attribute;
 
 private final int MAX_NUM_ATTRIBUTES = 4;
 
@@ -57,7 +58,7 @@ private final int MAX_NUM_ATTRIBUTES = 4;
 	this.flavor = flavor;
 	this.text = text;
 	this.pack = pack;
-	this.image = image;
+	//this.image = image;
 	numOfCard = 1;  
 }
 
@@ -68,24 +69,7 @@ public Card() {
 	numOfCard = 1;
 }
 
-public void setAttributes() {
-    ArrayList<String> tmp = new ArrayList<String>();
-    int cursor = 0;
-    for (String ability: text) {
-        for (String attribute: Attribute.getListOfAttributes()) {
-            //these if statements may seem redundant, but the first one is necessary to eliminate cards with no or little text
-            //that would make the substring() method fail.
-            if (ability.contains(attribute)) {
-         // this is to prevent from catching these strings later in the description
-                if (ability.substring(4, Attribute.getLongestAttributeLength()).contains(attribute)) 
-                    tmp.add(attribute);
-            }
-        }
-    }
-    if (tmp.size() < 1)
-        tmp.add("None");
-    attribute = new Attribute(tmp);
-}
+
 
 public Integer getNumOfCard() {
 	return numOfCard;
@@ -120,6 +104,12 @@ public String getName() {
  * @return 
  */
 public Integer getLevel() {return new Integer(-1);}
+
+public Integer getCost() {return new Integer(-1);}
+
+public Integer getPower() {return new Integer(-1);}
+
+public Integer getSoul() {return new Integer(-1);}
 
 /**
  * Getter method for jpnName field.
@@ -181,6 +171,10 @@ public String getText() {
 	return str;
 }
 
+public String[] getTextArray() {
+	return text;
+}
+
 /**
  * Getter method for pack field.
  * @return pack
@@ -195,14 +189,6 @@ public String getImagePath() {
 
 public void setImagePath(String imagePath) {
 	this.imagePath = imagePath;
-}
-
-/**
- * Getter method for image field.
- * @return image
- */
-public BufferedImage getImage() {
-	return image;
 }
 
 /**
@@ -289,12 +275,8 @@ public void setPack(String pack) {
 	this.pack = pack;
 }
 
-/**
- * Setter method for image field.
- * @param image Image
- */
-public void setImage(BufferedImage image) {
-	this.image = image;
+public boolean equals(Card otherCard) {
+	return (number.equals(otherCard.getNumber()));
 }
 
 /**
@@ -309,8 +291,7 @@ public String getDescription() {
 			     + "\nFlavor: " + flavor
 			     + "\nText: "
 			     + getText();
-			str += "Pack: " + pack
-			    + "\nAttributes: " + attribute;
+			str += "Pack: " + pack;
 	return str;
 }
 	
@@ -319,21 +300,21 @@ public String getDescription() {
 	 * TODO: fill out card properties
 	 */
 	public static Vector vectorizeCard(Card c) {
-		Object[] cardData = {c.numOfCard, c, c.getNumber(), c.getTrigger(), new Color(255, 0, 0),
-				c.getFlavor(), c.getText(), c.getPack(), c.getLevel(), c.getLevel()};
+		Object[] cardData = {c.numOfCard, c.getNumber(), c, c.getTrigger(),
+				c.getLevel(), c.getSoul(), c.getCost()};
 		Vector cardVector = new Vector(Arrays.asList(cardData));
 		return cardVector;
 	}
 	
 	public static Card vectorToCard(Vector v) {
-		if (!(v.get(1) instanceof Card)) {
+		if (!(v.get(DeckTable.getNameColumnNumber()) instanceof Card)) {
 			return null;
 		}
-		return (Card) v.get(1);
+		return (Card) v.get(DeckTable.getNameColumnNumber());
 		
 	}
 
     public String toString() {
-        return name;
+        return name + " - " + number;
     }
 }

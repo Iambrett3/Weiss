@@ -1,5 +1,6 @@
 package Card;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 /**
@@ -10,6 +11,7 @@ import java.awt.image.BufferedImage;
 public abstract class LevelCard extends Card {
 	private Integer level;
 	private Integer cost;
+	private Ability ability;
 	
 	/**
 	 * LevelCard Constructor
@@ -31,10 +33,39 @@ public abstract class LevelCard extends Card {
 		super(name, jpnName, number, rarity, trigger, color, flavor, text, pack, image);
 		this.level = new Integer(level);
 		this.cost = new Integer(cost);
+		setAttributes();
 	}
 	
 	public LevelCard() {
 		super();
+	}
+	
+	public void setAttributes() {
+	    ArrayList<String> tmp = new ArrayList<String>();
+	    int cursor = 0;
+	    for (String ability: getTextArray()) {
+	        for (String attribute: Ability.getListOfAbilities()) {
+	            //these if statements may seem redundant, but the first one is necessary to eliminate cards with no or little text
+	            //that would make the substring() method fail.
+	            if (ability.contains(attribute)) {
+	         // this is to prevent from catching these strings later in the description
+	         // the if statement is necessary to prevent outofbounds exceptions, like if this ability was the last
+	         // ability and the text of that ability was shorter than the longest ability's length.
+	            	String stringToCheck;
+	            	if (ability.length() < 4 + Ability.getLongestAbilityLength()) {
+	            		stringToCheck = ability.substring(4);
+	            	}
+	            	else {
+	            		stringToCheck = ability.substring(4, Ability.getLongestAbilityLength());
+	            	}
+	                if (stringToCheck.contains(attribute)) 
+	                    tmp.add(attribute);
+	            }
+	        }
+	    }
+	    if (tmp.size() < 1)
+	        tmp.add("None");
+	    ability = new Ability(tmp);
 	}
 	
 	/**
@@ -45,11 +76,15 @@ public abstract class LevelCard extends Card {
 		return level;
 	}
 	
+	public Ability getAbility() {
+		return ability;
+	}
+	
 	/**
 	 * Getter method for cost field.
 	 * @return Cost
 	 */
-	public int getCost() {
+	public Integer getCost() {
 		return cost;
 	}
 	
@@ -76,7 +111,8 @@ public abstract class LevelCard extends Card {
 	public String getDescription() {
 		String str = super.getDescription() 
 				     + "\nLevel: " + level
-				     + "\nCost: " + cost;
+				     + "\nCost: " + cost
+					    + "\nAbilities: " + ability;
 		return str;
 	}
 }

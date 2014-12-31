@@ -53,7 +53,7 @@ private Trait trait;
 	 * Getter method for power field.
 	 * @return Power
 	 */
-	public int getPower() {
+	public Integer getPower() {
 		return power;
 	}
 	
@@ -61,7 +61,7 @@ private Trait trait;
 	 * Getter method for soul field.
 	 * @return Soul
 	 */
-	public int getSoul() {
+	public Integer getSoul() {
 		return soul;
 	}
 	
@@ -109,5 +109,6 @@ private Trait trait;
 				     + "\nTrait(s): " + trait;
 		return str;
 	}
+
 
 }
