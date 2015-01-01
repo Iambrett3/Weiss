@@ -1,11 +1,13 @@
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JWindow;
@@ -36,11 +38,13 @@ public class CardInfoPanel extends JDialog{
 		setBounds(90, 90, 0, 0);
 		pack();
 		setVisible(true);
+		setResizable(false);
 		}
 	
 	public void init() {
-		getContentPane().setLayout(new MigLayout());
-		getContentPane().add(image = new ImageSelection(ImageLoader.loadImage(c)));
+		getContentPane().setLayout(new BorderLayout());
+		JPanel infoPanel = new JPanel(new MigLayout());
+		infoPanel.add(image = new ImageSelection(ImageLoader.loadImage(c)));
 		setTitle("Card: " + c.toString());
 		cardStats = new JTextPane();
         cardStats.setEditable(false);
@@ -49,6 +53,8 @@ public class CardInfoPanel extends JDialog{
         cardStatsPane.setPreferredSize(new Dimension(200, 365));
         //w = cardStatsPane.getWidth() + image.getWidth() + 50;
         //h = image.getHeight();
-        getContentPane().add(cardStatsPane);
+        infoPanel.add(cardStatsPane);
+        add(infoPanel);
+        pack();
 	}
 }

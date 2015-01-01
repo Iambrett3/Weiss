@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -59,7 +60,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
     private ArrayList<String> titles;
 	
 	public CardTreePanel() throws IOException {
-		setLayout(new MigLayout());
+		setLayout(new BorderLayout());
 		cardBuffer = new ArrayList<Card>();
 		top = new CardTreeNode("All Cards"); //initializes and names top of list.
 		initTitles();
@@ -117,10 +118,10 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
         };
         cardTree.addTreeSelectionListener(new SelectionHandler());
         JScrollPane tree = new JScrollPane(cardTree);
-        tree.setPreferredSize(new Dimension(400, 500));
+        tree.setPreferredSize(new Dimension(200, 500));
         cardTree.setDragEnabled(true);
         cardTree.setTransferHandler(new CPTTransferHandler(cardTree));
-        add(tree);
+        add(tree, BorderLayout.CENTER);
 	}
 	
 	/**

@@ -3,6 +3,7 @@ package GUI.DeckReferenceComplex;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.Point;
 
 import javax.print.DocFlavor.URL;
@@ -45,7 +46,14 @@ public class DeckTableRowCellRenderer extends DefaultTableCellRenderer implement
     	
     	setToolTipText(ToolTipHelper.makeToolTip((Card)table.getValueAt(row, DeckTable.getNameColumnNumber())));
             if (!isSelected) {
-            	setBackground((Color)((DeckTableModel)table.getModel()).getRowColor(row));
+            	Color color = (Color)((DeckTableModel)table.getModel()).getRowColor(row);
+            	setBackground(color);
+            	if (color.equals(new Color(204, 0, 0)) || color.equals(new Color(0, 76, 153))) {
+            		setForeground(Color.WHITE);
+            	}
+            	else {
+            		setForeground(Color.BLACK);
+            	}
             }
             if(cell instanceof Card) {
             	setText(((Card)cell).getName());

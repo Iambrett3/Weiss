@@ -1,5 +1,6 @@
 package Search;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -30,22 +31,21 @@ public class SearchResultsDialog extends JDialog{
 
 	public SearchResultsDialog(ArrayList<Card> results, Frame parent) {
 		super(parent, false);
-		setLayout(new MigLayout());
+		JPanel searchResultsPanel = new JPanel(new BorderLayout());
+		setLayout(new BorderLayout());
 		resultModel = new ResultListModel();
 		resultList = new JList(resultModel);
 		this.results = results;
 		initList();
-		JScrollPane resultScroll = new JScrollPane(resultList);
-		JPanel resultPanel = new JPanel(new MigLayout());
-		resultPanel.add(resultScroll);
-		resultScroll.setPreferredSize(new Dimension(400, 500));
-		add(new JLabel("Search Results:"), "wrap");
-		add(resultPanel);
+		//searchResultsPanel.add(new JLabel("Search Results:"), "wrap");
+		searchResultsPanel.add(resultList);
+		add(new JScrollPane(searchResultsPanel));
 		
 		resultList.setDragEnabled(true);
         resultList.setTransferHandler(new SearchResultsTransferHandler(this));
         resultList.setCellRenderer(new ListCellRenderer());
 		setBounds(500, 150, 400, 500);
+
 	}
 	
 	public void initList() {

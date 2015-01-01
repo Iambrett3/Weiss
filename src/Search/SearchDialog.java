@@ -1,5 +1,6 @@
 package Search;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -28,6 +29,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JWindow;
 
@@ -88,13 +90,16 @@ public class SearchDialog extends JDialog{
 		super(parent, false);
 		this.controller = controller;
 		setAlwaysOnTop(false);
-		setLayout(new MigLayout());
-		setPreferredSize(new Dimension(600, 700));
-		add(getSearchPanel(), "wrap");
-		add(getTypeAndTitlePanel(), "wrap");
-		add(getColorRarityCostSoulLevelPanel(), "wrap");
-		add(getTriggersTraitsAndAbilitiesPanel(), "wrap"); //triggers traits and abilities
-		add(getPowerPanel());
+		setLayout(new BorderLayout());
+		JPanel thePanel = new JPanel(new MigLayout());
+		thePanel.add(getSearchPanel(), "wrap");
+		thePanel.add(getTypeAndTitlePanel(), "wrap");
+		thePanel.add(getColorRarityCostSoulLevelPanel(), "wrap");
+		thePanel.add(getTriggersTraitsAndAbilitiesPanel(), "wrap"); //triggers traits and abilities
+		thePanel.add(getPowerPanel());
+		JScrollPane theScroll = new JScrollPane(thePanel);
+		add(theScroll);
+		setTitle("Card Database Search");
 		pack();
 		setKeyListeners();
 		setVisible(true);

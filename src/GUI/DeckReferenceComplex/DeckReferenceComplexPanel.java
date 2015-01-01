@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -33,6 +34,7 @@ public class DeckReferenceComplexPanel extends JPanel
     private Deck deck;
     private ImageList imageList;
     private JPanel deckViewPanel;
+    private JSplitPane splitPane;
     
     public DeckReferenceComplexPanel(BuilderGUI builder) {
         deckStats = new DeckStats(deck = new Deck());
@@ -45,7 +47,7 @@ public class DeckReferenceComplexPanel extends JPanel
     }
     
     public void init() {
-    	setLayout(new MigLayout());
+    	setLayout(new BorderLayout());
     	//code from when this was still displayed in window:
         //add(imageSelection); 
         
@@ -55,35 +57,47 @@ public class DeckReferenceComplexPanel extends JPanel
         //JScrollPane cardStatsPane = new JScrollPane(cardStats);
         //add(cardStatsPane);        
         
-    	deckViewPanel = new JPanel(new BorderLayout());
+    	//deckViewPanel = new JPanel(new BorderLayout());
         
         tablePane = new JScrollPane(deckTable);
-        tablePane.setPreferredSize(new Dimension (500, 600));
+        //tablePane.setPreferredSize(new Dimension (500, 600));
         
         imagePane = new JScrollPane(imageList);
-        tablePane.setPreferredSize(new Dimension (500, 600));
+        //tablePane.setPreferredSize(new Dimension (500, 600));
         
-        deckViewPanel.add(tablePane);
-        add(deckViewPanel, "wrap");
+        //deckViewPanel.add(tablePane);
+//        add(deckViewPanel, "wrap");
         
 
 
-        deckStats.setPreferredSize(new Dimension(500, 100));
-        add(deckStats);
+//        deckStats.setPreferredSize(new Dimension(500, 100));
+//        add(deckStats);
+        JScrollPane deckStatsPane = new JScrollPane(deckStats);
+        splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
+                tablePane, deckStatsPane);
+        splitPane.setOneTouchExpandable(true);
+        splitPane.setDividerLocation(500);
+        
+        add(splitPane);
     }
     
     public void switchToDeckTableView() {
-    	deckViewPanel.remove(imagePane);
-    	deckViewPanel.add(tablePane);
-    	deckViewPanel.revalidate();
-    	deckViewPanel.setPreferredSize(new Dimension(500, 600));
+    	splitPane.remove(imagePane);
+    	splitPane.add(tablePane);
+    	int previousDividerLocation = splitPane.getDividerLocation();
+    	splitPane.revalidate();
+    	splitPane.setDividerLocation(previousDividerLocation);
+    	
+    	//deckViewPanel.setPreferredSize(new Dimension(500, 600));
     }
     
     public void switchToImageLayoutView() {
-    	deckViewPanel.remove(tablePane);
-    	deckViewPanel.add(imagePane);
-    	deckViewPanel.revalidate();
-    	deckViewPanel.setPreferredSize(new Dimension(500, 600));
+    	splitPane.remove(tablePane);
+    	splitPane.add(imagePane);
+    	int previousDividerLocation = splitPane.getDividerLocation();
+    	splitPane.revalidate();
+    	splitPane.setDividerLocation(previousDividerLocation);
+    	//deckViewPanel.setPreferredSize(new Dimension(500, 600));
     }
     
     public void importDeck(Deck deck) {

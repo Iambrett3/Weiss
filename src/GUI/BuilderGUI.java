@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,6 +31,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JWindow;
@@ -38,6 +41,8 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.ToolTipManager;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
@@ -65,23 +70,39 @@ public class BuilderGUI extends JFrame {
 	JMenuBar menuBar;
 	File workingFile;
 	String currentView;
+	JSplitPane splitPane;
 	
 	public BuilderGUI() throws IOException {
 		super("Deck Builder" + " - *New Deck");
-		setLayout(new MigLayout());
-		setSize(1000, 600);
+		setLayout(new BorderLayout());
+		setSize(1100, 700);
+		setLocation(new Point(20, 20));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		createButtons(); 
-		add(cardTreePanel = new CardTreePanel());
-		add(refComplex = new DeckReferenceComplexPanel(this), "wrap"); //do i need to add to content pane here?
-		add(buttonPanel);
+		
+		cardTreePanel = new CardTreePanel();
+		JScrollPane cardTreeScrollPane = new JScrollPane(cardTreePanel);
+		
+		refComplex = new DeckReferenceComplexPanel(this);
+		//JScrollPane refComplexScrollPane = new JScrollPane(refComplex);
+		
+		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                cardTreeScrollPane, refComplex);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.setDividerLocation(300);
+		
+		add(splitPane, BorderLayout.CENTER);
+		
+		//add(cardTreePanel = new CardTreePanel());
+		//add(refComplex = new DeckReferenceComplexPanel(this), "wrap"); //do i need to add to content pane here?
+		//add(buttonPanel);
+		
 		controller = new BuilderController(refComplex, cardTreePanel);
 		menuBar = new JMenuBar();
 		initMenuBar();
 		setJMenuBar(menuBar);
 		currentView = "Deck Table View";
 		
-		//pack();
         initToolTipManager();
     }
 	
@@ -459,6 +480,7 @@ private class MouseHandler extends MouseAdapter {
 	}
 }
 	public static void main(String[] args) throws IOException{
+		
 		Runnable runner = new Runnable() {
 			public void run() {
 		BuilderGUI b;
