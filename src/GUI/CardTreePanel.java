@@ -22,6 +22,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.zip.ZipFile;
@@ -39,6 +41,7 @@ import net.miginfocom.swing.MigLayout;
 import org.apache.commons.lang3.text.WordUtils;
 
 import WeissSchwarz.CardReader;
+import WeissSchwarz.DeckFileHandler;
 import WeissSchwarz.ToolTipHelper;
 import Card.*;
 import GUI.DeckReferenceComplex.CPTTransferHandler;
@@ -62,7 +65,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	public CardTreePanel() throws IOException {
 		setLayout(new BorderLayout());
 		cardBuffer = new ArrayList<Card>();
-		top = new CardTreeNode("All Cards"); //initializes and names top of list.
+		top = new CardTreeNode("All Titles"); //initializes and names top of list.
 		initTitles();
 		initTree();
 		selectionModel = cardTree.getSelectionModel();
@@ -76,11 +79,16 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	public void initTitles() {
 		titles = new ArrayList<String>();
 		try {
-			File titlesText = new File("C:/Brett/workspace/Weiss/Database/TitleList.txt");
+			File titlesText = new File(DeckFileHandler.getDatabaseFilePath() + "TitleList.txt");
 			Scanner scan = new Scanner(titlesText);
 			while (scan.hasNext()) {
 				titles.add(scan.nextLine());
 			}
+			Collections.sort(titles, new Comparator<String>() {
+			    public int compare(String a, String b) {
+			        return a.compareTo(b);
+			    }
+			});
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -133,11 +141,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	    for (String str: titles) {
 	        initFolder(str);
 	    }
-	   // cardTree.getModel().
-	    //desktop
-	    //make it so it checks every folder, not just this base folder and that will solve the problems
-        //laptop
-        //DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath("C:\\Brett\\workspace\\Weiss\\Database"));
+
         
 	}
 	
@@ -154,7 +158,7 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	public void initFolder(String packName) throws IOException {
 	    CardTreeNode currentNode;
 	    top.add(currentNode = new CardTreeNode(packName));
-	    DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath("C:\\Brett\\workspace\\Weiss\\Database\\titles\\"
+	    DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath(DeckFileHandler.getDatabaseFilePath() + "titles/"
 	                                    + currentNode.getUserObject()));
 	    ZipFile zip;
         for (Path p: ds) {
@@ -164,8 +168,11 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
                 String setName = prepareSetName(zip.getName(), packName);
                 set = new CardTreeSetNode(setName, zip.getName());
                 currentNode.add(set);
+                //load set
+                createNodes(zip, set);
             }
         }
+
 	}
 	
 	public String prepareSetName(String zipName, String packName) {
@@ -177,24 +184,23 @@ public class CardTreePanel extends JPanel implements PropertyChangeListener {
 	}
 	
 	/**
-	 * Loads selected set. Is called by action listener for load set button.
-	 * @throws IOException 
+	 * obsolete method from when sets were not loaded on bootup
 	 */
-	public void loadSelectedSet()
-	{
-	    try {
-
-	        if (cardTree.getSelectionPath().getPath().length == SET_DEPTH) { //check the level of the path
-	            CardTreeSetNode node = (CardTreeSetNode) cardTree.getSelectionPath().getLastPathComponent(); //gets selected node
-	            ZipFile zip = new ZipFile((String) node.getSetFilePath()); //initializes ZipFile object from selected node
-	            node.setIsLoaded(true);
-	            createNodes(zip, node);
-	        }
-	    }
-	    catch (IOException io){
-	        System.out.println("failed to loadSelectedSet in CardTreePanel");
-	    }
-	}
+//	public void loadSelectedSet()
+//	{
+//	    try {
+//
+//	        if (cardTree.getSelectionPath().getPath().length == SET_DEPTH) { //check the level of the path
+//	            CardTreeSetNode node = (CardTreeSetNode) cardTree.getSelectionPath().getLastPathComponent(); //gets selected node
+//	            ZipFile zip = new ZipFile((String) node.getSetFilePath()); //initializes ZipFile object from selected node
+//	            node.setIsLoaded(true);
+//	            createNodes(zip, node);
+//	        }
+//	    }
+//	    catch (IOException io){
+//	        System.out.println("failed to loadSelectedSet in CardTreePanel");
+//	    }
+//	}
 	
 	public void createNodes(ZipFile cardSet, CardTreeNode set) throws IOException {
 	       //setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));

@@ -130,7 +130,10 @@ public class BuilderController {
 		}
 		public void mouseReleased(MouseEvent me) {
 			int clickedRow = list.locationToIndex(new Point(me.getX(), me.getY()));
-			Card card = (Card) list.getModel().getElementAt(clickedRow);
+			Card card = null;
+			if (clickedRow!= -1) {
+			    card = (Card) list.getModel().getElementAt(clickedRow);
+			}
 			if (card != null) {
 				if(SwingUtilities.isRightMouseButton(me)) {
 					boolean clickedOnSelection = false;
@@ -198,13 +201,6 @@ public class BuilderController {
 				            }
 				    }
 				}
-				else if (selPath.getPath().length == cardTreePanel.getSetDepth()) {
-				    if (SwingUtilities.isLeftMouseButton(me) && me.getClickCount() == 2) {
-				        if (!((CardTreeSetNode) cardTreePanel.getCardTree().getSelectionPath().getLastPathComponent()).isLoaded()) { //if it's already loaded, do nothing
-					        cardTreePanel.loadSelectedSet();
-					    }
-					}
-				}
 			}
 		}
 	}
@@ -216,7 +212,7 @@ public class BuilderController {
 		}
 		
 		public void mouseClicked(MouseEvent me) {
-			if (list.locationToIndex(new Point(me.getX(), me.getY())) != -1) { //TODO: check what -1 means on this method
+			if (list.locationToIndex(new Point(me.getX(), me.getY())) != -1 && list.getSelectedIndex() != -1) { //TODO: check what -1 means on this method
 				    if (SwingUtilities.isLeftMouseButton(me) && me.getClickCount() == 2) {
 				        Object selectedObject = list.getModel().getElementAt(list.getSelectedIndex());
 				            if (selectedObject instanceof Card) {

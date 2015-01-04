@@ -9,7 +9,7 @@ public class CardTreeSetNode extends CardTreeNode{
     public CardTreeSetNode(Object userObject, String setFilePath) {
         super(userObject);
         this.setFilePath = setFilePath;
-        isLoaded = false;
+        isLoaded = true;
     }
     
     public String getSetFilePath() {

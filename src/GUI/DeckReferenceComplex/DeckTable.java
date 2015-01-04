@@ -24,6 +24,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import javax.swing.JComponent;
 
 import com.lowagie.text.Rectangle;
@@ -48,17 +49,39 @@ public class DeckTable extends JTable implements TableModelListener
     final static private int COST_COLUMN_NUMBER = 6;
     final static private int SOUL_COLUMN_NUMBER = 5;
     
+    private static Integer[] columnWidths = TablePopulator.getPreferredColumnWidths();
+    
     
 	public DeckTable() {
         super();
     }
 	
-	public Point getToolTipLocation(MouseEvent event) {
-		int x = event.getX();
-		int y = event.getY();
-		int row = rowAtPoint(new Point(x, y));
-		java.awt.Rectangle rect = getCellRect(row, DeckTable.getTriggerColumnNumber(), false);
-		return new Point((int)rect.getX(), (int)rect.getY());
+//	public Point getToolTipLocation(MouseEvent event) {
+////		int x = event.getX();
+////		int y = event.getY();
+////		int row = rowAtPoint(new Point(x, y));
+////		int hoveringColumn = columnAtPoint(new Point(x, y));
+////		int column = Math.min(hoveringColumn + 2, getColumnCount());
+////		java.awt.Rectangle rect = getCellRect(row, column, false);
+////		return new Point((int)rect.getX(), (int)rect.getY());
+//	}
+	
+	public void updateColumnWidths() {
+	    for (int i = 0; i < columnWidths.length; i++) {
+	        columnWidths[i] = getColumnModel().getColumn(i).getWidth();
+	    }
+	}
+	
+	public void setColumnWidths() {
+        for (int i = 0; i < columnWidths.length; i++) {
+
+            TableColumn column = getColumnModel().getColumn(i);
+            column.setPreferredWidth(columnWidths[i]);
+        }
+    }
+	
+	public static Integer[] getColumnWidths() {
+	    return columnWidths;
 	}
     
     public static int getQuantityColumnNumber() {

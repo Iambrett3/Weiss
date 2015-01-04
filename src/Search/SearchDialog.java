@@ -33,6 +33,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JWindow;
 
+import WeissSchwarz.DeckFileHandler;
 import Card.Ability;
 import Card.CColor;
 import Card.Card;
@@ -357,7 +358,7 @@ public class SearchDialog extends JDialog{
 		
 		JPanel costPanel = new JPanel(new MigLayout());
 		costPanel.add(new JLabel("Cost:"), "wrap");
-		Object[] costs = {"All", 0, 1, 2, 3, 4, 5};
+		Object[] costs = {"All", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		costPanel.add(costCombo = new JComboBox(costs));
 		costSoulLevelAndRarityPanel.add(costPanel);
 		
@@ -552,7 +553,7 @@ public class SearchDialog extends JDialog{
 
 	
 	public String[] getTitles() {
-		File titlesFile = new File("C:/Brett/workspace/Weiss/Database/TitleList.txt");
+		File titlesFile = new File(DeckFileHandler.getDatabaseFilePath() + "TitleList.txt");
 		ArrayList<String> titleList = new ArrayList<String>();
 		try {
 			Scanner scan = new Scanner(titlesFile);

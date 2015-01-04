@@ -8,6 +8,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class DeckFileHandler {
+    
+    public static String getDatabaseFilePath() {
+        return "Database/";
+    }
 	
 	public static void saveDeck(Deck deck, File file) {
 		try

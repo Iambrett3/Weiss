@@ -29,6 +29,7 @@ import Card.LevelCard;
 import GUI.DeckReferenceComplex.DeckReferenceComplexPanel;
 import GUI.DeckReferenceComplex.SwingHelp;
 import WeissSchwarz.CardReader;
+import WeissSchwarz.DeckFileHandler;
 
 public class Searcher {
 	
@@ -51,7 +52,7 @@ public class Searcher {
 		}
 		
 		for (String tit: titlesToSearch) { //for each title
-			String titleDirPath = "C:/Brett/workspace/Weiss/Database/titles/" + tit;
+			String titleDirPath = DeckFileHandler.getDatabaseFilePath() + "titles/" + tit;
 			try {
 				DirectoryStream<Path> ds = Files.newDirectoryStream(FileSystems.getDefault().getPath(titleDirPath));
 				for (Path p: ds) { //for each set
@@ -249,7 +250,7 @@ public class Searcher {
 	public static ArrayList<String> getAllTitles() {
 		ArrayList<String> titles = new ArrayList<String>();
 		try {
-			Scanner scan = new Scanner(new File("C:/Brett/workspace/Weiss/Database/TitleList.txt"));
+			Scanner scan = new Scanner(new File(DeckFileHandler.getDatabaseFilePath() + "TitleList.txt"));
 			while (scan.hasNext()) {
 				titles.add(scan.nextLine());
 			}

@@ -213,4 +213,13 @@ public class Deck extends ArrayList<Card> {
 		get(row).incrementNumOfCard(i);
 		isSaved = false;
 	}
+
+    public int getNumberOfCardsInDeck()
+    {
+        int sum = 0;
+        for (Card c: this) {
+            sum += c.getNumOfCard();
+        }
+        return sum;
+    }
 }

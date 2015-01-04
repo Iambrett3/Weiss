@@ -10,6 +10,8 @@ package Card;
 import java.awt.Color;
 import java.io.Serializable;
 
+import WeissSchwarz.ColorCreator;
+
 /**
  * Color class.
  *
@@ -77,13 +79,13 @@ public class CColor implements Serializable{
 	//returns a java awt Color object of thisobject
 	public Color getTrueColor() {
 		if (this.type == TypeC.YELLOW)
-			return new Color(255, 255, 102);
+			return ColorCreator.YELLOW;  
 		if (this.type == TypeC.GREEN)
-			return new Color(0, 204, 0);
+			return ColorCreator.GREEN;
 		if (this.type == TypeC.RED)
-			return new Color(204, 0, 0);
+			return ColorCreator.RED;
 		
-			return new Color(0, 76, 153);
+			return ColorCreator.BLUE;
 	}
 
 	/**

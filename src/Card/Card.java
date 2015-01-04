@@ -295,6 +295,49 @@ public String getDescription() {
 	return str;
 }
 	
+//similar to getDescription(), but formats the text so it wraps in the tool tip
+public String getToolTipDescription() {
+    String str = "Name: " + name
+                 + "\nNumber: " + number
+                 + "\nTriggers: " + trigger
+                 + "\nColor: " + color
+                 + "\nFlavor: " + prepareTextForTip(flavor)
+                 + "\nText: " + prepareTextForTip(getText())
+                 + "Pack: " + pack;
+    return str;
+}
+
+public String prepareTextForTip(String s) {
+    String description = "";
+    int i = 1;
+    boolean breakToNewLine = false;
+    for (char c: s.toCharArray()) {
+        if ((i % 50 == 0)) {
+            if (breakToNewLine) {
+                if (c != '\n') {
+                    description += "\n";
+                }
+                i = 1;
+                breakToNewLine = false;
+
+            }
+            description += c;
+            if (c == ' ') {
+                breakToNewLine = true;
+            }
+        }
+        else {
+            description += c;
+            if (c == '\n') {
+                i = 0;
+            }
+            i++;
+        }
+    }
+    return description;
+}
+
+
 	/*
 	 * Static method for representing a Card object as an Array. Used for controlling the DeckTable.
 	 * TODO: fill out card properties

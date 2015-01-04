@@ -1,0 +1,61 @@
+Character:
+Level 0
+
+CL/WE01-04 x1 - Nagisa Furukawa - Triggers: None - Lvl/Cost: 0/0 - Pwr: 500 - Soul: 1 - [C] All your other "Tomoya Okazaki" gain +1000 Power. 
+[A] BOND/"Tomoya Okazaki" [(1)] 
+
+
+CL/WE01-05 x1 - Nagisa, Caretaker - Triggers: None - Lvl/Cost: 0/0 - Pwr: 2500 - Soul: 1 - [C] This gains +1000 Power during your turn. 
+
+
+CL/WE01-06 x1 - Youhei Sunohara - Triggers: None - Lvl/Cost: 0/0 - Pwr: 2000 - Soul: 1 - [S] [Rest this] Choose up to 2 Characters. Those Characters gain ::Sports:: for the turn. 
+[S] [Put this in the Waiting Room] Choose 1 of your Characters with "Tomoyo" in the name. That Character gains +2500 Power for the turn. 
+
+
+CL/WE01-12 x1 - Tomoyo, Legendary Girl - Triggers: None - Lvl/Cost: 0/0 - Pwr: 1500 - Soul: 1 - [A] When this is placed from hand to the Stage, you may choose a Character in your Back Row whose name includes "Youhei" and put it in Stock. 
+[S] [(1) Rest this] Choose 1 of your Characters. That Character gains +1 Level and +3000 Power for the turn. 
+
+
+CL/WE01-13 x1 - Fuuko & Kouko - Triggers: None - Lvl/Cost: 0/0 - Pwr: 2500 - Soul: 1 - [S] [(1)] Choose 1 of your Characters. That Character gains ::Starfish:: and "[S] [Rest this] Choose 1 of your ::Teacher:: Characters. That Charcater gains +2000 Power for the turn" for the turn. 
+
+
+Level 1
+
+CL/WE01-03 x1 - Nagisa, Girl Who Stood Still - Triggers: Soul - Lvl/Cost: 1/1 - Pwr: 4000 - Soul: 1 - [A] When this is placed from hand to the Stage, if you have 4 or more other Characters with "Furukawa" in name, all your Characters gain +2 Soul for the turn. 
+
+
+CL/WE01-08 x1 - Fuuko, Legendary Starfish User - Triggers: None - Lvl/Cost: 1/0 - Pwr: 1000 - Soul: 1 - [A] When you use the BACKUP of this, all the battling Characters gain "[A] When this is placed from the Stage to the Waiting Room, you may put this Rested in the Slot this was in" for the turn. 
+[S] [Counter] BACKUP 0, Level 1 [Discard this card from hand to the Waiting Room] 
+
+
+CL/WE01-09 x1 - Tomoyo, Family Feel - Triggers: None - Lvl/Cost: 1/0 - Pwr: 3500 - Soul: 1 - [A] When this is placed from hand to the Stage, you may choose a Level 1 or lower Character in your Back Row and Stand it. 
+
+
+Level 2
+
+CL/WE01-01 x1 - Nagisa, Drama Club President - Triggers: Soul - Lvl/Cost: 2/2 - Pwr: 8000 - Soul: 2 - [C] If you have another "Tomoya Okazaki", this gains +1000 Power. 
+[A] When this attacks, if "Do You Like This School...?" is in the Climax Zone, search your Library for up to 1 Character with either ::Twins:: and/or ::Book:, reveal it, and put it in your hand. Shuffle your Library. 
+
+
+CL/WE01-02 x1 - Tomoya Okazaki - Triggers: Soul - Lvl/Cost: 2/1 - Pwr: 5500 - Soul: 1 - [A] At the beginning of your Opponent's Attack Phase, you may choose 1 of your Characters and this Character. Stand them and swap their positions. 
+
+
+CL/WE01-11 x1 - Fuuko, Ghost Girl - Triggers: Soul - Lvl/Cost: 2/2 - Pwr: 7500 - Soul: 2 - [A] When this attacks, if "Until the End of the Dream" is in the Climax Zone, put the top card of your Library in your Stock, and all your ::Starfish:: Characters gain +2000 Power. 
+[A] ENCORE [(2)] 
+
+
+Level 3
+
+CL/WE01-10 x1 - Tomoyo, All-Around in Sports - Triggers: Soul - Lvl/Cost: 3/2 - Pwr: 10000 - Soul: 2 - [A] [(5)] When this is placed from hand to the Stage, you may pay cost. If so, choose a Level 3 or lower Character with either ::Sports:: and/or ::Delinquent:: in your Opponent's Front Row and put it in Clock. 
+[A] When this is placed from hand to the Stage, you may put the top card of your Clock in the Waiting Room. 
+
+
+
+Event:
+Level 0
+
+
+Climax:
+
+CL/WE01-07 x1 - Do You Like This School...? - Triggers: 2 Soul - [C] All your Characters gain +2 Soul. 
+

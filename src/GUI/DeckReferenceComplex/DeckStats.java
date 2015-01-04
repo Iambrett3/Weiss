@@ -18,10 +18,13 @@ import Card.Trigger.Type;
 import WeissSchwarz.Deck;
 
 public class DeckStats extends JPanel{
-	JTextArea deckView;
-	JTextArea triggerPane;
-	JTextArea colorPane;
-	JTextArea levelPane;
+	private JTextArea deckView;
+	private JTextArea mainStatsPane;
+	private JTextArea triggerPane;
+	private JTextArea colorPane;
+	private JTextArea levelPane;
+	private final Dimension STATS_PANE_DIMENSIONS = new Dimension(150, 100);
+	
     /*
      * No-Arg constructor. Calls super constructor.
      */
@@ -39,9 +42,20 @@ public class DeckStats extends JPanel{
     
     public void init(Deck deck) {
     	setLayout(new MigLayout());
+    	initMainPane(deck);
     	initLevelPane(deck);
     	initTrigPane(deck);
     	initColorPane(deck);
+    }
+    
+    public void initMainPane(Deck deck) {
+        JScrollPane mainScroll = new JScrollPane();
+        mainStatsPane = new JTextArea();
+        mainStatsPane.setText(calculateMainStats(deck));
+        mainStatsPane.setEditable(false);
+        mainScroll.setViewportView(mainStatsPane);
+        mainScroll.setPreferredSize(STATS_PANE_DIMENSIONS);
+        add(mainScroll);
     }
     
     public void initTrigPane(Deck deck) {
@@ -50,8 +64,10 @@ public class DeckStats extends JPanel{
         triggerPane.setText(calculateTriggerRatio(deck));
         triggerPane.setEditable(false);
         trigScroll.setViewportView(triggerPane);
-        trigScroll.setPreferredSize(new Dimension(100, 100));
+        trigScroll.setPreferredSize(STATS_PANE_DIMENSIONS);
         add(trigScroll);
+        trigScroll.getVerticalScrollBar().setValue(0);
+        triggerPane.setCaretPosition(0); //this makes the scroll bar start at the top automatically
     }
     
     public void initColorPane(Deck deck) {
@@ -60,7 +76,7 @@ public class DeckStats extends JPanel{
         colorPane.setEditable(false);
         colorPane.setText(calculateColorRatio(deck));
         colorScroll.setViewportView(colorPane);
-        colorScroll.setPreferredSize(new Dimension(100, 100));
+        colorScroll.setPreferredSize(STATS_PANE_DIMENSIONS);
         add(colorScroll);
     }
     
@@ -70,11 +86,15 @@ public class DeckStats extends JPanel{
         levelPane.setEditable(false);
         levelPane.setText(calculateLevelRatio(deck));
         levelScroll.setViewportView(levelPane);
-        levelScroll.setPreferredSize(new Dimension(100, 100));
+        levelScroll.setPreferredSize(STATS_PANE_DIMENSIONS);
         add(levelScroll);
     }
     
-    
+    public static String calculateMainStats(Deck deck) {
+        String str = "Deck Stats:\n";
+        str += "Number of cards: " + deck.getNumberOfCardsInDeck();
+        return str;
+    }
     
 	public static String calculateTriggerRatio(Deck deck) {
 		int soul = 0;
@@ -168,6 +188,7 @@ public class DeckStats extends JPanel{
 		triggerPane.setText(calculateTriggerRatio(deck));
         colorPane.setText(calculateColorRatio(deck));
         levelPane.setText(calculateLevelRatio(deck));
+        mainStatsPane.setText(calculateMainStats(deck));
 	    deckView.setText(deck.toString());
 	}
 }

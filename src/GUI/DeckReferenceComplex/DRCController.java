@@ -330,6 +330,7 @@ public class DRCController
     }
     
     public void addCard(Card c) {
+        deckTable.updateColumnWidths();
     	if (deck.isInDeck(c)) {
     		int location = deck.deckLocation(c);
     		int numCard = deck.get(location).getNumOfCard();
@@ -343,6 +344,7 @@ public class DRCController
             tableModel.addCard(c);
             //sorter.modelStructureChanged();
             }
+    	deckTable.setColumnWidths();
     	builder.addStarToTitle();
     	deck.setIsSaved(false);
         //System.out.println(((Card) tableModel.getValueAt(tableModel.getRowCount() -1, DeckTable.getNameColumnNumber())).getDescription());
@@ -350,6 +352,7 @@ public class DRCController
     }
     
     public void insertCard(int pos, Card c) {
+        deckTable.updateColumnWidths();
     	if (deck.isInDeck(c)) {
     		int location = deck.deckLocation(c);
     		int numCard = deck.get(location).getNumOfCard();
@@ -363,6 +366,7 @@ public class DRCController
     		tableModel.insertCard(pos, c);
     		//sorter.modelStructureChanged();
     	}
+        deckTable.setColumnWidths();
     	deckStats.updateStats(deck);
     }
     
@@ -407,6 +411,7 @@ public class DRCController
 //    }
     
     public void removeCard(int row) {
+        deckTable.updateColumnWidths();
     	Card c = deck.get(row);
     	int numCard = c.getNumOfCard();
     	if (numCard > 1) {
@@ -417,16 +422,19 @@ public class DRCController
     	else {
     		trueRemoveCard(row);
     	}
+        deckTable.setColumnWidths();
     	builder.addStarToTitle();
     	deck.setIsSaved(false);
     	deckStats.updateStats(deck);
     }
     
     public void trueRemoveCard(int row) {
+        deckTable.updateColumnWidths();
     	deck.remove(row);
 		tableModel.removeCard(deckTable.convertRowIndexToModel(row));
 		imageList.removeCard(row);
 		
+	    deckTable.setColumnWidths();
 		builder.addStarToTitle();
     	deck.setIsSaved(false);
     	deckStats.updateStats(deck);

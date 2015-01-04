@@ -17,8 +17,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
-import com.sun.glass.events.MouseEvent;
+//import com.sun.glass.events.MouseEvent;
 
+
+import WeissSchwarz.ColorCreator;
 import WeissSchwarz.ToolTipHelper;
 import Card.CColor;
 import Card.Card;
@@ -41,14 +43,12 @@ public class DeckTableRowCellRenderer extends DefaultTableCellRenderer implement
     public Component getTableCellRendererComponent(JTable table, Object cell,
                         boolean isSelected, boolean hasFocus, int row, int column) {
     	super.getTableCellRendererComponent(table, cell, isSelected, hasFocus, row, column);
-    	TableColumn tableColumn = table.getColumnModel().getColumn(column);
-    	tableColumn.setPreferredWidth(TablePopulator.getPreferredColumnWidth(column));
     	
     	setToolTipText(ToolTipHelper.makeToolTip((Card)table.getValueAt(row, DeckTable.getNameColumnNumber())));
             if (!isSelected) {
             	Color color = (Color)((DeckTableModel)table.getModel()).getRowColor(row);
             	setBackground(color);
-            	if (color.equals(new Color(204, 0, 0)) || color.equals(new Color(0, 76, 153))) {
+            	if (color.equals(ColorCreator.BLUE) || color.equals(ColorCreator.RED)) {
             		setForeground(Color.WHITE);
             	}
             	else {

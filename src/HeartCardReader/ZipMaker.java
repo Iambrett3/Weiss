@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import WeissSchwarz.DeckFileHandler;
 import net.lingala.zip4j.io.ZipOutputStream;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.util.Zip4jConstants;
@@ -15,7 +16,7 @@ public class ZipMaker {
 	public static void main(String[] args) {
 
 		
-		File homeDir = new File("C:/Brett/workspace/Weiss/Database/dirs");
+		File homeDir = new File(DeckFileHandler.getDatabaseFilePath() + "dirs");
 		for (final File setDir : homeDir.listFiles()) {
 			if (setDir.isDirectory()) {
 				createZip(setDir);
@@ -32,7 +33,7 @@ public class ZipMaker {
 				cards.add(card);
 			}
 			
-			File zipDir = new File("C:\\Brett\\workspace\\Weiss\\Database\\zips");
+			File zipDir = new File(DeckFileHandler.getDatabaseFilePath() + "zips");
 			outputStream = new ZipOutputStream(new FileOutputStream(zipDir + "\\" + set.getName() + ".zip"));
 			ZipParameters parameters = new ZipParameters();
 			parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE); //deflate compression

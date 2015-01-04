@@ -30,7 +30,6 @@ public class DeckReferenceComplexPanel extends JPanel
     private DRCController controller;
     private JScrollPane tablePane;
     private JScrollPane imagePane;
-    //private SorterBox sorterBox;
     private Deck deck;
     private ImageList imageList;
     private JPanel deckViewPanel;
@@ -40,7 +39,6 @@ public class DeckReferenceComplexPanel extends JPanel
         deckStats = new DeckStats(deck = new Deck());
         deckTable = (new TablePopulator().createTable());
         imageSelection = new ImageSelection();
-        //sorterBox = new SorterBox();
         imageList = new ImageList();
         init();
         controller = new DRCController(builder, tablePane, deckTable, imageSelection, deckStats, cardStats, deck, imageList);
@@ -48,35 +46,16 @@ public class DeckReferenceComplexPanel extends JPanel
     
     public void init() {
     	setLayout(new BorderLayout());
-    	//code from when this was still displayed in window:
-        //add(imageSelection); 
-        
-        //cardStats = new JTextPane();
-        //cardStats.setPreferredSize(new Dimension(200, 365));
-        //cardStats.setEditable(false);
-        //JScrollPane cardStatsPane = new JScrollPane(cardStats);
-        //add(cardStatsPane);        
-        
-    	//deckViewPanel = new JPanel(new BorderLayout());
         
         tablePane = new JScrollPane(deckTable);
-        //tablePane.setPreferredSize(new Dimension (500, 600));
         
         imagePane = new JScrollPane(imageList);
-        //tablePane.setPreferredSize(new Dimension (500, 600));
-        
-        //deckViewPanel.add(tablePane);
-//        add(deckViewPanel, "wrap");
-        
 
-
-//        deckStats.setPreferredSize(new Dimension(500, 100));
-//        add(deckStats);
         JScrollPane deckStatsPane = new JScrollPane(deckStats);
         splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
                 tablePane, deckStatsPane);
         splitPane.setOneTouchExpandable(true);
-        splitPane.setDividerLocation(500);
+        splitPane.setDividerLocation(510);
         
         add(splitPane);
     }
@@ -88,7 +67,6 @@ public class DeckReferenceComplexPanel extends JPanel
     	splitPane.revalidate();
     	splitPane.setDividerLocation(previousDividerLocation);
     	
-    	//deckViewPanel.setPreferredSize(new Dimension(500, 600));
     }
     
     public void switchToImageLayoutView() {
@@ -97,7 +75,6 @@ public class DeckReferenceComplexPanel extends JPanel
     	int previousDividerLocation = splitPane.getDividerLocation();
     	splitPane.revalidate();
     	splitPane.setDividerLocation(previousDividerLocation);
-    	//deckViewPanel.setPreferredSize(new Dimension(500, 600));
     }
     
     public void importDeck(Deck deck) {

@@ -146,7 +146,6 @@ public class DeckTableModel extends DefaultTableModel implements TableModel
     }
     
     public synchronized void removeCard(final int c) {
-    	//System.out.println(c);
     	dataVector.remove(c);
     	removeRowColor(c);
     	fireTableRowsDeleted(c - 1, c - 1);

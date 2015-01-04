@@ -8,12 +8,17 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import org.apache.commons.io.FilenameUtils;
 import org.xhtmlrenderer.pdf.ITextRenderer;
+
+
+
+
 
 
 
@@ -132,7 +137,7 @@ public class DeckExporter {
 			file = new File(file.getPath() + ".pdf");
 		}
 		createXHTMLFile(deck);
-		String inputFile = "C:/Brett/workspace/Weiss/temp.html";
+		String inputFile = "temp.html"; 
 		String url;
 		try {
 			url = new File(inputFile).toURI().toURL().toString();
@@ -155,10 +160,18 @@ public class DeckExporter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		try
+        {
+            Files.delete(new File("temp.html").toPath());
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 	}
 	
 	public static void createXHTMLFile(Deck deck) {
-		File file = new File("C:/Brett/workspace/Weiss/temp.html");
+		File file = new File("temp.html"); 
 		try {
 			PrintWriter writer = new PrintWriter(file);
 			writer.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" /><title></title></head><body>");
@@ -187,7 +200,7 @@ public class DeckExporter {
 	}
 	
 	public static String createHTMLForEventCard(Event c) {
-		String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+		String imageAddress = "file:" + DeckFileHandler.getDatabaseFilePath() + "images/" + c.getImagePath();
 		return "<table width=\"400\" style=\"border:1px solid black; page-break-inside: avoid;\">" 
 				+ "<tr>"
 					+ "<td colspan=\"2\">"
@@ -213,7 +226,7 @@ public class DeckExporter {
 	}
 	
 	public static String createHTMLForClimaxCard(Climax c) {
-		String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+		String imageAddress = "file:" + DeckFileHandler.getDatabaseFilePath() + "images/" + c.getImagePath();
 		return "<table width=\"400\" style=\"border:1px solid black; page-break-inside: avoid;\">"
 				+ "<tr>"
 					+ "<td colspan=\"2\">"
@@ -239,7 +252,7 @@ public class DeckExporter {
 	}
 	
 	public static String createHTMLForCharaCard(Chara c) {
-		String imageAddress = "file:C:/Brett/workspace/Weiss/Database/images/" + c.getImagePath();
+		String imageAddress = "file:" + DeckFileHandler.getDatabaseFilePath() + "images/" + c.getImagePath();
 		return "<table width=\"400\" style=\"border:1px solid black; page-break-inside: avoid;\">"
 				+ "<tr>"
 					+ "<td colspan=\"2\">"

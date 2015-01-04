@@ -6,8 +6,28 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.List;
+import java.awt.Transparency;
+import java.awt.color.ColorSpace;
+import java.awt.color.ICC_ColorSpace;
+import java.awt.color.ICC_Profile;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.DataBuffer;
+import java.awt.image.DataBufferByte;
+import java.awt.image.DataBufferInt;
+import java.awt.image.DataBufferUShort;
+import java.awt.image.DirectColorModel;
+import java.awt.image.PixelInterleavedSampleModel;
+import java.awt.image.Raster;
+import java.awt.image.SampleModel;
+import java.awt.image.SinglePixelPackedSampleModel;
+import java.awt.image.WritableRaster;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -125,17 +145,19 @@ public class ImageList extends JPanel {
                 boolean cellHasFocus) {
 			JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			Card card = (Card) value;
-			BufferedImage cardImage = ImageSelection.resize(ImageLoader.loadImage(card), 125, 182);
+			BufferedImage cardImage = ImageSelection.resize(ImageLoader.loadImage(card), 175, 256);
 			setToolTipText(ToolTipHelper.makeToolTipWithoutImage(card));
 			ImageIcon icon = new ImageIcon(cardImage);
 			label.setIcon(icon);
 			if (isSelected) {
-				label.setBorder(BorderFactory.createLineBorder(Color.white));
+				label.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 			}
 			label.setText("");
             return this;
 		}
 	}
+	
+	
 
 	public JList getList() {
 		return imageView;

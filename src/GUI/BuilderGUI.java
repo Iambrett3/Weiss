@@ -237,6 +237,11 @@ public class BuilderGUI extends JFrame {
         		//open dialog
         		WeissFileChooser fc = new WeissFileChooser();
         		
+        		FileNameExtensionFilter filter = new FileNameExtensionFilter(".dck", "dck");
+                fc.setFileFilter(filter);
+                
+        		fc.setCurrentDirectory(new File("My Decks/"));
+        		
         		int returnVal = fc.showOpenDialog(BuilderGUI.this);
         		
         		if (returnVal == WeissFileChooser.APPROVE_OPTION) {
@@ -289,7 +294,8 @@ public class BuilderGUI extends JFrame {
         		WeissFileChooser fc = new WeissFileChooser();
         		FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt", "txt");
         		fc.setFileFilter(filter);
-        		fc.setSelectedFile(new File("MyDeckTxt.txt")); //TODO: set default directory location
+        		fc.setCurrentDirectory(new File("Exports/"));
+        		fc.setSelectedFile(new File("MyDeckTxt.txt")); 
         		int returnVal = fc.showSaveDialog(BuilderGUI.this);
         		
         		if (returnVal == WeissFileChooser.APPROVE_OPTION) {
@@ -306,6 +312,7 @@ public class BuilderGUI extends JFrame {
         		WeissFileChooser fc = new WeissFileChooser();
         		FileNameExtensionFilter filter = new FileNameExtensionFilter(".pdf", "pdf");
         		fc.setFileFilter(filter);
+        		fc.setCurrentDirectory(new File("Exports/"));
         		fc.setSelectedFile(new File("MyTranslationSheet.pdf"));
         		
         		int returnVal = fc.showSaveDialog(BuilderGUI.this);
@@ -337,6 +344,13 @@ public class BuilderGUI extends JFrame {
 	public int saveFile() {
 		if (workingFile == null) {
 			WeissFileChooser fc = new WeissFileChooser();
+			
+			FileNameExtensionFilter filter = new FileNameExtensionFilter(".dck", "dck");
+            fc.setFileFilter(filter);
+            
+            
+			fc.setSelectedFile(new File("My Deck.dck"));
+			fc.setCurrentDirectory(new File("My Decks/"));
         	
     		int returnVal = fc.showSaveDialog(BuilderGUI.this);
 
@@ -361,6 +375,12 @@ public class BuilderGUI extends JFrame {
 	
 	public void saveFileAs() {
 		WeissFileChooser fc = new WeissFileChooser();
+		
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(".dck", "dck");
+        fc.setFileFilter(filter);
+		
+		fc.setSelectedFile(new File("My Deck.dck")); 
+		fc.setCurrentDirectory(new File("Exports/"));
     	
 		int returnVal = fc.showSaveDialog(BuilderGUI.this);
 
@@ -442,25 +462,7 @@ public class BuilderGUI extends JFrame {
 //		buttonPanel.add(removeCard);
 		}
 	
-	public void initLoadButton() {
-	    loadSetButton = new JButton("Load Selected Set");
-	    loadSetButton.addActionListener(
-	            new ActionListener() {
-	                public void actionPerformed(ActionEvent e) {
-	                    try {
-	                        cardTreePanel.loadSelectedSet();
-	                    }
-	                    catch (Exception exception)
-	                    {
-	                        System.out.println("load selected set failed");
-	                    }
 
-	                }
-	            }
-	     );
-	    buttonPanel.add(loadSetButton);
-	}
-	
     private class SorterHandler implements ActionListener {
     	public void actionPerformed(ActionEvent e) {
     		refComplex.sortBy(e.getActionCommand());
@@ -480,7 +482,6 @@ private class MouseHandler extends MouseAdapter {
 	}
 }
 	public static void main(String[] args) throws IOException{
-		
 		Runnable runner = new Runnable() {
 			public void run() {
 		BuilderGUI b;

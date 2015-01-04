@@ -120,10 +120,7 @@ public class CardReader {
 	{
 	    BufferedImage image = null;
 	    try {
-	    //desktop TODO: do this!!!!
-	    //image = ImageIO.read(new File("G:\\Code\\workspace\\Weiss\\Database\\images\\" + str));
-	    //laptop
-	    image = ImageIO.read(new File("C:\\Brett\\workspace\\Weiss\\Database\\images\\" + str)); 
+	    image = ImageIO.read(new File(DeckFileHandler.getDatabaseFilePath() + "images\\" + str)); 
 
 	    }
 	    catch (Exception ex) {

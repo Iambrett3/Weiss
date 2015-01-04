@@ -7,15 +7,17 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import WeissSchwarz.DeckFileHandler;
+
 public class ReaderDriver {
 	public static void main(String[] args) throws IOException {
-		File txtdir = new File("C:/Brett/workspace/Weiss/Database/txts");
-		File dirdir = new File("C:/Brett/workspace/Weiss/Database/dirs");
+		File txtdir = new File(DeckFileHandler.getDatabaseFilePath() + "txts");
+		File dirdir = new File(DeckFileHandler.getDatabaseFilePath() + "dirs");
 		DirectoryStream<Path> ds = Files.newDirectoryStream(txtdir.toPath());
 		for (Path p: ds) {
-			String fileName = p.toString().substring(39).replaceAll(".txt", "");
-			File file = new File("C:/Brett/workspace/Weiss/Database/txts/" + fileName + ".txt");
-			File dir = new File("C:/Brett/workspace/Weiss/Database/dirs/" + fileName);
+			String fileName = p.toString().substring(txtdir.toString().length() + 1).replaceAll(".txt", "");
+			File file = new File(DeckFileHandler.getDatabaseFilePath() + "txts/" + fileName + ".txt");
+			File dir = new File(DeckFileHandler.getDatabaseFilePath() + "dirs/" + fileName);
 			dir.mkdir();
 			Reader.readSet(file, dir, fileName);
 		}
